@@ -42,4 +42,11 @@
             <version>3.6.1</version>
         </dependency>        
     </dependencies>
+    <build>
+    <resources>
+        <resource>
+            <directory>src\main\java\Pictures</directory>
+        </resource>
+     </resources>
+</build>
 </project>

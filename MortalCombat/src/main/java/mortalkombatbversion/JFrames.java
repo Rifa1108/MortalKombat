@@ -305,7 +305,7 @@ public class JFrames extends javax.swing.JFrame {
                                         .addComponent(playerQuantityDamageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(45, 45, 45))
                             .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addComponent(playerPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(playerPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60))
                             .addGroup(fightPanelLayout.createSequentialGroup()
                                 .addComponent(playerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -365,7 +365,7 @@ public class JFrames extends javax.swing.JFrame {
                                 .addGap(16, 16, 16)
                                 .addComponent(playerLevelLabel)
                                 .addGap(7, 7, 7)
-                                .addComponent(playerPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(playerPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(fightPanelLayout.createSequentialGroup()
                                 .addGap(33, 33, 33)
                                 .addComponent(playerTurnInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -385,7 +385,7 @@ public class JFrames extends javax.swing.JFrame {
                 .addGroup(fightPanelLayout.createSequentialGroup()
                     .addGap(229, 229, 229)
                     .addComponent(enemyLevelLabel)
-                    .addContainerGap(380, Short.MAX_VALUE)))
+                    .addContainerGap(403, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout fightFrameLayout = new javax.swing.GroupLayout(fightFrame.getContentPane());

@@ -119,7 +119,7 @@
                                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="playerPictureLabel" min="-2" pref="245" max="-2" attributes="0"/>
+                                      <Component id="playerPictureLabel" min="-2" pref="220" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -199,7 +199,7 @@
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                                       <Component id="playerLevelLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                      <Component id="playerPictureLabel" min="-2" pref="227" max="-2" attributes="0"/>
+                                      <Component id="playerPictureLabel" min="-2" pref="250" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -226,7 +226,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="229" max="-2" attributes="0"/>
                           <Component id="enemyLevelLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="380" max="32767" attributes="0"/>
+                          <EmptySpace pref="403" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
