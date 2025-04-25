@@ -8,7 +8,7 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class Human extends Fighter{
+public class Player extends Fighter{
     
 
     private int points;
@@ -18,7 +18,7 @@ public class Human extends Fighter{
     
     
     
-    public Human(int level, int health, int  damage, int attack){
+    public Player(int level, int health, int  damage, int attack){
         super (level, health, damage, attack);
         this.points=0;
         this.experience=0;

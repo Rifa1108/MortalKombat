@@ -105,8 +105,8 @@ public class Fight {
             label7.setText("Вы воскресли");
         }
         if (human.getHealth() <= 0 | enemy.getHealth() <= 0) {
-            if (((Human) human).getWin() == 11) {
-                EndFinalRound(((Human) human), action, results, dialog1, dialog2,
+            if (((Player) human).getWin() == 11) {
+                EndFinalRound(((Player) human), action, results, dialog1, dialog2,
                         frame, label4, label5);
             } else {
                 EndRound(human, enemy, dialog, label3, action, items);
@@ -121,14 +121,14 @@ public class Fight {
         dialog.setBounds(300, 150, 700, 600);
         if (human.getHealth() > 0) {
             label.setText("You win");
-            ((Human) human).setWin();
+            ((Player) human).setWin();
 
             if (enemy instanceof ShaoKahn) {
                 action.AddItems(38, 23, 8, items);
-                action.AddPointsBoss(((Human) human), action.getEnemyes());
+                action.AddPointsBoss(((Player) human), action.getEnemyes());
             } else {
                 action.AddItems(25, 15, 5, items);
-                action.AddPoints(((Human) human), action.getEnemyes());
+                action.AddPoints(((Player) human), action.getEnemyes());
             }
         } else {
             label.setText(enemy.getName() + " win");
@@ -140,7 +140,7 @@ public class Fight {
 
     }
 
-    public void EndFinalRound(Human human, CharacterAction action,
+    public void EndFinalRound(Player human, CharacterAction action,
             ArrayList<Result> results, JDialog dialog1, JDialog dialog2, JFrame frame,
             JLabel label1, JLabel label2) {
         String text = "Победа не на вашей стороне";
@@ -184,7 +184,7 @@ public class Fight {
             JProgressBar pr2, JLabel label2, JLabel text, JLabel label3, CharacterAction action) {
 
         Fighter enemy1 = null;
-        if (((Human) human).getWin() == 6 | ((Human) human).getWin() == 11) {
+        if (((Player) human).getWin() == 6 | ((Player) human).getWin() == 11) {
             enemy1 = action.ChooseBoss(label, label2, text, label3, human.getLevel());
         } else {
             enemy1 = action.ChooseEnemy(label, label2, text, label3);

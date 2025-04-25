@@ -24,7 +24,7 @@ import org.apache.poi.xssf.usermodel.*;
 public class Game {
 
     CharacterAction action = new CharacterAction();
-    ChangeTexts change = new ChangeTexts();
+    ChangeTexts textChanger = new ChangeTexts();
     Fight fight = new Fight();
     private ArrayList<Result> results = new ArrayList<>();
     
@@ -38,14 +38,14 @@ public class Game {
         return enemy;
     }
 
-    public Human NewHuman(JProgressBar playerHealthProgressBar) {
-        Human human = new Human(0, 80, 16, 1);
+    public Player NewHuman(JProgressBar playerHealthProgressBar) {
+        Player human = new Player(0, 80, 16, 1);
         action.setHealthProgressBar(human, playerHealthProgressBar);
         playerHealthProgressBar.setMaximum(human.getMaxHealth());
         return human;
     }
 
-    public void EndGameTop(Human human, JTextField text, JTable table) throws IOException {
+    public void EndGameTop(Player human, JTextField text, JTable table) throws IOException {
         results.add(new Result(text.getText(), human.getPoints()));
         results.sort(Comparator.comparing(Result::getPoints).reversed());
         WriteToTable(table);

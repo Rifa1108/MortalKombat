@@ -41,30 +41,30 @@ public class CharacterAction {
     public Fighter ChooseEnemy(JLabel enemyPictureLabel, JLabel enemyNameLabel, 
                                JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel) {
         int enemyNumber = (int) (Math.random() * 4);
-        ImageIcon icon1 = null;
+        ImageIcon enemyPicture = null;
         switch (enemyNumber) {
             case 0:
                 enemyy = enemyes[0];
-                icon1 = new ImageIcon("src\\main\\resources\\Pictures\\Baraka.png");
+                enemyPicture = new ImageIcon("src\\main\\resources\\Pictures\\Baraka.png");
                 enemyNameLabel.setText("Baraka (танк)");
                 break;
             case 1:
                 enemyy = enemyes[1];
-                icon1 = new ImageIcon("src\\main\\resources\\Pictures\\Sub-Zero.png");
+                enemyPicture = new ImageIcon("src\\main\\resources\\Pictures\\Sub-Zero.png");
                 enemyNameLabel.setText("Sub-Zero (маг)");
                 break;
             case 2:
                 enemyy = enemyes[2];
-                icon1 = new ImageIcon("src\\main\\resources\\Pictures\\Liu_Kang.png");
+                enemyPicture = new ImageIcon("src\\main\\resources\\Pictures\\Liu_Kang.png");
                 enemyNameLabel.setText("Liu Kang (боец)");
                 break;
             case 3:
                 enemyy = enemyes[3];
-                icon1 = new ImageIcon("src\\main\\resources\\Pictures\\Соня.png");
+                enemyPicture = new ImageIcon("src\\main\\resources\\Pictures\\Соня.png");
                 enemyNameLabel.setText("Sonya Blade (солдат)");
                 break;
         }
-        enemyPictureLabel.setIcon(icon1);
+        enemyPictureLabel.setIcon(enemyPicture);
         enemyQuantityDamageLabel.setText(Integer.toString(enemyy.getDamage()));
         enemyQuantityHealthLabel.setText(Integer.toString(enemyy.getHealth()) + "/" + Integer.toString(enemyy.getMaxHealth()));
         return enemyy;
@@ -135,7 +135,7 @@ public class CharacterAction {
         }
     }
 
-    public void AddPoints(Human human, Fighter[] enemyes) {
+    public void AddPoints(Player human, Fighter[] enemyes) {
         switch (human.getLevel()) {
             case 0:
                 human.setExperience(20);
@@ -170,7 +170,7 @@ public class CharacterAction {
         }
     }
 
-    public void AddPointsBoss(Human human, Fighter[] enemyes) {
+    public void AddPointsBoss(Player human, Fighter[] enemyes) {
         switch (human.getLevel()) {
             case 2:
                 human.setExperience(30);
@@ -206,7 +206,7 @@ public class CharacterAction {
         }
     }
 
-    public void NewHealthHuman(Human human) {
+    public void NewHealthHuman(Player human) {
         int hp = 0;
         int damage = 0;
         switch (human.getLevel()) {
@@ -231,7 +231,7 @@ public class CharacterAction {
         human.setDamage(damage);
     }
 
-    public void NewHealthEnemy(Fighter enemy, Human human) {
+    public void NewHealthEnemy(Fighter enemy, Player human) {
         int hp = 0;
         int damage = 0;
         switch (human.getLevel()) {

@@ -14,30 +14,30 @@ import javax.swing.JRadioButton;
  */
 public class ChangeTexts {
 
-
-
-    public void NewRoundTexts(Fighter human, Fighter enemy, JProgressBar pr1,
-            JProgressBar pr2, JLabel label, JLabel label2, JLabel label3,
-            JLabel label4, JLabel label5, JLabel label6, JLabel label7, JLabel label8, JLabel label9,
-            int i, Items[] items, JRadioButton rb1, JRadioButton rb2, JRadioButton rb3) {
-        label.setText(Integer.toString(((Human) human).getPoints()));
-        label2.setText(Integer.toString(((Human) human).getExperience()) + "/" + ((Human) human).getNextExperience());
-        label3.setText(Integer.toString(human.getLevel()) + " level");
-        label4.setText(Integer.toString(enemy.getLevel()) + " level");
-        label5.setText(Integer.toString(human.getMaxHealth()) + "/" + Integer.toString(human.getMaxHealth()));
-        label6.setText(Integer.toString(enemy.getMaxHealth()) + "/" + Integer.toString(enemy.getMaxHealth()));
-        label7.setText(Integer.toString(human.getDamage()));
+// smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthRadioButton
+    public void NewRoundTexts(Fighter human, Fighter enemy, JProgressBar playerHealthProgressBar,
+                              JProgressBar enemyHealthProgressBar, JLabel quantityPointsLabel, 
+                              JLabel quantityExperienceLabel, JLabel playerLevelLabel,
+                              JLabel enemyLevelLabel, JLabel playerQuantityHeathLabel, 
+                              JLabel enemyQuantityHealthLabel, JLabel playerQuantityDamageLabel, 
+                              JLabel turnInfoLabel, JLabel commentAboutFightLabel,
+                              int i, Items[] items, JRadioButton smallHealingElixirRadioButton, 
+                              JRadioButton bigHealingElixirRadioButton, JRadioButton rebirthElixirRadioButton) {
+        quantityPointsLabel.setText(Integer.toString(((Player) human).getPoints()));
+        quantityExperienceLabel.setText(Integer.toString(((Player) human).getExperience()) + "/" + ((Player) human).getNextExperience());
+        playerLevelLabel.setText(Integer.toString(human.getLevel()) + " level");
+        enemyLevelLabel.setText(Integer.toString(enemy.getLevel()) + " level");
+        playerQuantityHeathLabel.setText(Integer.toString(human.getMaxHealth()) + "/" + Integer.toString(human.getMaxHealth()));
+        enemyQuantityHealthLabel.setText(Integer.toString(enemy.getMaxHealth()) + "/" + Integer.toString(enemy.getMaxHealth()));
+        playerQuantityDamageLabel.setText(Integer.toString(human.getDamage()));
         if (i % 2 == 1) {
-            label8.setText("Your turn");
+            turnInfoLabel.setText("Your turn");
         }
         else{
-            label8.setText(enemy.getName()+"'s turn");
+            turnInfoLabel.setText(enemy.getName()+"'s turn");
         }
-        /*rb1.setText(items[0].getName()+", "+items[0].getCount()+" шт");
-        rb2.setText(items[1].getName()+", "+items[1].getCount()+" шт");
-        rb3.setText(items[2].getName()+", "+items[2].getCount()+" шт");*/
-        BagText(items, rb1, rb2, rb3);
-        label9.setText("");
+        BagText(items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
+        commentAboutFightLabel.setText("");
     }
 
     public void RoundTexts(Fighter human, Fighter enemy, JLabel label, JLabel label2, int i, JLabel label3) {
@@ -59,7 +59,7 @@ public class ChangeTexts {
         }
     }
     
-    public void EndGameText(Human human, JLabel label){
+    public void EndGameText(Player human, JLabel label){
         if(human.getWin()==12){
             label.setText("Победа на вашей стороне");
         }
@@ -67,11 +67,13 @@ public class ChangeTexts {
             label.setText("Победа не на вашей стороне");
         }
     }
-    
-    public void BagText( Items[] items, JRadioButton rb1, JRadioButton rb2, JRadioButton rb3){
-        rb1.setText(items[0].getName()+", "+items[0].getCount()+" шт");
-        rb2.setText(items[1].getName()+", "+items[1].getCount()+" шт");
-        rb3.setText(items[2].getName()+", "+items[2].getCount()+" шт");
+ 
+    public void BagText(Items[] items, JRadioButton smallHealingElixirRadioButton, 
+                        JRadioButton bigHealingElixirRadioButton, 
+                        JRadioButton rebirthElixirRadioButton){
+        smallHealingElixirRadioButton.setText(items[0].getName()+", "+items[0].getCount()+" шт");
+        bigHealingElixirRadioButton.setText(items[1].getName()+", "+items[1].getCount()+" шт");
+        rebirthElixirRadioButton.setText(items[2].getName()+", "+items[2].getCount()+" шт");
     }
 
 }
