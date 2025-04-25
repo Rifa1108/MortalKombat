@@ -125,12 +125,12 @@ public class CharacterAction {
         return arr;
     }
 
-    public void HP(Player player, JProgressBar progress) {
+    public void setHealthProgressBar(Player player, JProgressBar healthProgressBar) {
 
         if (player.getHealth() >= 0) {
-            progress.setValue(player.getHealth());
+            healthProgressBar.setValue(player.getHealth());
         } else {
-            progress.setValue(0);
+            healthProgressBar.setValue(0);
         }
     }
 

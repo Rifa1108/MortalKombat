@@ -15,8 +15,8 @@ import java.util.logging.Logger;
 public class JFrames extends javax.swing.JFrame {
 
     Game game = new Game();
-    Human human = null;
-    Player enemy = null;
+    Human player;
+    Player enemy;
     Items[] items = new Items[3];
     String nameButton = "";
 
@@ -911,30 +911,20 @@ public class JFrames extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
-        fightFrame.setVisible(rootPaneCheckingEnabled);
+        fightFrame.setVisible(true);
 
-        human = game.NewHuman(playerHealthProgressBar);
+        player = game.NewHuman(playerHealthProgressBar);
 
         enemy = game.NewEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, enemyHealthProgressBar);
 
-        game.change.NewRoundTexts(human, enemy, playerHealthProgressBar, enemyHealthProgressBar,
+        game.change.NewRoundTexts(player, enemy, playerHealthProgressBar, enemyHealthProgressBar,
                 quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
                 enemyTurnInfoLabel, playerTurnInfoLabel, game.fight.i, items, jRadioButton1, jRadioButton2, jRadioButton3);
-
-        /*game.action.setEnemyes();
-        enemy = game.action.ChooseEnemy(jLabel4, jLabel5, jLabel10, jLabel13);
-                //a.ChooseEmemy(human, jLabel4, jProgressBar2, jLabel5, jLabel10, jLabel13);
-        
-        //Fight f = new Fight();
-        
-        game.action.HP(human, jProgressBar1);
-        game.action.HP(enemy, jProgressBar2);
-        jProgressBar2.setMaximum(enemy.getMaxHealth());*/
 
     }//GEN-LAST:event_startGameButtonActionPerformed
 
     private void attackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackButtonActionPerformed
-        game.fight.Hit(human, enemy, 1, enemyQuantityHealthLabel, playerQuantityHeathLabel, jDialog1,
+        game.fight.Hit(player, enemy, 1, enemyQuantityHealthLabel, playerQuantityHeathLabel, jDialog1,
                 jLabel18, game.action, playerHealthProgressBar, enemyHealthProgressBar, jDialog2,
                 jDialog4, fightFrame, game.getResults(), jLabel20, jLabel24,
                 enemyTurnInfoLabel, commentAboutFightLabel, playerTurnInfoLabel, items, jRadioButton3);
@@ -942,7 +932,7 @@ public class JFrames extends javax.swing.JFrame {
     }//GEN-LAST:event_attackButtonActionPerformed
 
     private void defendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defendButtonActionPerformed
-        game.fight.Hit(human, enemy, 0, enemyQuantityHealthLabel, playerQuantityHeathLabel, jDialog1,
+        game.fight.Hit(player, enemy, 0, enemyQuantityHealthLabel, playerQuantityHeathLabel, jDialog1,
                 jLabel18, game.action, playerHealthProgressBar, enemyHealthProgressBar, jDialog2,
                 jDialog4, fightFrame, game.getResults(), jLabel20, jLabel24,
                 enemyTurnInfoLabel, commentAboutFightLabel, playerTurnInfoLabel, items, jRadioButton3);
@@ -950,10 +940,10 @@ public class JFrames extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
-        enemy = game.fight.NewRound(human, enemyPictureLabel, playerHealthProgressBar, enemyHealthProgressBar,
+        enemy = game.fight.NewRound(player, enemyPictureLabel, playerHealthProgressBar, enemyHealthProgressBar,
                 enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, game.action);
 
-        game.change.NewRoundTexts(human, enemy, playerHealthProgressBar, enemyHealthProgressBar,
+        game.change.NewRoundTexts(player, enemy, playerHealthProgressBar, enemyHealthProgressBar,
                 quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
                 enemyTurnInfoLabel, playerTurnInfoLabel, game.fight.i, items, jRadioButton1, jRadioButton2, jRadioButton3);
 
@@ -966,7 +956,7 @@ public class JFrames extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         try {
-            game.EndGameTop(human, jTextField1, jTable1);
+            game.EndGameTop(player, jTextField1, jTable1);
         } catch (IOException ex) {
             Logger.getLogger(JFrames.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1005,9 +995,9 @@ public class JFrames extends javax.swing.JFrame {
         if (jRadioButton3.isSelected()) {
             nameButton = "jRadioButton3";
         }
-        game.action.UseItem(human, items, nameButton, jDialog6, jDialog5);
-        game.action.HP(human, playerHealthProgressBar);
-        playerQuantityHeathLabel.setText(human.getHealth() + "/" + human.getMaxHealth());
+        game.action.UseItem(player, items, nameButton, jDialog6, jDialog5);
+        game.action.setHealthProgressBar(player, playerHealthProgressBar);
+        playerQuantityHeathLabel.setText(player.getHealth() + "/" + player.getMaxHealth());
         game.change.BagText(items, jRadioButton1, jRadioButton2, jRadioButton3);
     }//GEN-LAST:event_jButton9ActionPerformed
 
