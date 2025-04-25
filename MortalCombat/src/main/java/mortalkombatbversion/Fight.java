@@ -70,12 +70,12 @@ public class Fight {
                 break;
         }
     }
-
+               
     public void Hit(Fighter player, Fighter enemy, int attack, JLabel enemyQuantityHealthLabel,
-            JLabel playerQuantityHeathLabel, JDialog dialog, JLabel label3, CharacterAction action,
-            JProgressBar playerHealthProgressBar, JProgressBar enemyHealthProgressBar, JDialog dialog1,
-            JDialog dialog2, JFrame frame, ArrayList<Result> results,
-            JLabel label4, JLabel label5, JLabel turnInfoLabel, JLabel specialCommentAboutFightLabel,
+            JLabel playerQuantityHeathLabel, JDialog infoAboutWinnerDialog, JLabel winnerNameLabel, CharacterAction action,
+            JProgressBar playerHealthProgressBar, JProgressBar enemyHealthProgressBar, JDialog winWithRecordDialog,
+            JDialog winWithoutRecordDialog, JFrame fightFrame, ArrayList<Result> results,
+            JLabel winWithRecordLabel, JLabel winWithoutRecordLabel, JLabel turnInfoLabel, JLabel specialCommentAboutFightLabel,
             JLabel commentAboutFightLabel, Items[] items, JRadioButton rebirthElixirRadioButton) {
         specialCommentAboutFightLabel.setText("");
         player.setAttack(attack);
@@ -104,13 +104,12 @@ public class Fight {
             rebirthElixirRadioButton.setText(items[2].getName() + ", " + items[2].getCount() + " шт");
             specialCommentAboutFightLabel.setText("Вы воскресли");
         }
- //// Закончила здесь
         if (player.getHealth() <= 0 | enemy.getHealth() <= 0) {
             if (((Player) player).getWin() == 11) {
-                EndFinalRound(((Player) player), action, results, dialog1, dialog2,
-                        frame, label4, label5);
+                EndFinalRound(((Player) player), action, results, winWithRecordDialog, winWithoutRecordDialog,
+                        fightFrame, winWithRecordLabel, winWithoutRecordLabel);
             } else {
-                EndRound(player, enemy, dialog, label3, action, items);
+                EndRound(player, enemy, infoAboutWinnerDialog, winnerNameLabel, action, items);
             }
         }
     }

@@ -69,28 +69,28 @@ public class JFrames extends javax.swing.JFrame {
         playerNameLabel = new javax.swing.JLabel();
         specialCommentAboutFightLabel = new javax.swing.JLabel();
         goodsButton = new javax.swing.JButton();
-        jDialog1 = new javax.swing.JDialog();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jDialog2 = new javax.swing.JDialog();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        infoAboutWinnerDialog = new javax.swing.JDialog();
+        infoAboutWinnerPanel = new javax.swing.JPanel();
+        winnerNameLabel = new javax.swing.JLabel();
+        closeInfoAboutWinnerButton = new javax.swing.JButton();
+        winWithRecordDialog = new javax.swing.JDialog();
+        winWithRecordPanel = new javax.swing.JPanel();
+        winWithRecordLabel = new javax.swing.JLabel();
+        nameForRecordTableTextField = new javax.swing.JTextField();
+        winWithRecordLabel1 = new javax.swing.JLabel();
+        winWithRecordLabel2 = new javax.swing.JLabel();
+        finishWinWithRecordGameButton = new javax.swing.JButton();
         jDialog3 = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
-        jDialog4 = new javax.swing.JDialog();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
+        winWithoutRecordDialog = new javax.swing.JDialog();
+        winWithoutRecordPanel = new javax.swing.JPanel();
+        winWithoutRecordLabel = new javax.swing.JLabel();
+        winWithoutRecordLabel1 = new javax.swing.JLabel();
+        finishWinWithoutRecordGameButton = new javax.swing.JButton();
         bagDialog = new javax.swing.JDialog();
         bagPanel = new javax.swing.JPanel();
         bagLabel = new javax.swing.JLabel();
@@ -393,151 +393,151 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(fightPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(179, 226, 217));
+        infoAboutWinnerPanel.setBackground(new java.awt.Color(179, 226, 217));
 
-        jLabel18.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel18.setFont(new java.awt.Font("Comic Sans MS", 1, 42)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(204, 0, 0));
-        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("jLabel18");
-        jLabel18.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        winnerNameLabel.setBackground(new java.awt.Color(204, 204, 204));
+        winnerNameLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 42)); // NOI18N
+        winnerNameLabel.setForeground(new java.awt.Color(204, 0, 0));
+        winnerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        winnerNameLabel.setText("jLabel18");
+        winnerNameLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jButton5.setBackground(new java.awt.Color(114, 218, 142));
-        jButton5.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        jButton5.setText("Дальше");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        closeInfoAboutWinnerButton.setBackground(new java.awt.Color(114, 218, 142));
+        closeInfoAboutWinnerButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        closeInfoAboutWinnerButton.setText("Дальше");
+        closeInfoAboutWinnerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                closeInfoAboutWinnerButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout infoAboutWinnerPanelLayout = new javax.swing.GroupLayout(infoAboutWinnerPanel);
+        infoAboutWinnerPanel.setLayout(infoAboutWinnerPanelLayout);
+        infoAboutWinnerPanelLayout.setHorizontalGroup(
+            infoAboutWinnerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoAboutWinnerPanelLayout.createSequentialGroup()
+                .addGroup(infoAboutWinnerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(infoAboutWinnerPanelLayout.createSequentialGroup()
                         .addGap(208, 208, 208)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(closeInfoAboutWinnerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(infoAboutWinnerPanelLayout.createSequentialGroup()
                         .addGap(104, 104, 104)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(winnerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(106, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        infoAboutWinnerPanelLayout.setVerticalGroup(
+            infoAboutWinnerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoAboutWinnerPanelLayout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(winnerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(closeInfoAboutWinnerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72))
         );
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        javax.swing.GroupLayout infoAboutWinnerDialogLayout = new javax.swing.GroupLayout(infoAboutWinnerDialog.getContentPane());
+        infoAboutWinnerDialog.getContentPane().setLayout(infoAboutWinnerDialogLayout);
+        infoAboutWinnerDialogLayout.setHorizontalGroup(
+            infoAboutWinnerDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoAboutWinnerDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoAboutWinnerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
+        infoAboutWinnerDialogLayout.setVerticalGroup(
+            infoAboutWinnerDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoAboutWinnerDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoAboutWinnerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel4.setBackground(new java.awt.Color(255, 204, 255));
+        winWithRecordPanel.setBackground(new java.awt.Color(255, 204, 255));
 
-        jLabel20.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel20.setText("Победа на вашей стороне");
+        winWithRecordLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        winWithRecordLabel.setForeground(new java.awt.Color(255, 0, 0));
+        winWithRecordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        winWithRecordLabel.setText("Победа на вашей стороне");
 
-        jTextField1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nameForRecordTableTextField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        nameForRecordTableTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameForRecordTableTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nameForRecordTableTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel21.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel21.setText("Введите имя своего персонажа для добавления");
+        winWithRecordLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        winWithRecordLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        winWithRecordLabel1.setText("Введите имя своего персонажа для добавления");
 
-        jLabel22.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel22.setText("результата в таблицу рекордов");
+        winWithRecordLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        winWithRecordLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        winWithRecordLabel2.setText("результата в таблицу рекордов");
 
-        jButton6.setBackground(new java.awt.Color(153, 153, 255));
-        jButton6.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(51, 51, 51));
-        jButton6.setText("Закончить игру");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        finishWinWithRecordGameButton.setBackground(new java.awt.Color(153, 153, 255));
+        finishWinWithRecordGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        finishWinWithRecordGameButton.setForeground(new java.awt.Color(51, 51, 51));
+        finishWinWithRecordGameButton.setText("Закончить игру");
+        finishWinWithRecordGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                finishWinWithRecordGameButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout winWithRecordPanelLayout = new javax.swing.GroupLayout(winWithRecordPanel);
+        winWithRecordPanel.setLayout(winWithRecordPanelLayout);
+        winWithRecordPanelLayout.setHorizontalGroup(
+            winWithRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, winWithRecordPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton6)
+                .addComponent(finishWinWithRecordGameButton)
                 .addGap(14, 14, 14))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(winWithRecordPanelLayout.createSequentialGroup()
+                .addGroup(winWithRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(winWithRecordPanelLayout.createSequentialGroup()
                         .addGap(132, 132, 132)
-                        .addComponent(jLabel22))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(winWithRecordLabel2))
+                    .addGroup(winWithRecordPanelLayout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(winWithRecordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(winWithRecordPanelLayout.createSequentialGroup()
                         .addGap(77, 77, 77)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21))))
+                        .addGroup(winWithRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameForRecordTableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(winWithRecordLabel1))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        winWithRecordPanelLayout.setVerticalGroup(
+            winWithRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winWithRecordPanelLayout.createSequentialGroup()
                 .addGap(49, 49, 49)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(winWithRecordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(winWithRecordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel22)
+                .addComponent(winWithRecordLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nameForRecordTableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(finishWinWithRecordGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
-        jDialog2.getContentPane().setLayout(jDialog2Layout);
-        jDialog2Layout.setHorizontalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog2Layout.createSequentialGroup()
+        javax.swing.GroupLayout winWithRecordDialogLayout = new javax.swing.GroupLayout(winWithRecordDialog.getContentPane());
+        winWithRecordDialog.getContentPane().setLayout(winWithRecordDialogLayout);
+        winWithRecordDialogLayout.setHorizontalGroup(
+            winWithRecordDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winWithRecordDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(winWithRecordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jDialog2Layout.setVerticalGroup(
-            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog2Layout.createSequentialGroup()
+        winWithRecordDialogLayout.setVerticalGroup(
+            winWithRecordDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winWithRecordDialogLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(winWithRecordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -624,65 +624,65 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel6.setBackground(new java.awt.Color(255, 204, 255));
+        winWithoutRecordPanel.setBackground(new java.awt.Color(255, 204, 255));
 
-        jLabel24.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel24.setText("Победа на вашей стороне");
+        winWithoutRecordLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        winWithoutRecordLabel.setForeground(new java.awt.Color(255, 0, 0));
+        winWithoutRecordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        winWithoutRecordLabel.setText("Победа на вашей стороне");
 
-        jLabel25.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel25.setText("К сожалению, Ваш результат не попал в топ 10");
+        winWithoutRecordLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        winWithoutRecordLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        winWithoutRecordLabel1.setText("К сожалению, Ваш результат не попал в топ 10");
 
-        jButton8.setBackground(new java.awt.Color(153, 153, 255));
-        jButton8.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(51, 51, 51));
-        jButton8.setText("Закончить игру");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        finishWinWithoutRecordGameButton.setBackground(new java.awt.Color(153, 153, 255));
+        finishWinWithoutRecordGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        finishWinWithoutRecordGameButton.setForeground(new java.awt.Color(51, 51, 51));
+        finishWinWithoutRecordGameButton.setText("Закончить игру");
+        finishWinWithoutRecordGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                finishWinWithoutRecordGameButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout winWithoutRecordPanelLayout = new javax.swing.GroupLayout(winWithoutRecordPanel);
+        winWithoutRecordPanel.setLayout(winWithoutRecordPanelLayout);
+        winWithoutRecordPanelLayout.setHorizontalGroup(
+            winWithoutRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
+                .addGroup(winWithoutRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
                         .addGap(48, 48, 48)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(winWithoutRecordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(winWithoutRecordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
                         .addGap(153, 153, 153)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(finishWinWithoutRecordGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(68, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        winWithoutRecordPanelLayout.setVerticalGroup(
+            winWithoutRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
                 .addGap(60, 60, 60)
-                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(winWithoutRecordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(winWithoutRecordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(finishWinWithoutRecordGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jDialog4Layout = new javax.swing.GroupLayout(jDialog4.getContentPane());
-        jDialog4.getContentPane().setLayout(jDialog4Layout);
-        jDialog4Layout.setHorizontalGroup(
-            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout winWithoutRecordDialogLayout = new javax.swing.GroupLayout(winWithoutRecordDialog.getContentPane());
+        winWithoutRecordDialog.getContentPane().setLayout(winWithoutRecordDialogLayout);
+        winWithoutRecordDialogLayout.setHorizontalGroup(
+            winWithoutRecordDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(winWithoutRecordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog4Layout.setVerticalGroup(
-            jDialog4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        winWithoutRecordDialogLayout.setVerticalGroup(
+            winWithoutRecordDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(winWithoutRecordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         bagPanel.setBackground(new java.awt.Color(190, 182, 135));
@@ -917,21 +917,21 @@ public class JFrames extends javax.swing.JFrame {
     }//GEN-LAST:event_startGameButtonActionPerformed
 
     private void attackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attackButtonActionPerformed
-        game.fight.Hit(player, enemy, 1, enemyQuantityHealthLabel, playerQuantityHeathLabel, jDialog1,
-                jLabel18, game.action, playerHealthProgressBar, enemyHealthProgressBar, jDialog2,
-                jDialog4, fightFrame, game.getResults(), jLabel20, jLabel24,
+        game.fight.Hit(player, enemy, 1, enemyQuantityHealthLabel, playerQuantityHeathLabel, infoAboutWinnerDialog,
+                winnerNameLabel, game.action, playerHealthProgressBar, enemyHealthProgressBar, winWithRecordDialog,
+                winWithoutRecordDialog, fightFrame, game.getResults(), winWithRecordLabel, winWithoutRecordLabel,
                 turnInfoLabel, specialCommentAboutFightLabel, commentAboutFightLabel, items, rebirthElixirRadioButton);
 
     }//GEN-LAST:event_attackButtonActionPerformed
 
     private void defendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defendButtonActionPerformed
-        game.fight.Hit(player, enemy, 0, enemyQuantityHealthLabel, playerQuantityHeathLabel, jDialog1,
-                jLabel18, game.action, playerHealthProgressBar, enemyHealthProgressBar, jDialog2,
-                jDialog4, fightFrame, game.getResults(), jLabel20, jLabel24,
+        game.fight.Hit(player, enemy, 0, enemyQuantityHealthLabel, playerQuantityHeathLabel, infoAboutWinnerDialog,
+                winnerNameLabel, game.action, playerHealthProgressBar, enemyHealthProgressBar, winWithRecordDialog,
+                winWithoutRecordDialog, fightFrame, game.getResults(), winWithRecordLabel, winWithoutRecordLabel,
                 turnInfoLabel, specialCommentAboutFightLabel, commentAboutFightLabel, items, rebirthElixirRadioButton);
     }//GEN-LAST:event_defendButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void closeInfoAboutWinnerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeInfoAboutWinnerButtonActionPerformed
 
         enemy = game.fight.NewRound(player, enemyPictureLabel, playerHealthProgressBar, enemyHealthProgressBar,
                 enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, game.action);
@@ -939,22 +939,22 @@ public class JFrames extends javax.swing.JFrame {
         game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
                 turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
 
-        jDialog1.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+        infoAboutWinnerDialog.dispose();
+    }//GEN-LAST:event_closeInfoAboutWinnerButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void nameForRecordTableTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameForRecordTableTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_nameForRecordTableTextFieldActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void finishWinWithRecordGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishWinWithRecordGameButtonActionPerformed
         try {
-            game.EndGameTop(player, jTextField1, jTable1);
+            game.EndGameTop(player, nameForRecordTableTextField, jTable1);
         } catch (IOException ex) {
             Logger.getLogger(JFrames.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jDialog2.dispose();
-        jTextField1.setText("");
-    }//GEN-LAST:event_jButton6ActionPerformed
+        winWithRecordDialog.dispose();
+        nameForRecordTableTextField.setText("");
+    }//GEN-LAST:event_finishWinWithRecordGameButtonActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         jDialog3.dispose();
@@ -965,9 +965,9 @@ public class JFrames extends javax.swing.JFrame {
         jDialog3.setBounds(100, 100, 580, 450);
     }//GEN-LAST:event_showResultsButtonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        jDialog4.dispose();
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void finishWinWithoutRecordGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishWinWithoutRecordGameButtonActionPerformed
+        winWithoutRecordDialog.dispose();
+    }//GEN-LAST:event_finishWinWithoutRecordGameButtonActionPerformed
 
     private void smallHealingElixirRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smallHealingElixirRadioButtonActionPerformed
         // TODO add your handling code here:
@@ -1044,6 +1044,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JPanel bagPanel;
     private javax.swing.JRadioButton bigHealingElixirRadioButton;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton closeInfoAboutWinnerButton;
     private javax.swing.JLabel commentAboutFightLabel;
     private javax.swing.JButton defendButton;
     private javax.swing.JLabel enemyDamageLabel;
@@ -1057,36 +1058,25 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JFrame fightFrame;
     private javax.swing.JLabel fightLabel;
     private javax.swing.JPanel fightPanel;
+    private javax.swing.JButton finishWinWithRecordGameButton;
+    private javax.swing.JButton finishWinWithoutRecordGameButton;
     private javax.swing.JLabel gameNameAndPictureLabel;
     private javax.swing.JButton goodsButton;
+    private javax.swing.JDialog infoAboutWinnerDialog;
+    private javax.swing.JPanel infoAboutWinnerPanel;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JDialog jDialog2;
     private javax.swing.JDialog jDialog3;
-    private javax.swing.JDialog jDialog4;
     private javax.swing.JDialog jDialog6;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel menuPanel;
+    private javax.swing.JTextField nameForRecordTableTextField;
     private javax.swing.JLabel playerDamageLabel;
     private javax.swing.JProgressBar playerHealthProgressBar;
     private javax.swing.JLabel playerLevelLabel;
@@ -1104,5 +1094,15 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JButton startGameButton;
     private javax.swing.JLabel turnInfoLabel;
     private javax.swing.JButton useElixirButton;
+    private javax.swing.JDialog winWithRecordDialog;
+    private javax.swing.JLabel winWithRecordLabel;
+    private javax.swing.JLabel winWithRecordLabel1;
+    private javax.swing.JLabel winWithRecordLabel2;
+    private javax.swing.JPanel winWithRecordPanel;
+    private javax.swing.JDialog winWithoutRecordDialog;
+    private javax.swing.JLabel winWithoutRecordLabel;
+    private javax.swing.JLabel winWithoutRecordLabel1;
+    private javax.swing.JPanel winWithoutRecordPanel;
+    private javax.swing.JLabel winnerNameLabel;
     // End of variables declaration//GEN-END:variables
 }
