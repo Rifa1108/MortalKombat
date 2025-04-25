@@ -8,7 +8,7 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class LiuKang extends Player{
+public class LiuKang extends Fighter{
     
     public LiuKang(int level, int health, int  damage, int attack){
         super (level, health, damage, attack);

@@ -8,7 +8,7 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class SonyaBlade extends Player{
+public class SonyaBlade extends Fighter{
     
     public SonyaBlade (int level, int health, int  damage, int attack){
         super (level, health, damage, attack);

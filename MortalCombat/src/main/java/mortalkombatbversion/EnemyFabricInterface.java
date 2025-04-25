@@ -4,13 +4,10 @@
  */
 package mortalkombatbversion;
 
-import javax.swing.JLabel;
-import javax.swing.JProgressBar;
-
 /**
  *
  * @author Мария
  */
 public interface EnemyFabricInterface {
-    public Player create(int i);
+    public Fighter create(int i);
 }

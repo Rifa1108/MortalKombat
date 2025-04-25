@@ -16,7 +16,7 @@ public class ChangeTexts {
 
 
 
-    public void NewRoundTexts(Player human, Player enemy, JProgressBar pr1,
+    public void NewRoundTexts(Fighter human, Fighter enemy, JProgressBar pr1,
             JProgressBar pr2, JLabel label, JLabel label2, JLabel label3,
             JLabel label4, JLabel label5, JLabel label6, JLabel label7, JLabel label8, JLabel label9,
             int i, Items[] items, JRadioButton rb1, JRadioButton rb2, JRadioButton rb3) {
@@ -40,7 +40,7 @@ public class ChangeTexts {
         label9.setText("");
     }
 
-    public void RoundTexts(Player human, Player enemy, JLabel label, JLabel label2, int i, JLabel label3) {
+    public void RoundTexts(Fighter human, Fighter enemy, JLabel label, JLabel label2, int i, JLabel label3) {
         if (enemy.getHealth() >= 0) {
             label.setText(Integer.toString(enemy.getHealth()) + "/" + Integer.toString(enemy.getMaxHealth()));
         } else {

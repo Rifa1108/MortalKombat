@@ -4,8 +4,6 @@
  */
 package mortalkombatbversion;
 
-import javax.swing.JLabel;
-import javax.swing.JProgressBar;
 
 /**
  *
@@ -13,10 +11,10 @@ import javax.swing.JProgressBar;
  */
 public class EnemyFabric {
 
-    public Player create(int i, int j) {
+    public Fighter create(int enemyNumber, int j) {
         EnemyFabricInterface fabric = null;
 
-        switch (i) {
+        switch (enemyNumber) {
             case 0:
                 fabric = new BarakaFabric();
                 break;
@@ -33,7 +31,7 @@ public class EnemyFabric {
                 fabric = new ShaoKahnFabric();
                 break;
         }
-        Player enemy = fabric.create(j);
+        Fighter enemy = fabric.create(j);
         return enemy;
     }
 }

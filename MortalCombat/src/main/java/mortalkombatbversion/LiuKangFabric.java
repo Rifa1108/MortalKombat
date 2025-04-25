@@ -13,8 +13,8 @@ package mortalkombatbversion;
 public class LiuKangFabric implements EnemyFabricInterface {
 
     @Override
-    public Player create(int i) {
-        Player enemy;
+    public Fighter create(int i) {
+        Fighter enemy;
         enemy = new LiuKang(1, 70, 20, 1);
         return enemy;
     }

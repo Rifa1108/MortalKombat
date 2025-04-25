@@ -16,7 +16,7 @@ public class JFrames extends javax.swing.JFrame {
 
     Game game = new Game();
     Human player;
-    Player enemy;
+    Fighter enemy;
     Items[] items = new Items[3];
     String nameButton = "";
 
@@ -849,7 +849,7 @@ public class JFrames extends javax.swing.JFrame {
         gameNameAndPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/mortal_combat.jpg"))); // NOI18N
 
         startGameButton.setBackground(new java.awt.Color(0, 0, 0));
-        startGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        startGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
         startGameButton.setForeground(new java.awt.Color(255, 0, 0));
         startGameButton.setText("Начать новую игру");
         startGameButton.setBorder(null);
@@ -860,7 +860,7 @@ public class JFrames extends javax.swing.JFrame {
         });
 
         showResultsButton.setBackground(new java.awt.Color(0, 0, 0));
-        showResultsButton.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        showResultsButton.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         showResultsButton.setForeground(new java.awt.Color(255, 0, 0));
         showResultsButton.setText("Посмотреть таблицу \nрезультатов");
         showResultsButton.setBorder(null);
@@ -876,23 +876,22 @@ public class JFrames extends javax.swing.JFrame {
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addComponent(gameNameAndPictureLabel)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(gameNameAndPictureLabel)
+                    .addComponent(showResultsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 9, Short.MAX_VALUE))
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addComponent(showResultsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(startGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(startGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(125, 125, 125))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addComponent(showResultsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(startGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(gameNameAndPictureLabel))
         );
 

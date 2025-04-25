@@ -8,7 +8,7 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class ShaoKahn extends Player{
+public class ShaoKahn extends Fighter{
     
     public ShaoKahn(int level, int health, int  damage, int attack){
         super (level, health, damage, attack);

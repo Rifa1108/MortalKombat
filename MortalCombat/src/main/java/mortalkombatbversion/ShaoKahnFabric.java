@@ -11,8 +11,8 @@ package mortalkombatbversion;
 public class ShaoKahnFabric implements EnemyFabricInterface{
     
     @Override
-    public Player create(int i) {
-        Player enemy;
+    public Fighter create(int i) {
+        Fighter enemy;
         if(i==0){
             enemy = new ShaoKahn(3, 100, 30, 1);
         }

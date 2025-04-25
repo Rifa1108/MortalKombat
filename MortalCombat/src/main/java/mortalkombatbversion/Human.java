@@ -8,7 +8,7 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class Human extends Player{
+public class Human extends Fighter{
     
 
     private int points;

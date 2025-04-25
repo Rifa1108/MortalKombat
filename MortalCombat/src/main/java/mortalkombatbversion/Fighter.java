@@ -8,7 +8,7 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class Player {
+public class Fighter {
     
     private int level;
     private int health;
@@ -16,7 +16,7 @@ public class Player {
     private int damage;
     private int attack;
     
-    public Player(int level, int health, int damage, int attack){
+    public Fighter(int level, int health, int damage, int attack){
         this.level=level;
         this.health=health;
         this.damage=damage;

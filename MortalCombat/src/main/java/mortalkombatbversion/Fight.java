@@ -27,7 +27,7 @@ public class Fight {
     int stun = 0;
     double v = 0.0;
 
-    public void Move(Player p1, Player p2, JLabel l, JLabel l2) {
+    public void Move(Fighter p1, Fighter p2, JLabel l, JLabel l2) {
         if (stun == 1) {
             p1.setAttack(-1);
         }
@@ -71,7 +71,7 @@ public class Fight {
         }
     }
 
-    public void Hit(Player human, Player enemy, int a, JLabel label,
+    public void Hit(Fighter human, Fighter enemy, int a, JLabel label,
             JLabel label2, JDialog dialog, JLabel label3, CharacterAction action,
             JProgressBar pr1, JProgressBar pr2, JDialog dialog1,
             JDialog dialog2, JFrame frame, ArrayList<Result> results,
@@ -114,7 +114,7 @@ public class Fight {
         }
     }
 
-    public void EndRound(Player human, Player enemy, JDialog dialog, JLabel label,
+    public void EndRound(Fighter human, Fighter enemy, JDialog dialog, JLabel label,
             CharacterAction action, Items[] items) {
 
         dialog.setVisible(true);
@@ -180,10 +180,10 @@ public class Fight {
         return a;
     }
 
-    public Player NewRound(Player human, JLabel label, JProgressBar pr1,
+    public Fighter NewRound(Fighter human, JLabel label, JProgressBar pr1,
             JProgressBar pr2, JLabel label2, JLabel text, JLabel label3, CharacterAction action) {
 
-        Player enemy1 = null;
+        Fighter enemy1 = null;
         if (((Human) human).getWin() == 6 | ((Human) human).getWin() == 11) {
             enemy1 = action.ChooseBoss(label, label2, text, label3, human.getLevel());
         } else {

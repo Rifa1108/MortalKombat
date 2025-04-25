@@ -8,7 +8,7 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class Baraka extends Player{
+public class Baraka extends Fighter{
     
     public Baraka(int level, int health, int  damage, int attack){
         super (level, health, damage, attack);

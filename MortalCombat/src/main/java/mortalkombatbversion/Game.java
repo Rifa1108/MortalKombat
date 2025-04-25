@@ -28,11 +28,11 @@ public class Game {
     Fight fight = new Fight();
     private ArrayList<Result> results = new ArrayList<>();
     
-    public Player NewEnemy(JLabel enemyPictureLabel, JLabel enemyNameLabel,
+    public Fighter NewEnemy(JLabel enemyPictureLabel, JLabel enemyNameLabel,
                            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel, 
                            JProgressBar enemyHealthProgressBar) {
         action.setEnemyes();
-        Player enemy = action.ChooseEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel);
+        Fighter enemy = action.ChooseEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel);
         action.setHealthProgressBar(enemy, enemyHealthProgressBar);
         enemyHealthProgressBar.setMaximum(enemy.getMaxHealth());
         return enemy;
