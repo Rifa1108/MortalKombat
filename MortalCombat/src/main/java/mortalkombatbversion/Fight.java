@@ -22,7 +22,7 @@ public class Fight {
     int kind_attack[] = {0};
     int experiences[] = {40, 90, 180, 260, 410};
     EnemyFabric fabric = new EnemyFabric();
-    int i = 1;
+    int moveNumber = 1;
     int k = -1;
     int stun = 0;
     double v = 0.0;
@@ -35,16 +35,16 @@ public class Fight {
             case "10":
                 v = Math.random();
                 if (p1 instanceof ShaoKahn & v < 0.15) {
-                    p2.setHealth(-(int) (p1.getDamage() * 0.5));
+                    p2.addHealth(-(int) (p1.getDamage() * 0.5));
                     l2.setText("Your block is broken");
 
                 } else {
-                    p1.setHealth(-(int) (p2.getDamage() * 0.5));
+                    p1.addHealth(-(int) (p2.getDamage() * 0.5));
                     l2.setText(p2.getName() + " counterattacked");
                 }
                 break;
             case "11":
-                p2.setHealth(-p1.getDamage());
+                p2.addHealth(-p1.getDamage());
                 l2.setText(p1.getName() + " attacked");
                 break;
             case "00":
@@ -63,7 +63,7 @@ public class Fight {
                 l2.setText(p2.getName() + " didn't attacked");
                 break;
             case "-11":
-                p1.setHealth(-p2.getDamage());
+                p1.addHealth(-p2.getDamage());
                 l.setText(p1.getName() + " was stunned");
                 stun = 0;
                 l2.setText(p2.getName() + " attacked");
@@ -71,45 +71,45 @@ public class Fight {
         }
     }
 
-    public void Hit(Fighter human, Fighter enemy, int a, JLabel label,
-            JLabel label2, JDialog dialog, JLabel label3, CharacterAction action,
-            JProgressBar pr1, JProgressBar pr2, JDialog dialog1,
+    public void Hit(Fighter player, Fighter enemy, int attack, JLabel enemyQuantityHealthLabel,
+            JLabel playerQuantityHeathLabel, JDialog dialog, JLabel label3, CharacterAction action,
+            JProgressBar playerHealthProgressBar, JProgressBar enemyHealthProgressBar, JDialog dialog1,
             JDialog dialog2, JFrame frame, ArrayList<Result> results,
-            JLabel label4, JLabel label5, JLabel label6, JLabel label7,
-            JLabel label8, Items[] items, JRadioButton rb) {
-        label7.setText("");
-        human.setAttack(a);
+            JLabel label4, JLabel label5, JLabel turnInfoLabel, JLabel specialCommentAboutFightLabel,
+            JLabel commentAboutFightLabel, Items[] items, JRadioButton rebirthElixirRadioButton) {
+        specialCommentAboutFightLabel.setText("");
+        player.setAttack(attack);
 
         if (k < kind_attack.length - 1) {
             k++;
         } else {
-            kind_attack = action.ChooseBehavior(enemy, action);
+            kind_attack = action.ChooseBehavior(enemy);
             k = 0;
         }
         enemy.setAttack(kind_attack[k]);
-        if (i % 2 == 1) {
-            Move(human, enemy, label7, label8);
+        if (moveNumber % 2 == 1) {
+            Move(player, enemy, specialCommentAboutFightLabel, commentAboutFightLabel);
         } else {
-            Move(enemy, human, label7, label8);
+            Move(enemy, player, specialCommentAboutFightLabel, commentAboutFightLabel);
         }
-        i++;
-        change.RoundTexts(human, enemy, label, label2, i, label6);
-        action.setHealthProgressBar(human, pr1);
-        action.setHealthProgressBar(enemy, pr2);
-        if (human.getHealth() <= 0 & items[2].getCount() > 0) {
-            human.setNewHealth((int) (human.getMaxHealth() * 0.05));
-            items[2].setCount(-1);
-            action.setHealthProgressBar(human, pr1);
-            label2.setText(human.getHealth() + "/" + human.getMaxHealth());
-            rb.setText(items[2].getName() + ", " + items[2].getCount() + " шт");
-            label7.setText("Вы воскресли");
+        moveNumber++;
+        change.RoundTexts(player, enemy, enemyQuantityHealthLabel, playerQuantityHeathLabel, moveNumber, turnInfoLabel);
+        action.setHealthProgressBar(player, playerHealthProgressBar);
+        action.setHealthProgressBar(enemy, enemyHealthProgressBar);
+        if (player.getHealth() <= 0 & items[2].getCount() > 0) {
+            player.setHealth((int) (player.getMaxHealth() * 0.05));
+            items[2].addElixir(-1);
+            action.setHealthProgressBar(player, playerHealthProgressBar);
+            playerQuantityHeathLabel.setText(player.getHealth() + "/" + player.getMaxHealth());
+            rebirthElixirRadioButton.setText(items[2].getName() + ", " + items[2].getCount() + " шт");
+            specialCommentAboutFightLabel.setText("Вы воскресли");
         }
-        if (human.getHealth() <= 0 | enemy.getHealth() <= 0) {
-            if (((Player) human).getWin() == 11) {
-                EndFinalRound(((Player) human), action, results, dialog1, dialog2,
+        if (player.getHealth() <= 0 | enemy.getHealth() <= 0) {
+            if (((Player) player).getWin() == 11) {
+                EndFinalRound(((Player) player), action, results, dialog1, dialog2,
                         frame, label4, label5);
             } else {
-                EndRound(human, enemy, dialog, label3, action, items);
+                EndRound(player, enemy, dialog, label3, action, items);
             }
         }
     }
@@ -134,7 +134,7 @@ public class Fight {
             label.setText(enemy.getName() + " win");
         }
 
-        i = 1;
+        moveNumber = 1;
         k = -1;
         kind_attack = ResetAttack();
 
@@ -191,8 +191,8 @@ public class Fight {
         }
         pr1.setMaximum(human.getMaxHealth());
         pr2.setMaximum(enemy1.getMaxHealth());
-        human.setNewHealth(human.getMaxHealth());
-        enemy1.setNewHealth(enemy1.getMaxHealth());
+        human.setHealth(human.getMaxHealth());
+        enemy1.setHealth(enemy1.getMaxHealth());
         action.setHealthProgressBar(human, pr1);
         action.setHealthProgressBar(enemy1, pr2);
         return enemy1;

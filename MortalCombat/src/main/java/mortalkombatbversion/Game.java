@@ -38,7 +38,7 @@ public class Game {
         return enemy;
     }
 
-    public Player NewHuman(JProgressBar playerHealthProgressBar) {
+    public Player newPlayer(JProgressBar playerHealthProgressBar) {
         Player human = new Player(0, 80, 16, 1);
         action.setHealthProgressBar(human, playerHealthProgressBar);
         playerHealthProgressBar.setMaximum(human.getMaxHealth());

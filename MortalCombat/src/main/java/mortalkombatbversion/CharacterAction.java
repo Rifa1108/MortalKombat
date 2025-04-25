@@ -88,40 +88,40 @@ public class CharacterAction {
         return enemyy;
     }
 
-    public int[] EnemyBehavior(int k1, int k2, int k3, int k4, double i) {
-        int arr[] = null;
+    public int[] EnemyBehavior(int k1, int k2, int k3, int k4) {
+        int arr[];
+        double i = Math.random();
         if (i < k1 * 0.01) {
             arr = kind_fight[0];
         }
-        if (i >= k1 * 0.01 & i < (k1 + k2) * 0.01) {
+        else if (i < (k1 + k2) * 0.01) {
             arr = kind_fight[1];
         }
-        if (i >= (k1 + k2) * 0.01 & i < (k1 + k2 + k3) * 0.01) {
+        else if (i < (k1 + k2 + k3) * 0.01) {
             arr = kind_fight[2];
         }
-        if (i >= (k1 + k2 + k3) * 0.01 & i < 1) {
+        else {
             arr = kind_fight[3];
         }
         return arr;
     }
 
-    public int[] ChooseBehavior(Fighter enemy, CharacterAction action) {
-        int arr[] = null;
-        double i = Math.random();
+    public int[] ChooseBehavior(Fighter enemy) {
+        int arr[] = null;  
         if (enemy instanceof Baraka) {
-            arr = action.EnemyBehavior(15, 15, 60, 10, i);
+            arr = EnemyBehavior(15, 15, 60, 10);
         }
         if (enemy instanceof SubZero) {
-            arr = action.EnemyBehavior(25, 25, 0, 50, i);
+            arr = EnemyBehavior(25, 25, 0, 50);
         }
         if (enemy instanceof LiuKang) {
-            arr = action.EnemyBehavior(13, 13, 10, 64, i);
+            arr = EnemyBehavior(13, 13, 10, 64);
         }
         if (enemy instanceof SonyaBlade) {
-            arr = action.EnemyBehavior(25, 25, 50, 0, i);
+            arr = EnemyBehavior(25, 25, 50, 0);
         }
         if (enemy instanceof ShaoKahn) {
-            arr = action.EnemyBehavior(10, 45, 0, 45, i);
+            arr = EnemyBehavior(10, 45, 0, 45);
         }
         return arr;
     }
@@ -160,7 +160,7 @@ public class CharacterAction {
         }
         for (int i = 0; i < 5; i++) {
             if (experience_for_next_level[i] == human.getExperience()) {
-                human.setLevel();
+                human.levelUp();
                 human.setNextExperience(experience_for_next_level[i + 1]);
                 NewHealthHuman(human);
                 for (int j = 0; j < 4; j++) {
@@ -183,7 +183,7 @@ public class CharacterAction {
         }
         for (int i = 0; i < 5; i++) {
             if (experience_for_next_level[i] == human.getExperience()) {
-                human.setLevel();
+                human.levelUp();
                 human.setNextExperience(experience_for_next_level[i + 1]);
                 NewHealthHuman(human);
                 for (int j = 0; j < 4; j++) {
@@ -196,13 +196,13 @@ public class CharacterAction {
     public void AddItems(int k1, int k2, int k3, Items[] items) {
         double i = Math.random();
         if (i < k1 * 0.01) {
-            items[0].setCount(1);
+            items[0].addElixir(1);
         }
         if (i >= k1 * 0.01 & i < (k1 + k2) * 0.01) {
-            items[1].setCount(1);
+            items[1].addElixir(1);
         }
         if (i >= (k1 + k2) * 0.01 & i < (k1 + k2 + k3) * 0.01) {
-            items[2].setCount(1);
+            items[2].addElixir(1);
         }
     }
 
@@ -227,7 +227,7 @@ public class CharacterAction {
                 damage = 6;
                 break;
         }
-        human.setMaxHealth(hp);
+        human.addMaxHealth(hp);
         human.setDamage(damage);
     }
 
@@ -252,17 +252,17 @@ public class CharacterAction {
                 damage = 26;
                 break;
         }
-        enemy.setMaxHealth((int) enemy.getMaxHealth() * hp / 100);
+        enemy.addMaxHealth((int) enemy.getMaxHealth() * hp / 100);
         enemy.setDamage((int) enemy.getDamage() * damage / 100);
-        enemy.setLevel();
+        enemy.levelUp();
     }
 
     public void UseItem(Fighter human, Items[] items, String name, JDialog dialog, JDialog dialog1) {
         switch (name) {
             case "jRadioButton1":
                 if (items[0].getCount() > 0) {
-                    human.setHealth((int) (human.getMaxHealth() * 0.25));
-                    items[0].setCount(-1);
+                    human.addHealth((int) (human.getMaxHealth() * 0.25));
+                    items[0].addElixir(-1);
                 } else {
                     dialog.setVisible(true);
                     dialog.setBounds(300, 200, 400, 300);
@@ -270,8 +270,8 @@ public class CharacterAction {
                 break;
             case "jRadioButton2":
                 if (items[1].getCount() > 0) {
-                    human.setHealth((int) (human.getMaxHealth() * 0.5));
-                    items[1].setCount(-1);
+                    human.addHealth((int) (human.getMaxHealth() * 0.5));
+                    items[1].addElixir(-1);
                 } else {
                     dialog.setVisible(true);
                     dialog.setBounds(300, 200, 400, 300);

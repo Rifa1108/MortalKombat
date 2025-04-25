@@ -15,14 +15,13 @@ import javax.swing.JRadioButton;
 public class ChangeTexts {
 
 // smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthRadioButton
-    public void NewRoundTexts(Fighter human, Fighter enemy, JProgressBar playerHealthProgressBar,
-                              JProgressBar enemyHealthProgressBar, JLabel quantityPointsLabel, 
-                              JLabel quantityExperienceLabel, JLabel playerLevelLabel,
-                              JLabel enemyLevelLabel, JLabel playerQuantityHeathLabel, 
-                              JLabel enemyQuantityHealthLabel, JLabel playerQuantityDamageLabel, 
-                              JLabel turnInfoLabel, JLabel commentAboutFightLabel,
-                              int i, Items[] items, JRadioButton smallHealingElixirRadioButton, 
-                              JRadioButton bigHealingElixirRadioButton, JRadioButton rebirthElixirRadioButton) {
+    public void NewRoundTexts(Fighter human, Fighter enemy, JLabel quantityPointsLabel,
+            JLabel quantityExperienceLabel, JLabel playerLevelLabel,
+            JLabel enemyLevelLabel, JLabel playerQuantityHeathLabel,
+            JLabel enemyQuantityHealthLabel, JLabel playerQuantityDamageLabel,
+            JLabel turnInfoLabel, JLabel commentAboutFightLabel, int moveNumber,
+            Items[] items, JRadioButton smallHealingElixirRadioButton,
+            JRadioButton bigHealingElixirRadioButton, JRadioButton rebirthElixirRadioButton) {
         quantityPointsLabel.setText(Integer.toString(((Player) human).getPoints()));
         quantityExperienceLabel.setText(Integer.toString(((Player) human).getExperience()) + "/" + ((Player) human).getNextExperience());
         playerLevelLabel.setText(Integer.toString(human.getLevel()) + " level");
@@ -30,11 +29,10 @@ public class ChangeTexts {
         playerQuantityHeathLabel.setText(Integer.toString(human.getMaxHealth()) + "/" + Integer.toString(human.getMaxHealth()));
         enemyQuantityHealthLabel.setText(Integer.toString(enemy.getMaxHealth()) + "/" + Integer.toString(enemy.getMaxHealth()));
         playerQuantityDamageLabel.setText(Integer.toString(human.getDamage()));
-        if (i % 2 == 1) {
+        if (moveNumber % 2 == 1) {
             turnInfoLabel.setText("Your turn");
-        }
-        else{
-            turnInfoLabel.setText(enemy.getName()+"'s turn");
+        } else {
+            turnInfoLabel.setText(enemy.getName() + "'s turn");
         }
         BagText(items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
         commentAboutFightLabel.setText("");
@@ -53,27 +51,26 @@ public class ChangeTexts {
         }
         if (i % 2 == 1) {
             label3.setText("Your turn");
-        }
-        else{
-            label3.setText(enemy.getName()+"'s turn");
+        } else {
+            label3.setText(enemy.getName() + "'s turn");
         }
     }
-    
-    public void EndGameText(Player human, JLabel label){
-        if(human.getWin()==12){
+
+    public void EndGameText(Player human, JLabel label) {
+        if (human.getWin() == 12) {
             label.setText("Победа на вашей стороне");
-        }
-        else {
+        } else {
             label.setText("Победа не на вашей стороне");
         }
     }
- 
-    public void BagText(Items[] items, JRadioButton smallHealingElixirRadioButton, 
-                        JRadioButton bigHealingElixirRadioButton, 
-                        JRadioButton rebirthElixirRadioButton){
-        smallHealingElixirRadioButton.setText(items[0].getName()+", "+items[0].getCount()+" шт");
-        bigHealingElixirRadioButton.setText(items[1].getName()+", "+items[1].getCount()+" шт");
-        rebirthElixirRadioButton.setText(items[2].getName()+", "+items[2].getCount()+" шт");
+
+    public void BagText(Items[] items, JRadioButton smallHealingElixirRadioButton,
+            JRadioButton bigHealingElixirRadioButton, JRadioButton rebirthElixirRadioButton) {
+        
+        smallHealingElixirRadioButton.setText(items[0].getName() + ", " + items[0].getCount() + " шт");
+        bigHealingElixirRadioButton.setText(items[1].getName() + ", " + items[1].getCount() + " шт");
+        rebirthElixirRadioButton.setText(items[2].getName() + ", " + items[2].getCount() + " шт");
+        
     }
 
 }

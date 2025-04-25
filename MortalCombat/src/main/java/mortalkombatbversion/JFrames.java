@@ -26,13 +26,7 @@ public class JFrames extends javax.swing.JFrame {
     public JFrames() {
         initComponents();
         game.ReadFromExcel();
-
         game.WriteToTable(jTable1);
-
-        buttonGroup1.add(smallHealingElixirRadioButton);
-        buttonGroup1.add(bigHealingElixirRadioButton);
-        buttonGroup1.add(rebirthElixirRadioButton);
-
         items[0] = new Items("Малое зелье лечение", 0);
         items[1] = new Items("Большое зелье лечение", 0);
         items[2] = new Items("Крест возрождения", 0);
@@ -699,6 +693,7 @@ public class JFrames extends javax.swing.JFrame {
         bagLabel.setText("Мешок предметов");
 
         smallHealingElixirRadioButton.setBackground(new java.awt.Color(190, 182, 135));
+        buttonGroup1.add(smallHealingElixirRadioButton);
         smallHealingElixirRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         smallHealingElixirRadioButton.setText("Малое зелье лечение, 0 шт");
         smallHealingElixirRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -708,6 +703,7 @@ public class JFrames extends javax.swing.JFrame {
         });
 
         bigHealingElixirRadioButton.setBackground(new java.awt.Color(190, 182, 135));
+        buttonGroup1.add(bigHealingElixirRadioButton);
         bigHealingElixirRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         bigHealingElixirRadioButton.setText("Большое зелье лечение, 0 шт");
         bigHealingElixirRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -717,6 +713,7 @@ public class JFrames extends javax.swing.JFrame {
         });
 
         rebirthElixirRadioButton.setBackground(new java.awt.Color(190, 182, 135));
+        buttonGroup1.add(rebirthElixirRadioButton);
         rebirthElixirRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         rebirthElixirRadioButton.setText("Крест возрождения, 0 шт");
 
@@ -908,13 +905,14 @@ public class JFrames extends javax.swing.JFrame {
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
         fightFrame.setVisible(true);
 
-        player = game.NewHuman(playerHealthProgressBar);
+        player = game.newPlayer(playerHealthProgressBar);
 
         enemy = game.NewEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, enemyHealthProgressBar);
 
-        game.textChanger.NewRoundTexts(player, enemy, playerHealthProgressBar, enemyHealthProgressBar,
-                quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
-                turnInfoLabel, commentAboutFightLabel, game.fight.i, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
+        game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, 
+                playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, 
+                playerQuantityDamageLabel, turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, 
+                items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
 
     }//GEN-LAST:event_startGameButtonActionPerformed
 
@@ -938,9 +936,8 @@ public class JFrames extends javax.swing.JFrame {
         enemy = game.fight.NewRound(player, enemyPictureLabel, playerHealthProgressBar, enemyHealthProgressBar,
                 enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, game.action);
 
-        game.textChanger.NewRoundTexts(player, enemy, playerHealthProgressBar, enemyHealthProgressBar,
-                quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
-                turnInfoLabel, commentAboutFightLabel, game.fight.i, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
+        game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
+                turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
 
         jDialog1.dispose();
     }//GEN-LAST:event_jButton5ActionPerformed

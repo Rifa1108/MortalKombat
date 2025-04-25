@@ -24,23 +24,23 @@ public class Fighter {
         this.maxhealth=health;
     }
    
-    public void setLevel(){
+    public void levelUp(){
         this.level++;
     }
-    public void setHealth(int h){
-        this.health+=h;
+    public void addHealth(int addedHealth){
+        this.health+=addedHealth;
     }
-    public void setNewHealth(int h){
-        this.health=h;
+    public void setHealth(int health){
+        this.health=health;
     }
-    public void setDamage(int d){
-        this.damage+=d;
+    public void setDamage(int damage){
+        this.damage+=damage;
     }
-    public void setAttack(int a){
-        this.attack=a;
+    public void setAttack(int attack){
+        this.attack=attack;
     }
-    public void setMaxHealth(int h){
-        this.maxhealth+=h;
+    public void addMaxHealth(int addedMaxHealth){
+        this.maxhealth+=addedMaxHealth;
     }
     
     public int getLevel(){
