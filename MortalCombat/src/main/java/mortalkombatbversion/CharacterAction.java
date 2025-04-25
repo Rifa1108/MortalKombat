@@ -40,27 +40,27 @@ public class CharacterAction {
 
     public Fighter ChooseEnemy(JLabel enemyPictureLabel, JLabel enemyNameLabel, 
                                JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel) {
-        int i = (int) (Math.random() * 4);
+        int enemyNumber = (int) (Math.random() * 4);
         ImageIcon icon1 = null;
-        switch (i) {
+        switch (enemyNumber) {
             case 0:
                 enemyy = enemyes[0];
-                icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Baraka.jpg");
+                icon1 = new ImageIcon("src\\main\\resources\\Pictures\\Baraka.png");
                 enemyNameLabel.setText("Baraka (танк)");
                 break;
             case 1:
                 enemyy = enemyes[1];
-                icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Sub-Zero.jpg");
+                icon1 = new ImageIcon("src\\main\\resources\\Pictures\\Sub-Zero.png");
                 enemyNameLabel.setText("Sub-Zero (маг)");
                 break;
             case 2:
                 enemyy = enemyes[2];
-                icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Liu Kang.jpg");
+                icon1 = new ImageIcon("src\\main\\resources\\Pictures\\Liu_Kang.png");
                 enemyNameLabel.setText("Liu Kang (боец)");
                 break;
             case 3:
                 enemyy = enemyes[3];
-                icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Sonya Blade.jpg");
+                icon1 = new ImageIcon("src\\main\\resources\\Pictures\\Соня.png");
                 enemyNameLabel.setText("Sonya Blade (солдат)");
                 break;
         }
