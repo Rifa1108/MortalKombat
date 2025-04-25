@@ -18,7 +18,7 @@ import javax.swing.JRadioButton;
  */
 public class Fight {
 
-    ChangeTexts change = new ChangeTexts();
+    TextChanger textChanger = new TextChanger();
     int kind_attack[] = {0};
     int experiences[] = {40, 90, 180, 260, 410};
     EnemyFabric fabric = new EnemyFabric();
@@ -27,46 +27,46 @@ public class Fight {
     int stun = 0;
     double v = 0.0;
 
-    public void Move(Fighter p1, Fighter p2, JLabel l, JLabel l2) {
+    public void Move(Fighter fighter1, Fighter fighter2, JLabel specialCommentAboutFightLabel, JLabel commentAboutFightLabel) {
         if (stun == 1) {
-            p1.setAttack(-1);
+            fighter1.setAttack(-1);
         }
-        switch (Integer.toString(p1.getAttack()) + Integer.toString(p2.getAttack())) {
+        switch (Integer.toString(fighter1.getAttack()) + Integer.toString(fighter2.getAttack())) {
             case "10":
                 v = Math.random();
-                if (p1 instanceof ShaoKahn & v < 0.15) {
-                    p2.addHealth(-(int) (p1.getDamage() * 0.5));
-                    l2.setText("Your block is broken");
+                if (fighter1 instanceof ShaoKahn & v < 0.15) {
+                    fighter2.addHealth(-(int) (fighter1.getDamage() * 0.5));
+                    commentAboutFightLabel.setText("Your block is broken");
 
                 } else {
-                    p1.addHealth(-(int) (p2.getDamage() * 0.5));
-                    l2.setText(p2.getName() + " counterattacked");
+                    fighter1.addHealth(-(int) (fighter2.getDamage() * 0.5));
+                    commentAboutFightLabel.setText(fighter2.getName() + " counterattacked");
                 }
                 break;
             case "11":
-                p2.addHealth(-p1.getDamage());
-                l2.setText(p1.getName() + " attacked");
+                fighter2.addHealth(-fighter1.getDamage());
+                commentAboutFightLabel.setText(fighter1.getName() + " successfully attacked");
                 break;
             case "00":
                 v = Math.random();
                 if (v <= 0.5) {
                     stun = 1;
                 }
-                l2.setText("Both defended themselves");
+                commentAboutFightLabel.setText("Both defended themselves");
                 break;
             case "01":
-                l2.setText(p1.getName() + " didn't attacked");
+                commentAboutFightLabel.setText(fighter1.getName() + " didn't attack");
                 break;
             case "-10":
-                l.setText(p1.getName() + " was stunned");
+                specialCommentAboutFightLabel.setText(fighter1.getName() + " was stunned");
                 stun = 0;
-                l2.setText(p2.getName() + " didn't attacked");
+                commentAboutFightLabel.setText(fighter2.getName() + " didn't attack");
                 break;
             case "-11":
-                p1.addHealth(-p2.getDamage());
-                l.setText(p1.getName() + " was stunned");
+                fighter1.addHealth(-fighter2.getDamage());
+                specialCommentAboutFightLabel.setText(fighter1.getName() + " was stunned");
                 stun = 0;
-                l2.setText(p2.getName() + " attacked");
+                commentAboutFightLabel.setText(fighter2.getName() + " attacked");
                 break;
         }
     }
@@ -93,7 +93,7 @@ public class Fight {
             Move(enemy, player, specialCommentAboutFightLabel, commentAboutFightLabel);
         }
         moveNumber++;
-        change.RoundTexts(player, enemy, enemyQuantityHealthLabel, playerQuantityHeathLabel, moveNumber, turnInfoLabel);
+        textChanger.RoundTexts(player, enemy, enemyQuantityHealthLabel, playerQuantityHeathLabel, moveNumber, turnInfoLabel);
         action.setHealthProgressBar(player, playerHealthProgressBar);
         action.setHealthProgressBar(enemy, enemyHealthProgressBar);
         if (player.getHealth() <= 0 & items[2].getCount() > 0) {

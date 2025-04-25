@@ -12,7 +12,7 @@ import javax.swing.JRadioButton;
  *
  * @author Мария
  */
-public class ChangeTexts {
+public class TextChanger {
 
 // smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthRadioButton
     public void NewRoundTexts(Fighter human, Fighter enemy, JLabel quantityPointsLabel,

@@ -24,7 +24,7 @@ import org.apache.poi.xssf.usermodel.*;
 public class Game {
 
     CharacterAction action = new CharacterAction();
-    ChangeTexts textChanger = new ChangeTexts();
+    TextChanger textChanger = new TextChanger();
     Fight fight = new Fight();
     private ArrayList<Result> results = new ArrayList<>();
     
