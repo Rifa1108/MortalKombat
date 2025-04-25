@@ -37,22 +37,23 @@ public class TextChanger {
         BagText(items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
         commentAboutFightLabel.setText("");
     }
-
-    public void RoundTexts(Fighter human, Fighter enemy, JLabel label, JLabel label2, int i, JLabel label3) {
+    
+    public void RoundTexts(Fighter human, Fighter enemy, JLabel enemyQuantityHealthLabel, 
+                           JLabel playerQuantityHeathLabel, int moveNumber, JLabel turnInfoLabel) {
         if (enemy.getHealth() >= 0) {
-            label.setText(Integer.toString(enemy.getHealth()) + "/" + Integer.toString(enemy.getMaxHealth()));
+            enemyQuantityHealthLabel.setText(Integer.toString(enemy.getHealth()) + "/" + Integer.toString(enemy.getMaxHealth()));
         } else {
-            label.setText("0/" + Integer.toString(enemy.getMaxHealth()));
+            enemyQuantityHealthLabel.setText("0/" + Integer.toString(enemy.getMaxHealth()));
         }
         if (human.getHealth() >= 0) {
-            label2.setText(Integer.toString(human.getHealth()) + "/" + Integer.toString(human.getMaxHealth()));
+            playerQuantityHeathLabel.setText(Integer.toString(human.getHealth()) + "/" + Integer.toString(human.getMaxHealth()));
         } else {
-            label2.setText("0/" + Integer.toString(human.getMaxHealth()));
+            playerQuantityHeathLabel.setText("0/" + Integer.toString(human.getMaxHealth()));
         }
-        if (i % 2 == 1) {
-            label3.setText("Your turn");
+        if (moveNumber % 2 == 1) {
+            turnInfoLabel.setText("Your turn");
         } else {
-            label3.setText(enemy.getName() + "'s turn");
+            turnInfoLabel.setText(enemy.getName() + "'s turn");
         }
     }
 

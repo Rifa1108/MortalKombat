@@ -104,6 +104,7 @@ public class Fight {
             rebirthElixirRadioButton.setText(items[2].getName() + ", " + items[2].getCount() + " шт");
             specialCommentAboutFightLabel.setText("Вы воскресли");
         }
+ //// Закончила здесь
         if (player.getHealth() <= 0 | enemy.getHealth() <= 0) {
             if (((Player) player).getWin() == 11) {
                 EndFinalRound(((Player) player), action, results, dialog1, dialog2,
@@ -140,13 +141,13 @@ public class Fight {
 
     }
 
-    public void EndFinalRound(Player human, CharacterAction action,
+    public void EndFinalRound(Player player, CharacterAction action,
             ArrayList<Result> results, JDialog dialog1, JDialog dialog2, JFrame frame,
             JLabel label1, JLabel label2) {
         String text = "Победа не на вашей стороне";
-        if (human.getHealth() > 0) {
-            human.setWin();
-            action.AddPoints(human, action.getEnemyes());
+        if (player.getHealth() > 0) {
+            player.setWin();
+            action.AddPoints(player, action.getEnemyes());
             text = "Победа на вашей стороне";
         }
         boolean top = false;
@@ -155,7 +156,7 @@ public class Fight {
         } else {
             int i = 0;
             for (int j = 0; j < results.size(); j++) {
-                if (human.getPoints() < results.get(j).getPoints()) {
+                if (player.getPoints() < results.get(j).getPoints()) {
                     i++;
                 }
             }
