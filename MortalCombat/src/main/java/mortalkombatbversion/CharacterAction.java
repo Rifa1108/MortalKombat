@@ -70,11 +70,13 @@ public class CharacterAction {
         return enemyy;
     }
 
-    public Fighter ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3, int i) {
+    public Fighter ChooseBoss(JLabel enemyPictureLabel, JLabel enemyNameLabel, 
+                              JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel, 
+                              int playerLevel) {
         ImageIcon icon1 = null;
         icon1 = new ImageIcon("src\\main\\resources\\Pictures\\General_Shao.png");
-        label2.setText("Shao Kahn (босс)");
-        switch (i) {
+        enemyNameLabel.setText("Shao Kahn (босс)");
+        switch (playerLevel) {
             case 2:
                 enemyy = enemyes[4];
                 break;
@@ -82,9 +84,9 @@ public class CharacterAction {
                 enemyy = enemyes[5];
                 break;
         }
-        label.setIcon(icon1);
-        text.setText(Integer.toString(enemyy.getDamage()));
-        label3.setText(Integer.toString(enemyy.getHealth()) + "/" + Integer.toString(enemyy.getMaxHealth()));
+        enemyPictureLabel.setIcon(icon1);
+        enemyQuantityDamageLabel.setText(Integer.toString(enemyy.getDamage()));
+        enemyQuantityHealthLabel.setText(Integer.toString(enemyy.getHealth()) + "/" + Integer.toString(enemyy.getMaxHealth()));
         return enemyy;
     }
 
@@ -257,34 +259,35 @@ public class CharacterAction {
         enemy.levelUp();
     }
 
-    public void UseItem(Fighter human, Items[] items, String name, JDialog dialog, JDialog dialog1) {
-        switch (name) {
-            case "jRadioButton1":
+    public void UseItem(Fighter player, Items[] items, String nameElixirButton, 
+            JDialog elixirRestrictionDialog, JDialog bagDialog) {
+        switch (nameElixirButton) {
+            case "smallHealingElixir":
                 if (items[0].getCount() > 0) {
-                    human.addHealth((int) (human.getMaxHealth() * 0.25));
+                    player.addHealth((int) (player.getMaxHealth() * 0.25));
                     items[0].addElixir(-1);
                 } else {
-                    dialog.setVisible(true);
-                    dialog.setBounds(300, 200, 400, 300);
+                    elixirRestrictionDialog.setVisible(true);
+                    elixirRestrictionDialog.setBounds(300, 200, 400, 300);
                 }
                 break;
-            case "jRadioButton2":
+            case "bigHealingElixir":
                 if (items[1].getCount() > 0) {
-                    human.addHealth((int) (human.getMaxHealth() * 0.5));
+                    player.addHealth((int) (player.getMaxHealth() * 0.5));
                     items[1].addElixir(-1);
                 } else {
-                    dialog.setVisible(true);
-                    dialog.setBounds(300, 200, 400, 300);
+                    elixirRestrictionDialog.setVisible(true);
+                    elixirRestrictionDialog.setBounds(300, 200, 400, 300);
                 }
                 break;
-            case "jRadioButton3":
-                dialog.setVisible(true);
-                dialog.setBounds(300, 200, 400, 300);
+            case "rebirthElixir":
+                elixirRestrictionDialog.setVisible(true);
+                elixirRestrictionDialog.setBounds(300, 200, 400, 300);
                 break;
         }
         
-        if(dialog.isVisible()==false){
-            dialog1.dispose();
+        if(elixirRestrictionDialog.isVisible()==false){
+            bagDialog.dispose();
         }
     }
 }

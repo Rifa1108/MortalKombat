@@ -180,21 +180,23 @@ public class Fight {
         return a;
     }
 
-    public Fighter NewRound(Fighter human, JLabel label, JProgressBar pr1,
-            JProgressBar pr2, JLabel label2, JLabel text, JLabel label3, CharacterAction action) {
+    public Fighter NewRound(Fighter player, JLabel enemyPictureLabel, JProgressBar playerHealthProgressBar,
+                            JProgressBar enemyHealthProgressBar, JLabel enemyNameLabel, 
+                            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel, 
+                            CharacterAction action) {
 
         Fighter enemy1 = null;
-        if (((Player) human).getWin() == 6 | ((Player) human).getWin() == 11) {
-            enemy1 = action.ChooseBoss(label, label2, text, label3, human.getLevel());
+        if (((Player) player).getWin() == 6 | ((Player) player).getWin() == 11) {
+            enemy1 = action.ChooseBoss(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, player.getLevel());
         } else {
-            enemy1 = action.ChooseEnemy(label, label2, text, label3);
+            enemy1 = action.ChooseEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel);
         }
-        pr1.setMaximum(human.getMaxHealth());
-        pr2.setMaximum(enemy1.getMaxHealth());
-        human.setHealth(human.getMaxHealth());
+        playerHealthProgressBar.setMaximum(player.getMaxHealth());
+        enemyHealthProgressBar.setMaximum(enemy1.getMaxHealth());
+        player.setHealth(player.getMaxHealth());
         enemy1.setHealth(enemy1.getMaxHealth());
-        action.setHealthProgressBar(human, pr1);
-        action.setHealthProgressBar(enemy1, pr2);
+        action.setHealthProgressBar(player, playerHealthProgressBar);
+        action.setHealthProgressBar(enemy1, enemyHealthProgressBar);
         return enemy1;
     }
 

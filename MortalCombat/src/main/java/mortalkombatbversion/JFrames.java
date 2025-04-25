@@ -18,7 +18,7 @@ public class JFrames extends javax.swing.JFrame {
     Player player;
     Fighter enemy;
     Items[] items = new Items[3];
-    String nameButton = "";
+    String nameElixirButton = "";
 
     /**
      * Creates new form JFrame
@@ -99,11 +99,11 @@ public class JFrames extends javax.swing.JFrame {
         rebirthElixirRadioButton = new javax.swing.JRadioButton();
         useElixirButton = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jDialog6 = new javax.swing.JDialog();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
+        elixirRestrictionDialog = new javax.swing.JDialog();
+        elixirRestrictionPanel = new javax.swing.JPanel();
+        elixirRestrictionLabel1 = new javax.swing.JLabel();
+        elixirRestrictionLabel2 = new javax.swing.JLabel();
+        closeElixirRestrictionButton = new javax.swing.JButton();
         menuPanel = new javax.swing.JPanel();
         gameNameAndPictureLabel = new javax.swing.JLabel();
         startGameButton = new javax.swing.JButton();
@@ -771,67 +771,67 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(bagPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel8.setBackground(new java.awt.Color(243, 120, 120));
+        elixirRestrictionPanel.setBackground(new java.awt.Color(243, 120, 120));
 
-        jLabel31.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel31.setText("Вы не можете использовать ");
+        elixirRestrictionLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        elixirRestrictionLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        elixirRestrictionLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        elixirRestrictionLabel1.setText("Вы не можете использовать ");
 
-        jLabel32.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel32.setText("этот предмет");
+        elixirRestrictionLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        elixirRestrictionLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        elixirRestrictionLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        elixirRestrictionLabel2.setText("этот предмет");
 
-        jButton11.setBackground(new java.awt.Color(204, 204, 204));
-        jButton11.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(51, 51, 51));
-        jButton11.setText("ОК");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        closeElixirRestrictionButton.setBackground(new java.awt.Color(204, 204, 204));
+        closeElixirRestrictionButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        closeElixirRestrictionButton.setForeground(new java.awt.Color(51, 51, 51));
+        closeElixirRestrictionButton.setText("ОК");
+        closeElixirRestrictionButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                closeElixirRestrictionButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        javax.swing.GroupLayout elixirRestrictionPanelLayout = new javax.swing.GroupLayout(elixirRestrictionPanel);
+        elixirRestrictionPanel.setLayout(elixirRestrictionPanelLayout);
+        elixirRestrictionPanelLayout.setHorizontalGroup(
+            elixirRestrictionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(elixirRestrictionPanelLayout.createSequentialGroup()
                 .addContainerGap(82, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel31)
+                .addGroup(elixirRestrictionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, elixirRestrictionPanelLayout.createSequentialGroup()
+                        .addComponent(elixirRestrictionLabel1)
                         .addGap(58, 58, 58))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, elixirRestrictionPanelLayout.createSequentialGroup()
+                        .addComponent(elixirRestrictionLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(135, 135, 135))))
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(elixirRestrictionPanelLayout.createSequentialGroup()
                 .addGap(150, 150, 150)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(closeElixirRestrictionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+        elixirRestrictionPanelLayout.setVerticalGroup(
+            elixirRestrictionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(elixirRestrictionPanelLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(elixirRestrictionLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel32)
+                .addComponent(elixirRestrictionLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(closeElixirRestrictionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52))
         );
 
-        javax.swing.GroupLayout jDialog6Layout = new javax.swing.GroupLayout(jDialog6.getContentPane());
-        jDialog6.getContentPane().setLayout(jDialog6Layout);
-        jDialog6Layout.setHorizontalGroup(
-            jDialog6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout elixirRestrictionDialogLayout = new javax.swing.GroupLayout(elixirRestrictionDialog.getContentPane());
+        elixirRestrictionDialog.getContentPane().setLayout(elixirRestrictionDialogLayout);
+        elixirRestrictionDialogLayout.setHorizontalGroup(
+            elixirRestrictionDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(elixirRestrictionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jDialog6Layout.setVerticalGroup(
-            jDialog6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        elixirRestrictionDialogLayout.setVerticalGroup(
+            elixirRestrictionDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(elixirRestrictionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -979,15 +979,15 @@ public class JFrames extends javax.swing.JFrame {
 
     private void useElixirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useElixirButtonActionPerformed
         if (smallHealingElixirRadioButton.isSelected()) {
-            nameButton = "jRadioButton1";
+            nameElixirButton = "smallHealingElixir";
         }
         if (bigHealingElixirRadioButton.isSelected()) {
-            nameButton = "jRadioButton2";
+            nameElixirButton = "bigHealingElixir";
         }
         if (rebirthElixirRadioButton.isSelected()) {
-            nameButton = "jRadioButton3";
+            nameElixirButton = "rebirthElixir";
         }
-        game.action.UseItem(player, items, nameButton, jDialog6, bagDialog);
+        game.action.UseItem(player, items, nameElixirButton, elixirRestrictionDialog, bagDialog);
         game.action.setHealthProgressBar(player, playerHealthProgressBar);
         playerQuantityHeathLabel.setText(player.getHealth() + "/" + player.getMaxHealth());
         game.textChanger.BagText(items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
@@ -998,9 +998,9 @@ public class JFrames extends javax.swing.JFrame {
         bagDialog.setBounds(300, 200, 430, 350);
     }//GEN-LAST:event_goodsButtonActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        jDialog6.dispose();
-    }//GEN-LAST:event_jButton11ActionPerformed
+    private void closeElixirRestrictionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeElixirRestrictionButtonActionPerformed
+        elixirRestrictionDialog.dispose();
+    }//GEN-LAST:event_closeElixirRestrictionButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1044,9 +1044,14 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JPanel bagPanel;
     private javax.swing.JRadioButton bigHealingElixirRadioButton;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton closeElixirRestrictionButton;
     private javax.swing.JButton closeInfoAboutWinnerButton;
     private javax.swing.JLabel commentAboutFightLabel;
     private javax.swing.JButton defendButton;
+    private javax.swing.JDialog elixirRestrictionDialog;
+    private javax.swing.JLabel elixirRestrictionLabel1;
+    private javax.swing.JLabel elixirRestrictionLabel2;
+    private javax.swing.JPanel elixirRestrictionPanel;
     private javax.swing.JLabel enemyDamageLabel;
     private javax.swing.JProgressBar enemyHealthProgressBar;
     private javax.swing.JLabel enemyLevelLabel;
@@ -1064,15 +1069,10 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JButton goodsButton;
     private javax.swing.JDialog infoAboutWinnerDialog;
     private javax.swing.JPanel infoAboutWinnerPanel;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton7;
     private javax.swing.JDialog jDialog3;
-    private javax.swing.JDialog jDialog6;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel menuPanel;
