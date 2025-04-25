@@ -5,7 +5,6 @@
 package mortalkombatbversion;
 
 import javax.swing.JLabel;
-import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
 
 /**

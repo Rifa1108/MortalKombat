@@ -114,24 +114,24 @@ public class Fight {
         }
     }
 
-    public void EndRound(Fighter human, Fighter enemy, JDialog dialog, JLabel label,
-            CharacterAction action, Items[] items) {
+    public void EndRound(Fighter player, Fighter enemy, JDialog infoAboutWinnerDialog, 
+                         JLabel winnerNameLabel, CharacterAction action, Items[] items) {
 
-        dialog.setVisible(true);
-        dialog.setBounds(300, 150, 700, 600);
-        if (human.getHealth() > 0) {
-            label.setText("You win");
-            ((Player) human).setWin();
+        infoAboutWinnerDialog.setVisible(true);
+        infoAboutWinnerDialog.setBounds(300, 150, 700, 600);
+        if (player.getHealth() > 0) {
+            winnerNameLabel.setText("You win");
+            ((Player) player).addWin();
 
             if (enemy instanceof ShaoKahn) {
                 action.AddItems(38, 23, 8, items);
-                action.AddPointsBoss(((Player) human), action.getEnemyes());
+                action.AddPointsBoss(((Player) player), action.getEnemyes());
             } else {
                 action.AddItems(25, 15, 5, items);
-                action.AddPoints(((Player) human), action.getEnemyes());
+                action.AddPoints(((Player) player), action.getEnemyes());
             }
         } else {
-            label.setText(enemy.getName() + " win");
+            winnerNameLabel.setText(enemy.getName() + " win");
         }
 
         moveNumber = 1;
@@ -140,12 +140,12 @@ public class Fight {
 
     }
 
-    public void EndFinalRound(Player player, CharacterAction action,
-            ArrayList<Result> results, JDialog dialog1, JDialog dialog2, JFrame frame,
-            JLabel label1, JLabel label2) {
+    public void EndFinalRound(Player player, CharacterAction action, ArrayList<Result> results, 
+                              JDialog winWithRecordDialog, JDialog winWithoutRecordDialog, 
+                              JFrame fightFrame, JLabel winWithRecordLabel, JLabel winWithoutRecordLabel) {
         String text = "Победа не на вашей стороне";
         if (player.getHealth() > 0) {
-            player.setWin();
+            player.addWin();
             action.AddPoints(player, action.getEnemyes());
             text = "Победа на вашей стороне";
         }
@@ -164,15 +164,15 @@ public class Fight {
             }
         }
         if (top) {
-            dialog1.setVisible(true);
-            dialog1.setBounds(150, 150, 600, 500);
-            label1.setText(text);
+            winWithRecordDialog.setVisible(true);
+            winWithRecordDialog.setBounds(150, 150, 600, 500);
+            winWithRecordLabel.setText(text);
         } else {
-            dialog2.setVisible(true);
-            dialog2.setBounds(150, 150, 470, 360);
-            label2.setText(text);
+            winWithoutRecordDialog.setVisible(true);
+            winWithoutRecordDialog.setBounds(150, 150, 470, 360);
+            winWithoutRecordLabel.setText(text);
         }
-        frame.dispose();
+        fightFrame.dispose();
     }
 
     public int[] ResetAttack() {

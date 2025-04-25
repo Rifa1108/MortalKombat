@@ -72,7 +72,7 @@ public class CharacterAction {
 
     public Fighter ChooseBoss(JLabel label, JLabel label2, JLabel text, JLabel label3, int i) {
         ImageIcon icon1 = null;
-        icon1 = new ImageIcon("C:\\Users\\Мария\\Desktop\\Shao Kahn.png");
+        icon1 = new ImageIcon("src\\main\\resources\\Pictures\\General_Shao.png");
         label2.setText("Shao Kahn (босс)");
         switch (i) {
             case 2:
@@ -138,33 +138,33 @@ public class CharacterAction {
     public void AddPoints(Player human, Fighter[] enemyes) {
         switch (human.getLevel()) {
             case 0:
-                human.setExperience(20);
+                human.addExperience(20);
                 human.setPoints(25 + human.getHealth() / 4);
                 break;
             case 1:
-                human.setExperience(25);
+                human.addExperience(25);
                 human.setPoints(30 + human.getHealth() / 4);
                 break;
             case 2:
-                human.setExperience(30);
+                human.addExperience(30);
                 human.setPoints(35 + human.getHealth() / 4);
                 break;
             case 3:
-                human.setExperience(40);
+                human.addExperience(40);
                 human.setPoints(45 + human.getHealth() / 4);
                 break;
             case 4:
-                human.setExperience(50);
+                human.addExperience(50);
                 human.setPoints(55 + human.getHealth() / 4);
                 break;
         }
         for (int i = 0; i < 5; i++) {
             if (experience_for_next_level[i] == human.getExperience()) {
                 human.levelUp();
-                human.setNextExperience(experience_for_next_level[i + 1]);
-                NewHealthHuman(human);
+                human.setNextExperianceGoal(experience_for_next_level[i + 1]);
+                addHealthAndDamgeHuman(human);
                 for (int j = 0; j < 4; j++) {
-                    NewHealthEnemy(enemyes[j], human);
+                    addHealthAndDamgeEnemy(enemyes[j], human);
                 }
             }
         }
@@ -173,21 +173,21 @@ public class CharacterAction {
     public void AddPointsBoss(Player human, Fighter[] enemyes) {
         switch (human.getLevel()) {
             case 2:
-                human.setExperience(30);
+                human.addExperience(30);
                 human.setPoints(45 + human.getHealth() / 2);
                 break;
             case 4:
-                human.setExperience(50);
+                human.addExperience(50);
                 human.setPoints(65 + human.getHealth() / 2);
                 break;
         }
         for (int i = 0; i < 5; i++) {
             if (experience_for_next_level[i] == human.getExperience()) {
                 human.levelUp();
-                human.setNextExperience(experience_for_next_level[i + 1]);
-                NewHealthHuman(human);
+                human.setNextExperianceGoal(experience_for_next_level[i + 1]);
+                addHealthAndDamgeHuman(human);
                 for (int j = 0; j < 4; j++) {
-                    NewHealthEnemy(enemyes[j], human);
+                    addHealthAndDamgeEnemy(enemyes[j], human);
                 }
             }
         }
@@ -206,7 +206,7 @@ public class CharacterAction {
         }
     }
 
-    public void NewHealthHuman(Player human) {
+    public void addHealthAndDamgeHuman(Player human) {
         int hp = 0;
         int damage = 0;
         switch (human.getLevel()) {
@@ -228,10 +228,10 @@ public class CharacterAction {
                 break;
         }
         human.addMaxHealth(hp);
-        human.setDamage(damage);
+        human.addDamage(damage);
     }
 
-    public void NewHealthEnemy(Fighter enemy, Player human) {
+    public void addHealthAndDamgeEnemy(Fighter enemy, Player human) {
         int hp = 0;
         int damage = 0;
         switch (human.getLevel()) {
@@ -253,7 +253,7 @@ public class CharacterAction {
                 break;
         }
         enemy.addMaxHealth((int) enemy.getMaxHealth() * hp / 100);
-        enemy.setDamage((int) enemy.getDamage() * damage / 100);
+        enemy.addDamage((int) enemy.getDamage() * damage / 100);
         enemy.levelUp();
     }
 
