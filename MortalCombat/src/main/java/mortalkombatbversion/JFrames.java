@@ -6,6 +6,8 @@ package mortalkombatbversion;
 
 import java.awt.Color;
 import java.io.IOException;
+import java.util.HashMap;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,7 @@ public class JFrames extends javax.swing.JFrame {
     Fighter enemy;
     Items[] items = new Items[3];
     String nameElixirButton = "";
+    private HashMap<JCheckBox, String> allLocations = new HashMap<JCheckBox, String>();
 
     /**
      * Creates new form JFrame
@@ -34,6 +37,12 @@ public class JFrames extends javax.swing.JFrame {
         recordsTable.getTableHeader().setForeground(Color.red);
         recordsTableScrollPane.getViewport().setBackground(Color.BLACK);
         recordsTable.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        allLocations.put(junglesCheckBox, "src\\main\\resources\\Pictures\\Куатанские_джунгли.png");
+        allLocations.put(deadForestCheckBox, "src\\main\\resources\\Pictures\\Мёртвый_лес.png");
+        allLocations.put(campCheckBox, "src\\main\\resources\\Pictures\\Лагерь_беженцов.png");
+        allLocations.put(harborCheckBox, "src\\main\\resources\\Pictures\\Бухта.png");
+        allLocations.put(hellCheckBox, "src\\main\\resources\\Pictures\\Перекрёстки.png");
+        allLocations.put(skyCastleCheckBox, "src\\main\\resources\\Pictures\\Небесный_храм.png");
     }
 
     /**
@@ -767,68 +776,73 @@ public class JFrames extends javax.swing.JFrame {
         junglesCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         junglesCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         junglesCheckBox.setText("Куатанские джунгли");
+        junglesCheckBox.setName("Куатанские джунгли"); // NOI18N
         junglesCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 junglesCheckBoxActionPerformed(evt);
             }
         });
-        chooseLocationsPanel.add(junglesCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 280, -1));
+        chooseLocationsPanel.add(junglesCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 280, -1));
 
         deadForestCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         deadForestCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         deadForestCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         deadForestCheckBox.setText("Мёртвый лес");
+        deadForestCheckBox.setName("Мёртвый лес"); // NOI18N
         deadForestCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deadForestCheckBoxActionPerformed(evt);
             }
         });
-        chooseLocationsPanel.add(deadForestCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 190, -1));
+        chooseLocationsPanel.add(deadForestCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 190, -1));
 
         campCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         campCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         campCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         campCheckBox.setText("Лагерь беженцов");
-        campCheckBox.setName(""); // NOI18N
+        campCheckBox.setName("Лагерь беженцов"); // NOI18N
         campCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campCheckBoxActionPerformed(evt);
             }
         });
-        chooseLocationsPanel.add(campCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 230, -1));
+        chooseLocationsPanel.add(campCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 230, -1));
 
         harborCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         harborCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         harborCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         harborCheckBox.setText("Бухта");
+        harborCheckBox.setName("Бухта"); // NOI18N
         harborCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 harborCheckBoxActionPerformed(evt);
             }
         });
-        chooseLocationsPanel.add(harborCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 170, -1));
+        chooseLocationsPanel.add(harborCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 170, -1));
 
         hellCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         hellCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         hellCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         hellCheckBox.setText("Перекрёстки преисподни");
+        hellCheckBox.setName("Перекрёстки преисподни"); // NOI18N
         hellCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hellCheckBoxActionPerformed(evt);
             }
         });
-        chooseLocationsPanel.add(hellCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 330, -1));
+        chooseLocationsPanel.add(hellCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 330, -1));
 
         skyCastleCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         skyCastleCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         skyCastleCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         skyCastleCheckBox.setText("Небесный храм");
+        skyCastleCheckBox.setName("Небесный храм"); // NOI18N
         skyCastleCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 skyCastleCheckBoxActionPerformed(evt);
             }
         });
-        chooseLocationsPanel.add(skyCastleCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 220, -1));
+        chooseLocationsPanel.add(skyCastleCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 220, -1));
 
         titlePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/mk_logo.png"))); // NOI18N
         titlePicture.setText("jLabel1");
@@ -1039,18 +1053,29 @@ public class JFrames extends javax.swing.JFrame {
     }//GEN-LAST:event_skyCastleCheckBoxActionPerformed
 
     private void chooseLocationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseLocationsButtonActionPerformed
-        // TODO add your handling code here:
-        chooseLocationsDialog.dispose();
-        fightFrame.setVisible(true);
+        // TODO add your handling code here:      
+        HashMap<String, String> chosenLocations = new HashMap<String, String>();
+        for (JCheckBox location : allLocations.keySet()) {
+            if (location.isSelected()) {
+                chosenLocations.put(location.getName(), allLocations.get(location));
+                location.setSelected(false);
+            }
+        }
+        if (chosenLocations.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Вы должны выбрать хотя бы одну локацию", "Ошибка", JOptionPane.ERROR_MESSAGE);
+        } else {
+            chooseLocationsDialog.dispose();
+            fightFrame.setVisible(true);
 
-        player = game.newPlayer(playerHealthProgressBar);
+            player = game.newPlayer(playerHealthProgressBar);
 
-        enemy = game.NewEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, enemyHealthProgressBar);
+            enemy = game.NewEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, enemyHealthProgressBar);
 
-        game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel,
-                playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel,
-                playerQuantityDamageLabel, turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber,
-                items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
+            game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel,
+                    playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel,
+                    playerQuantityDamageLabel, turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber,
+                    items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
+        }
 
     }//GEN-LAST:event_chooseLocationsButtonActionPerformed
 
