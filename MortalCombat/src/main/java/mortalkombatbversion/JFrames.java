@@ -108,6 +108,8 @@ public class JFrames extends javax.swing.JFrame {
         elixirRestrictionLabel1 = new javax.swing.JLabel();
         elixirRestrictionLabel2 = new javax.swing.JLabel();
         closeElixirRestrictionButton = new javax.swing.JButton();
+        chooseLocationsDialog = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
         menuPanel = new javax.swing.JPanel();
         gameNameAndPictureLabel = new javax.swing.JLabel();
         startGameButton = new javax.swing.JButton();
@@ -737,7 +739,16 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(elixirRestrictionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        chooseLocationsDialog.setPreferredSize(new java.awt.Dimension(530, 500));
+        chooseLocationsDialog.setResizable(false);
+        chooseLocationsDialog.setSize(new java.awt.Dimension(530, 500));
+        chooseLocationsDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        chooseLocationsDialog.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(530, 485));
         setMinimumSize(new java.awt.Dimension(530, 485));
         setResizable(false);
 
@@ -953,6 +964,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JPanel bagPanel;
     private javax.swing.JRadioButton bigHealingElixirRadioButton;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JDialog chooseLocationsDialog;
     private javax.swing.JButton closeElixirRestrictionButton;
     private javax.swing.JButton closeInfoAboutWinnerButton;
     private javax.swing.JButton closeRecordsTableButton;
@@ -978,6 +990,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JButton goodsButton;
     private javax.swing.JDialog infoAboutWinnerDialog;
     private javax.swing.JPanel infoAboutWinnerPanel;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel locationPicture;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField nameForRecordTableTextField;
