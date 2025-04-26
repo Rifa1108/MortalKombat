@@ -118,7 +118,6 @@ public class JFrames extends javax.swing.JFrame {
         skyCastleCheckBox = new javax.swing.JCheckBox();
         titlePicture = new javax.swing.JLabel();
         chooseLocationsButton = new javax.swing.JButton();
-        locationsButtonGroup = new javax.swing.ButtonGroup();
         menuPanel = new javax.swing.JPanel();
         gameNameAndPictureLabel = new javax.swing.JLabel();
         startGameButton = new javax.swing.JButton();
@@ -764,7 +763,7 @@ public class JFrames extends javax.swing.JFrame {
         chooseLocationsPanel.setPreferredSize(new java.awt.Dimension(530, 500));
         chooseLocationsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        locationsButtonGroup.add(junglesCheckBox);
+        junglesCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         junglesCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         junglesCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         junglesCheckBox.setText("Куатанские джунгли");
@@ -775,7 +774,7 @@ public class JFrames extends javax.swing.JFrame {
         });
         chooseLocationsPanel.add(junglesCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 280, -1));
 
-        locationsButtonGroup.add(deadForestCheckBox);
+        deadForestCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         deadForestCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         deadForestCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         deadForestCheckBox.setText("Мёртвый лес");
@@ -786,7 +785,7 @@ public class JFrames extends javax.swing.JFrame {
         });
         chooseLocationsPanel.add(deadForestCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 190, -1));
 
-        locationsButtonGroup.add(campCheckBox);
+        campCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         campCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         campCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         campCheckBox.setText("Лагерь беженцов");
@@ -798,7 +797,7 @@ public class JFrames extends javax.swing.JFrame {
         });
         chooseLocationsPanel.add(campCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 230, -1));
 
-        locationsButtonGroup.add(harborCheckBox);
+        harborCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         harborCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         harborCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         harborCheckBox.setText("Бухта");
@@ -809,7 +808,7 @@ public class JFrames extends javax.swing.JFrame {
         });
         chooseLocationsPanel.add(harborCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 170, -1));
 
-        locationsButtonGroup.add(hellCheckBox);
+        hellCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         hellCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         hellCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         hellCheckBox.setText("Перекрёстки преисподни");
@@ -820,7 +819,7 @@ public class JFrames extends javax.swing.JFrame {
         });
         chooseLocationsPanel.add(hellCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 330, -1));
 
-        locationsButtonGroup.add(skyCastleCheckBox);
+        skyCastleCheckBox.setBackground(new java.awt.Color(0, 0, 0));
         skyCastleCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
         skyCastleCheckBox.setForeground(new java.awt.Color(172, 140, 115));
         skyCastleCheckBox.setText("Небесный храм");
@@ -840,7 +839,12 @@ public class JFrames extends javax.swing.JFrame {
         chooseLocationsButton.setForeground(new java.awt.Color(172, 140, 115));
         chooseLocationsButton.setText("Выбрать");
         chooseLocationsButton.setBorder(null);
-        chooseLocationsPanel.add(chooseLocationsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
+        chooseLocationsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chooseLocationsButtonActionPerformed(evt);
+            }
+        });
+        chooseLocationsPanel.add(chooseLocationsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, -1));
 
         chooseLocationsDialog.getContentPane().add(chooseLocationsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 500));
 
@@ -921,16 +925,7 @@ public class JFrames extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
-        fightFrame.setVisible(true);
-
-        player = game.newPlayer(playerHealthProgressBar);
-
-        enemy = game.NewEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, enemyHealthProgressBar);
-
-        game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel,
-                playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel,
-                playerQuantityDamageLabel, turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber,
-                items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
+        chooseLocationsDialog.setVisible(true);
 
     }//GEN-LAST:event_startGameButtonActionPerformed
 
@@ -1043,6 +1038,22 @@ public class JFrames extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_skyCastleCheckBoxActionPerformed
 
+    private void chooseLocationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseLocationsButtonActionPerformed
+        // TODO add your handling code here:
+        chooseLocationsDialog.dispose();
+        fightFrame.setVisible(true);
+
+        player = game.newPlayer(playerHealthProgressBar);
+
+        enemy = game.NewEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, enemyHealthProgressBar);
+
+        game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel,
+                playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel,
+                playerQuantityDamageLabel, turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber,
+                items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
+
+    }//GEN-LAST:event_chooseLocationsButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1119,7 +1130,6 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JPanel infoAboutWinnerPanel;
     private javax.swing.JCheckBox junglesCheckBox;
     private javax.swing.JLabel locationPicture;
-    private javax.swing.ButtonGroup locationsButtonGroup;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField nameForRecordTableTextField;
     private javax.swing.JLabel playerDamageLabel;
@@ -1158,4 +1168,5 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JPanel winWithoutRecordPanel;
     private javax.swing.JLabel winnerNameLabel;
     // End of variables declaration//GEN-END:variables
+
 }
