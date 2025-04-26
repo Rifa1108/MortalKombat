@@ -127,7 +127,7 @@ public class JFrames extends javax.swing.JFrame {
         fightPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         playerPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Kitana.png"))); // NOI18N
-        fightPanel.add(playerPictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 159, -1, -1));
+        fightPanel.add(playerPictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 175, -1, -1));
 
         attackButton.setBackground(new java.awt.Color(255, 0, 0));
         attackButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
@@ -137,7 +137,7 @@ public class JFrames extends javax.swing.JFrame {
                 attackButtonActionPerformed(evt);
             }
         });
-        fightPanel.add(attackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 587, 110, 44));
+        fightPanel.add(attackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 580, 110, 44));
 
         defendButton.setBackground(new java.awt.Color(255, 204, 0));
         defendButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
@@ -147,13 +147,13 @@ public class JFrames extends javax.swing.JFrame {
                 defendButtonActionPerformed(evt);
             }
         });
-        fightPanel.add(defendButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 587, 109, 44));
+        fightPanel.add(defendButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 580, 109, 44));
 
         playerHealthProgressBar.setBackground(new java.awt.Color(204, 204, 204));
         playerHealthProgressBar.setForeground(new java.awt.Color(51, 255, 51));
         playerHealthProgressBar.setMaximum(80);
         playerHealthProgressBar.setMinimum(-1);
-        fightPanel.add(playerHealthProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 82, 177, 32));
+        fightPanel.add(playerHealthProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 177, 32));
 
         enemyPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Соня.png"))); // NOI18N
         fightPanel.add(enemyPictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 175, 300, -1));
@@ -161,79 +161,89 @@ public class JFrames extends javax.swing.JFrame {
         enemyHealthProgressBar.setBackground(new java.awt.Color(204, 204, 204));
         enemyHealthProgressBar.setForeground(new java.awt.Color(0, 255, 0));
         enemyHealthProgressBar.setMinimum(-1);
-        fightPanel.add(enemyHealthProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 162, 32));
+        fightPanel.add(enemyHealthProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 162, 32));
 
         enemyNameLabel.setBackground(new java.awt.Color(0, 0, 0));
-        enemyNameLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 14)); // NOI18N
-        fightPanel.add(enemyNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 517, 162, 29));
+        enemyNameLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 18)); // NOI18N
+        enemyNameLabel.setForeground(new java.awt.Color(204, 255, 255));
+        enemyNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        enemyNameLabel.setText("Sonya Blade (солдат)");
+        enemyNameLabel.setMaximumSize(new java.awt.Dimension(300, 26));
+        enemyNameLabel.setMinimumSize(new java.awt.Dimension(300, 26));
+        enemyNameLabel.setPreferredSize(new java.awt.Dimension(300, 26));
+        fightPanel.add(enemyNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 300, 29));
 
         enemyDamageLabel.setBackground(new java.awt.Color(255, 255, 255));
         enemyDamageLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        enemyDamageLabel.setForeground(new java.awt.Color(204, 255, 255));
         enemyDamageLabel.setText("Damage");
-        fightPanel.add(enemyDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 120, 62, -1));
+        fightPanel.add(enemyDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 62, -1));
 
         playerDamageLabel.setBackground(new java.awt.Color(255, 255, 255));
         playerDamageLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        playerDamageLabel.setForeground(new java.awt.Color(204, 255, 255));
         playerDamageLabel.setText("Damage");
-        fightPanel.add(playerDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 62, -1));
+        fightPanel.add(playerDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 120, 62, -1));
 
         playerQuantityDamageLabel.setBackground(new java.awt.Color(255, 255, 255));
         playerQuantityDamageLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         playerQuantityDamageLabel.setForeground(new java.awt.Color(255, 0, 0));
         playerQuantityDamageLabel.setText("16");
-        fightPanel.add(playerQuantityDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 120, 40, -1));
+        fightPanel.add(playerQuantityDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 120, 40, -1));
 
         enemyQuantityDamageLabel.setBackground(new java.awt.Color(255, 255, 255));
         enemyQuantityDamageLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         enemyQuantityDamageLabel.setForeground(new java.awt.Color(255, 0, 0));
         enemyQuantityDamageLabel.setText("16");
-        fightPanel.add(enemyQuantityDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 120, 40, -1));
+        fightPanel.add(enemyQuantityDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 40, -1));
 
         playerLevelLabel.setBackground(new java.awt.Color(255, 255, 255));
         playerLevelLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        playerLevelLabel.setForeground(new java.awt.Color(204, 255, 255));
         playerLevelLabel.setText("0 уровень");
-        fightPanel.add(playerLevelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(702, 44, -1, -1));
+        fightPanel.add(playerLevelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, -1, -1));
 
         playerQuantityHeathLabel.setBackground(new java.awt.Color(255, 255, 255));
         playerQuantityHeathLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        playerQuantityHeathLabel.setForeground(new java.awt.Color(102, 102, 102));
+        playerQuantityHeathLabel.setForeground(new java.awt.Color(204, 255, 255));
         playerQuantityHeathLabel.setText("80/80");
-        fightPanel.add(playerQuantityHeathLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 82, -1, -1));
+        fightPanel.add(playerQuantityHeathLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 82, -1, -1));
 
         enemyQuantityHealthLabel.setBackground(new java.awt.Color(255, 255, 255));
         enemyQuantityHealthLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        enemyQuantityHealthLabel.setForeground(new java.awt.Color(102, 102, 102));
+        enemyQuantityHealthLabel.setForeground(new java.awt.Color(204, 255, 255));
         enemyQuantityHealthLabel.setText("80/80");
-        fightPanel.add(enemyQuantityHealthLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        fightPanel.add(enemyQuantityHealthLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 82, -1, -1));
 
         experienceLabel.setBackground(new java.awt.Color(255, 255, 255));
         experienceLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        experienceLabel.setForeground(new java.awt.Color(128, 92, 31));
+        experienceLabel.setForeground(new java.awt.Color(204, 255, 255));
         experienceLabel.setText("experience");
-        fightPanel.add(experienceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
+        fightPanel.add(experienceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
 
         pointsLabel.setBackground(new java.awt.Color(255, 255, 255));
         pointsLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        pointsLabel.setForeground(new java.awt.Color(128, 92, 31));
+        pointsLabel.setForeground(new java.awt.Color(204, 255, 255));
         pointsLabel.setText("points");
-        fightPanel.add(pointsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+        fightPanel.add(pointsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
 
         quantityExperienceLabel.setBackground(new java.awt.Color(255, 255, 255));
         quantityExperienceLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        quantityExperienceLabel.setForeground(new java.awt.Color(113, 90, 16));
+        quantityExperienceLabel.setForeground(new java.awt.Color(204, 255, 255));
         quantityExperienceLabel.setText("0/40");
-        fightPanel.add(quantityExperienceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 120, -1, -1));
+        fightPanel.add(quantityExperienceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
 
         quantityPointsLabel.setBackground(new java.awt.Color(255, 255, 255));
         quantityPointsLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        quantityPointsLabel.setForeground(new java.awt.Color(113, 90, 16));
+        quantityPointsLabel.setForeground(new java.awt.Color(204, 255, 255));
         quantityPointsLabel.setText("00");
-        fightPanel.add(quantityPointsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
+        fightPanel.add(quantityPointsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, -1, -1));
 
         enemyLevelLabel.setBackground(new java.awt.Color(255, 255, 255));
         enemyLevelLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        enemyLevelLabel.setForeground(new java.awt.Color(204, 255, 255));
         enemyLevelLabel.setText("1 уровень");
-        fightPanel.add(enemyLevelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 44, -1, -1));
+        fightPanel.add(enemyLevelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         turnInfoLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         turnInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -244,10 +254,11 @@ public class JFrames extends javax.swing.JFrame {
         commentAboutFightLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fightPanel.add(commentAboutFightLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 327, 237, 35));
 
-        playerNameLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 14)); // NOI18N
+        playerNameLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 24)); // NOI18N
+        playerNameLabel.setForeground(new java.awt.Color(204, 255, 255));
         playerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         playerNameLabel.setText("Kitana ");
-        fightPanel.add(playerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(747, 507, 118, 24));
+        fightPanel.add(playerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 500, 90, 24));
 
         specialCommentAboutFightLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         specialCommentAboutFightLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -261,9 +272,9 @@ public class JFrames extends javax.swing.JFrame {
                 goodsButtonActionPerformed(evt);
             }
         });
-        fightPanel.add(goodsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 587, 110, 44));
+        fightPanel.add(goodsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 580, 110, 44));
 
-        locationPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Sky_Temple.png"))); // NOI18N
+        locationPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Небесный_храм.png"))); // NOI18N
         locationPicture.setMaximumSize(new java.awt.Dimension(1000, 700));
         locationPicture.setMinimumSize(new java.awt.Dimension(1000, 700));
         locationPicture.setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -431,9 +442,7 @@ public class JFrames extends javax.swing.JFrame {
         );
 
         recordsTableDialog.setBackground(new java.awt.Color(0, 0, 0));
-        recordsTableDialog.setMaximumSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setMinimumSize(new java.awt.Dimension(594, 520));
-        recordsTableDialog.setPreferredSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setResizable(false);
 
         recordsTablePanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -729,7 +738,6 @@ public class JFrames extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(530, 485));
         setMinimumSize(new java.awt.Dimension(530, 485));
         setResizable(false);
 
