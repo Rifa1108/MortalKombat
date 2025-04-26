@@ -8,16 +8,15 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class ShaoKahnFabric implements EnemyFabricInterface{
-    
+public class ShaoKahnFabric implements EnemyFabricInterface {
+
     @Override
     public Fighter create(int i) {
         Fighter enemy;
-        if(i==0){
+        if (i == 0) {
             enemy = new ShaoKahn(3, 100, 30, 1);
-        }
-        else{
-           enemy = new ShaoKahn(3, 145, 44, 1); 
+        } else {
+            enemy = new ShaoKahn(3, 145, 44, 1);
         }
         return enemy;
     }

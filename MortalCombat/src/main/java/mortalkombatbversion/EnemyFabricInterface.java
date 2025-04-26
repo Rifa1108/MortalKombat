@@ -9,5 +9,6 @@ package mortalkombatbversion;
  * @author Мария
  */
 public interface EnemyFabricInterface {
+
     public Fighter create(int i);
 }

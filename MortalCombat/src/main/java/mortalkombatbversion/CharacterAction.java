@@ -4,10 +4,7 @@
  */
 package mortalkombatbversion;
 
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JProgressBar;
+import javax.swing.*;
 
 /**
  *
@@ -38,8 +35,8 @@ public class CharacterAction {
         return this.enemyes;
     }
 
-    public Fighter ChooseEnemy(JLabel enemyPictureLabel, JLabel enemyNameLabel, 
-                               JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel) {
+    public Fighter ChooseEnemy(JLabel enemyPictureLabel, JLabel enemyNameLabel,
+            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel) {
         int enemyNumber = (int) (Math.random() * 4);
         ImageIcon enemyPicture = null;
         switch (enemyNumber) {
@@ -70,9 +67,9 @@ public class CharacterAction {
         return enemyy;
     }
 
-    public Fighter ChooseBoss(JLabel enemyPictureLabel, JLabel enemyNameLabel, 
-                              JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel, 
-                              int playerLevel) {
+    public Fighter ChooseBoss(JLabel enemyPictureLabel, JLabel enemyNameLabel,
+            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel,
+            int playerLevel) {
         ImageIcon icon1 = null;
         icon1 = new ImageIcon("src\\main\\resources\\Pictures\\General_Shao.png");
         enemyNameLabel.setText("Shao Kahn (босс)");
@@ -95,21 +92,18 @@ public class CharacterAction {
         double i = Math.random();
         if (i < k1 * 0.01) {
             arr = kind_fight[0];
-        }
-        else if (i < (k1 + k2) * 0.01) {
+        } else if (i < (k1 + k2) * 0.01) {
             arr = kind_fight[1];
-        }
-        else if (i < (k1 + k2 + k3) * 0.01) {
+        } else if (i < (k1 + k2 + k3) * 0.01) {
             arr = kind_fight[2];
-        }
-        else {
+        } else {
             arr = kind_fight[3];
         }
         return arr;
     }
 
     public int[] ChooseBehavior(Fighter enemy) {
-        int arr[] = null;  
+        int arr[] = null;
         if (enemy instanceof Baraka) {
             arr = EnemyBehavior(15, 15, 60, 10);
         }
@@ -259,7 +253,7 @@ public class CharacterAction {
         enemy.levelUp();
     }
 
-    public void UseItem(Fighter player, Items[] items, String nameElixirButton, 
+    public void UseItem(Fighter player, Items[] items, String nameElixirButton,
             JDialog elixirRestrictionDialog, JDialog bagDialog) {
         switch (nameElixirButton) {
             case "smallHealingElixir":
@@ -285,8 +279,8 @@ public class CharacterAction {
                 elixirRestrictionDialog.setBounds(300, 200, 400, 300);
                 break;
         }
-        
-        if(elixirRestrictionDialog.isVisible()==false){
+
+        if (elixirRestrictionDialog.isVisible() == false) {
             bagDialog.dispose();
         }
     }

@@ -13,7 +13,6 @@ import javax.swing.JRadioButton;
  */
 public class TextChanger {
 
-// smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthRadioButton
     public void NewRoundTexts(Fighter human, Fighter enemy, JLabel quantityPointsLabel,
             JLabel quantityExperienceLabel, JLabel playerLevelLabel,
             JLabel enemyLevelLabel, JLabel playerQuantityHeathLabel,
@@ -36,9 +35,9 @@ public class TextChanger {
         BagText(items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
         commentAboutFightLabel.setText("");
     }
-    
-    public void RoundTexts(Fighter human, Fighter enemy, JLabel enemyQuantityHealthLabel, 
-                           JLabel playerQuantityHeathLabel, int moveNumber, JLabel turnInfoLabel) {
+
+    public void RoundTexts(Fighter human, Fighter enemy, JLabel enemyQuantityHealthLabel,
+            JLabel playerQuantityHeathLabel, int moveNumber, JLabel turnInfoLabel) {
         if (enemy.getHealth() >= 0) {
             enemyQuantityHealthLabel.setText(Integer.toString(enemy.getHealth()) + "/" + Integer.toString(enemy.getMaxHealth()));
         } else {
@@ -66,11 +65,11 @@ public class TextChanger {
 
     public void BagText(Items[] items, JRadioButton smallHealingElixirRadioButton,
             JRadioButton bigHealingElixirRadioButton, JRadioButton rebirthElixirRadioButton) {
-        
+
         smallHealingElixirRadioButton.setText(items[0].getName() + ", " + items[0].getCount() + " шт");
         bigHealingElixirRadioButton.setText(items[1].getName() + ", " + items[1].getCount() + " шт");
         rebirthElixirRadioButton.setText(items[2].getName() + ", " + items[2].getCount() + " шт");
-        
+
     }
 
 }

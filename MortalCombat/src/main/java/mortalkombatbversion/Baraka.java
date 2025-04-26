@@ -8,15 +8,15 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class Baraka extends Fighter{
-    
-    public Baraka(int level, int health, int  damage, int attack){
-        super (level, health, damage, attack);
+public class Baraka extends Fighter {
+
+    public Baraka(int level, int health, int damage, int attack) {
+        super(level, health, damage, attack);
     }
-    
+
     @Override
-    public String getName(){
+    public String getName() {
         return "Baraka";
     }
-    
+
 }

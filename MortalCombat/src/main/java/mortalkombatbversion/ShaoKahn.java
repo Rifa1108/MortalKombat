@@ -8,14 +8,14 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class ShaoKahn extends Fighter{
-    
-    public ShaoKahn(int level, int health, int  damage, int attack){
-        super (level, health, damage, attack);
+public class ShaoKahn extends Fighter {
+
+    public ShaoKahn(int level, int health, int damage, int attack) {
+        super(level, health, damage, attack);
     }
-    
+
     @Override
-    public String getName(){
+    public String getName() {
         return "Shao Kahn";
     }
 }

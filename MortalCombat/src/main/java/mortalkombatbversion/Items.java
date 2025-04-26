@@ -9,26 +9,28 @@ package mortalkombatbversion;
  * @author Мария
  */
 public class Items {
-    
+
     private String name;
     private int count;
-    
-    public Items(String name, int count){
-        this.name=name;
-        this.count=count;
+
+    public Items(String name, int count) {
+        this.name = name;
+        this.count = count;
     }
-    
-    public void setName(String name){
-        this.name=name;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public void addElixir(int quantity){
-        this.count+=quantity;
+
+    public void addElixir(int quantity) {
+        this.count += quantity;
     }
-    
-    public String getName(){
+
+    public String getName() {
         return this.name;
     }
-    public int getCount(){
+
+    public int getCount() {
         return this.count;
     }
 }

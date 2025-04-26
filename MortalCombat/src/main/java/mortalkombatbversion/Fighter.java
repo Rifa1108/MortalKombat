@@ -9,58 +9,67 @@ package mortalkombatbversion;
  * @author Мария
  */
 public class Fighter {
-    
+
     private int level;
     private int health;
     private int maxhealth;
     private int damage;
     private int attack;
-    
-    public Fighter(int level, int health, int damage, int attack){
-        this.level=level;
-        this.health=health;
-        this.damage=damage;
-        this.attack=attack;
-        this.maxhealth=health;
+
+    public Fighter(int level, int health, int damage, int attack) {
+        this.level = level;
+        this.health = health;
+        this.damage = damage;
+        this.attack = attack;
+        this.maxhealth = health;
     }
-   
-    public void levelUp(){
+
+    public void levelUp() {
         this.level++;
     }
-    public void addHealth(int addedHealth){
-        this.health+=addedHealth;
+
+    public void addHealth(int addedHealth) {
+        this.health += addedHealth;
     }
-    public void setHealth(int health){
-        this.health=health;
+
+    public void setHealth(int health) {
+        this.health = health;
     }
-    public void addDamage(int addedDamage){
-        this.damage+=addedDamage;
+
+    public void addDamage(int addedDamage) {
+        this.damage += addedDamage;
     }
-    public void setAttack(int attack){
-        this.attack=attack;
+
+    public void setAttack(int attack) {
+        this.attack = attack;
     }
-    public void addMaxHealth(int addedMaxHealth){
-        this.maxhealth+=addedMaxHealth;
+
+    public void addMaxHealth(int addedMaxHealth) {
+        this.maxhealth += addedMaxHealth;
     }
-    
-    public int getLevel(){
+
+    public int getLevel() {
         return this.level;
     }
-    public int getHealth(){
+
+    public int getHealth() {
         return this.health;
     }
-    public int getDamage(){
+
+    public int getDamage() {
         return this.damage;
     }
-    public int getAttack(){
+
+    public int getAttack() {
         return this.attack;
     }
-    public int getMaxHealth(){
+
+    public int getMaxHealth() {
         return this.maxhealth;
     }
-    
-    public String getName(){
+
+    public String getName() {
         return "";
     }
-    
+
 }

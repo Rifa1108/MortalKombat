@@ -8,14 +8,14 @@ package mortalkombatbversion;
  *
  * @author Мария
  */
-public class SonyaBlade extends Fighter{
-    
-    public SonyaBlade (int level, int health, int  damage, int attack){
-        super (level, health, damage, attack);
+public class SonyaBlade extends Fighter {
+
+    public SonyaBlade(int level, int health, int damage, int attack) {
+        super(level, health, damage, attack);
     }
-    
+
     @Override
-    public String getName(){
+    public String getName() {
         return "Sonya Blade";
     }
 }

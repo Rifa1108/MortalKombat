@@ -4,13 +4,8 @@
  */
 package mortalkombatbversion;
 
-//ADD IMAGE!!!
 import java.util.ArrayList;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JProgressBar;
-import javax.swing.JRadioButton;
+import javax.swing.*;
 
 /**
  *
@@ -20,8 +15,6 @@ public class Fight {
 
     TextChanger textChanger = new TextChanger();
     int kind_attack[] = {0};
-    int experiences[] = {40, 90, 180, 260, 410};
-    EnemyFabric fabric = new EnemyFabric();
     int moveNumber = 1;
     int k = -1;
     int stun = 0;
@@ -70,7 +63,7 @@ public class Fight {
                 break;
         }
     }
-               
+
     public void Hit(Fighter player, Fighter enemy, int attack, JLabel enemyQuantityHealthLabel,
             JLabel playerQuantityHeathLabel, JDialog infoAboutWinnerDialog, JLabel winnerNameLabel, CharacterAction action,
             JProgressBar playerHealthProgressBar, JProgressBar enemyHealthProgressBar, JDialog winWithRecordDialog,
@@ -114,8 +107,8 @@ public class Fight {
         }
     }
 
-    public void EndRound(Fighter player, Fighter enemy, JDialog infoAboutWinnerDialog, 
-                         JLabel winnerNameLabel, CharacterAction action, Items[] items) {
+    public void EndRound(Fighter player, Fighter enemy, JDialog infoAboutWinnerDialog,
+            JLabel winnerNameLabel, CharacterAction action, Items[] items) {
 
         infoAboutWinnerDialog.setVisible(true);
         infoAboutWinnerDialog.setBounds(300, 150, 700, 600);
@@ -140,9 +133,9 @@ public class Fight {
 
     }
 
-    public void EndFinalRound(Player player, CharacterAction action, ArrayList<Result> results, 
-                              JDialog winWithRecordDialog, JDialog winWithoutRecordDialog, 
-                              JFrame fightFrame, JLabel winWithRecordLabel, JLabel winWithoutRecordLabel) {
+    public void EndFinalRound(Player player, CharacterAction action, ArrayList<Result> results,
+            JDialog winWithRecordDialog, JDialog winWithoutRecordDialog,
+            JFrame fightFrame, JLabel winWithRecordLabel, JLabel winWithoutRecordLabel) {
         String text = "Победа не на вашей стороне";
         if (player.getHealth() > 0) {
             player.addWin();
@@ -181,9 +174,9 @@ public class Fight {
     }
 
     public Fighter NewRound(Fighter player, JLabel enemyPictureLabel, JProgressBar playerHealthProgressBar,
-                            JProgressBar enemyHealthProgressBar, JLabel enemyNameLabel, 
-                            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel, 
-                            CharacterAction action) {
+            JProgressBar enemyHealthProgressBar, JLabel enemyNameLabel,
+            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel,
+            CharacterAction action) {
 
         Fighter enemy1 = null;
         if (((Player) player).getWin() == 6 | ((Player) player).getWin() == 11) {
