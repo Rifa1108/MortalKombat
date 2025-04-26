@@ -111,7 +111,6 @@ public class Fight {
             JLabel winnerNameLabel, CharacterAction action, Items[] items) {
 
         infoAboutWinnerDialog.setVisible(true);
-        infoAboutWinnerDialog.setBounds(300, 150, 700, 600);
         if (player.getHealth() > 0) {
             winnerNameLabel.setText("You win");
             ((Player) player).addWin();
@@ -158,11 +157,9 @@ public class Fight {
         }
         if (top) {
             winWithRecordDialog.setVisible(true);
-            winWithRecordDialog.setBounds(150, 150, 600, 500);
             winWithRecordLabel.setText(text);
         } else {
             winWithoutRecordDialog.setVisible(true);
-            winWithoutRecordDialog.setBounds(150, 150, 470, 360);
             winWithoutRecordLabel.setText(text);
         }
         fightFrame.dispose();

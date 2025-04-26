@@ -90,13 +90,14 @@ public class JFrames extends javax.swing.JFrame {
         infoAboutWinnerPanel = new javax.swing.JPanel();
         winnerNameLabel = new javax.swing.JLabel();
         closeInfoAboutWinnerButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         winWithRecordDialog = new javax.swing.JDialog();
         winWithRecordPanel = new javax.swing.JPanel();
         winWithRecordLabel = new javax.swing.JLabel();
         nameForRecordTableTextField = new javax.swing.JTextField();
         winWithRecordLabel1 = new javax.swing.JLabel();
-        winWithRecordLabel2 = new javax.swing.JLabel();
         finishWinWithRecordGameButton = new javax.swing.JButton();
+        backgroundImage = new javax.swing.JLabel();
         recordsTableDialog = new javax.swing.JDialog();
         recordsTablePanel = new javax.swing.JPanel();
         recordsTableLabel = new javax.swing.JLabel();
@@ -109,6 +110,7 @@ public class JFrames extends javax.swing.JFrame {
         winWithoutRecordLabel = new javax.swing.JLabel();
         winWithoutRecordLabel1 = new javax.swing.JLabel();
         finishWinWithoutRecordGameButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         bagDialog = new javax.swing.JDialog();
         bagPanel = new javax.swing.JPanel();
         bagLabel = new javax.swing.JLabel();
@@ -319,71 +321,67 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(fightPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        infoAboutWinnerDialog.setMaximumSize(new java.awt.Dimension(560, 395));
+        infoAboutWinnerDialog.setMinimumSize(new java.awt.Dimension(560, 395));
+        infoAboutWinnerDialog.setPreferredSize(new java.awt.Dimension(560, 395));
+        infoAboutWinnerDialog.setResizable(false);
+        infoAboutWinnerDialog.setSize(new java.awt.Dimension(560, 395));
+        infoAboutWinnerDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         infoAboutWinnerPanel.setBackground(new java.awt.Color(179, 226, 217));
+        infoAboutWinnerPanel.setMaximumSize(new java.awt.Dimension(560, 395));
+        infoAboutWinnerPanel.setMinimumSize(new java.awt.Dimension(560, 395));
+        infoAboutWinnerPanel.setPreferredSize(new java.awt.Dimension(560, 395));
+        infoAboutWinnerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         winnerNameLabel.setBackground(new java.awt.Color(204, 204, 204));
-        winnerNameLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 42)); // NOI18N
-        winnerNameLabel.setForeground(new java.awt.Color(204, 0, 0));
+        winnerNameLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
+        winnerNameLabel.setForeground(java.awt.Color.red);
         winnerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         winnerNameLabel.setText("jLabel18");
         winnerNameLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        infoAboutWinnerPanel.add(winnerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 60, 520, 143));
 
-        closeInfoAboutWinnerButton.setBackground(new java.awt.Color(114, 218, 142));
-        closeInfoAboutWinnerButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        closeInfoAboutWinnerButton.setBackground(new java.awt.Color(0, 0, 0));
+        closeInfoAboutWinnerButton.setFont(new java.awt.Font("Comic Sans MS", 0, 30)); // NOI18N
+        closeInfoAboutWinnerButton.setForeground(java.awt.Color.red);
         closeInfoAboutWinnerButton.setText("Дальше");
+        closeInfoAboutWinnerButton.setBorder(null);
         closeInfoAboutWinnerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 closeInfoAboutWinnerButtonActionPerformed(evt);
             }
         });
+        infoAboutWinnerPanel.add(closeInfoAboutWinnerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 180, 60));
 
-        javax.swing.GroupLayout infoAboutWinnerPanelLayout = new javax.swing.GroupLayout(infoAboutWinnerPanel);
-        infoAboutWinnerPanel.setLayout(infoAboutWinnerPanelLayout);
-        infoAboutWinnerPanelLayout.setHorizontalGroup(
-            infoAboutWinnerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoAboutWinnerPanelLayout.createSequentialGroup()
-                .addGroup(infoAboutWinnerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(infoAboutWinnerPanelLayout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(closeInfoAboutWinnerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(infoAboutWinnerPanelLayout.createSequentialGroup()
-                        .addGap(104, 104, 104)
-                        .addComponent(winnerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(106, Short.MAX_VALUE))
-        );
-        infoAboutWinnerPanelLayout.setVerticalGroup(
-            infoAboutWinnerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoAboutWinnerPanelLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(winnerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                .addComponent(closeInfoAboutWinnerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/infoLogo.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(560, 395));
+        jLabel1.setMinimumSize(new java.awt.Dimension(560, 395));
+        jLabel1.setPreferredSize(new java.awt.Dimension(560, 395));
+        infoAboutWinnerPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
-        javax.swing.GroupLayout infoAboutWinnerDialogLayout = new javax.swing.GroupLayout(infoAboutWinnerDialog.getContentPane());
-        infoAboutWinnerDialog.getContentPane().setLayout(infoAboutWinnerDialogLayout);
-        infoAboutWinnerDialogLayout.setHorizontalGroup(
-            infoAboutWinnerDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoAboutWinnerDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(infoAboutWinnerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        infoAboutWinnerDialogLayout.setVerticalGroup(
-            infoAboutWinnerDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoAboutWinnerDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(infoAboutWinnerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        infoAboutWinnerDialog.getContentPane().add(infoAboutWinnerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
-        winWithRecordPanel.setBackground(new java.awt.Color(255, 204, 255));
+        winWithRecordDialog.setMaximumSize(new java.awt.Dimension(560, 395));
+        winWithRecordDialog.setMinimumSize(new java.awt.Dimension(560, 395));
+        winWithRecordDialog.setPreferredSize(new java.awt.Dimension(560, 395));
+        winWithRecordDialog.setResizable(false);
+        winWithRecordDialog.setSize(new java.awt.Dimension(560, 395));
+        winWithRecordDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        winWithRecordLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        winWithRecordPanel.setBackground(new java.awt.Color(0, 0, 0));
+        winWithRecordPanel.setForeground(java.awt.Color.red);
+        winWithRecordPanel.setMaximumSize(new java.awt.Dimension(560, 395));
+        winWithRecordPanel.setMinimumSize(new java.awt.Dimension(560, 395));
+        winWithRecordPanel.setPreferredSize(new java.awt.Dimension(560, 395));
+        winWithRecordPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        winWithRecordLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 30)); // NOI18N
         winWithRecordLabel.setForeground(new java.awt.Color(255, 0, 0));
         winWithRecordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        winWithRecordLabel.setText("Победа на вашей стороне");
+        winWithRecordLabel.setText("Победа на Вашей стороне");
+        winWithRecordPanel.add(winWithRecordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 440, 60));
 
         nameForRecordTableTextField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         nameForRecordTableTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -392,80 +390,32 @@ public class JFrames extends javax.swing.JFrame {
                 nameForRecordTableTextFieldActionPerformed(evt);
             }
         });
+        winWithRecordPanel.add(nameForRecordTableTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 312, 56));
 
-        winWithRecordLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        winWithRecordLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        winWithRecordLabel1.setText("Введите имя своего персонажа для добавления");
+        winWithRecordLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 20)); // NOI18N
+        winWithRecordLabel1.setForeground(java.awt.Color.red);
+        winWithRecordLabel1.setText("<html>Введите имя своего персонажа для добавления результата в таблицу рекордов</html>");
+        winWithRecordPanel.add(winWithRecordLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 490, 90));
 
-        winWithRecordLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        winWithRecordLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        winWithRecordLabel2.setText("результата в таблицу рекордов");
-
-        finishWinWithRecordGameButton.setBackground(new java.awt.Color(153, 153, 255));
-        finishWinWithRecordGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        finishWinWithRecordGameButton.setForeground(new java.awt.Color(51, 51, 51));
+        finishWinWithRecordGameButton.setBackground(new java.awt.Color(0, 0, 0));
+        finishWinWithRecordGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        finishWinWithRecordGameButton.setForeground(java.awt.Color.red);
         finishWinWithRecordGameButton.setText("Закончить игру");
+        finishWinWithRecordGameButton.setBorder(null);
         finishWinWithRecordGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finishWinWithRecordGameButtonActionPerformed(evt);
             }
         });
+        winWithRecordPanel.add(finishWinWithRecordGameButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 300, -1, 50));
 
-        javax.swing.GroupLayout winWithRecordPanelLayout = new javax.swing.GroupLayout(winWithRecordPanel);
-        winWithRecordPanel.setLayout(winWithRecordPanelLayout);
-        winWithRecordPanelLayout.setHorizontalGroup(
-            winWithRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, winWithRecordPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(finishWinWithRecordGameButton)
-                .addGap(14, 14, 14))
-            .addGroup(winWithRecordPanelLayout.createSequentialGroup()
-                .addGroup(winWithRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(winWithRecordPanelLayout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(winWithRecordLabel2))
-                    .addGroup(winWithRecordPanelLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(winWithRecordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(winWithRecordPanelLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(winWithRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameForRecordTableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(winWithRecordLabel1))))
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        winWithRecordPanelLayout.setVerticalGroup(
-            winWithRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(winWithRecordPanelLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(winWithRecordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(winWithRecordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(winWithRecordLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(nameForRecordTableTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(finishWinWithRecordGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/infoLogo.jpg"))); // NOI18N
+        backgroundImage.setMaximumSize(new java.awt.Dimension(560, 395));
+        backgroundImage.setMinimumSize(new java.awt.Dimension(560, 395));
+        backgroundImage.setPreferredSize(new java.awt.Dimension(560, 395));
+        winWithRecordPanel.add(backgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
-        javax.swing.GroupLayout winWithRecordDialogLayout = new javax.swing.GroupLayout(winWithRecordDialog.getContentPane());
-        winWithRecordDialog.getContentPane().setLayout(winWithRecordDialogLayout);
-        winWithRecordDialogLayout.setHorizontalGroup(
-            winWithRecordDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(winWithRecordDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(winWithRecordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        winWithRecordDialogLayout.setVerticalGroup(
-            winWithRecordDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(winWithRecordDialogLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(winWithRecordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        winWithRecordDialog.getContentPane().add(winWithRecordPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
         recordsTableDialog.setBackground(new java.awt.Color(0, 0, 0));
         recordsTableDialog.setMaximumSize(new java.awt.Dimension(594, 520));
@@ -555,66 +505,51 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(recordsTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        winWithoutRecordPanel.setBackground(new java.awt.Color(255, 204, 255));
+        winWithoutRecordDialog.setMaximumSize(new java.awt.Dimension(560, 395));
+        winWithoutRecordDialog.setMinimumSize(new java.awt.Dimension(560, 395));
+        winWithoutRecordDialog.setPreferredSize(new java.awt.Dimension(560, 395));
+        winWithoutRecordDialog.setResizable(false);
+        winWithoutRecordDialog.setSize(new java.awt.Dimension(560, 395));
+        winWithoutRecordDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        winWithoutRecordLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        winWithoutRecordPanel.setBackground(new java.awt.Color(255, 204, 255));
+        winWithoutRecordPanel.setMaximumSize(new java.awt.Dimension(560, 395));
+        winWithoutRecordPanel.setMinimumSize(new java.awt.Dimension(560, 395));
+        winWithoutRecordPanel.setPreferredSize(new java.awt.Dimension(560, 395));
+        winWithoutRecordPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        winWithoutRecordLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 32)); // NOI18N
         winWithoutRecordLabel.setForeground(new java.awt.Color(255, 0, 0));
         winWithoutRecordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        winWithoutRecordLabel.setText("Победа на вашей стороне");
+        winWithoutRecordLabel.setText("Победа на Вашей стороне");
+        winWithoutRecordPanel.add(winWithoutRecordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 460, 73));
 
-        winWithoutRecordLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        winWithoutRecordLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        winWithoutRecordLabel1.setText("К сожалению, Ваш результат не попал в топ 10");
+        winWithoutRecordLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        winWithoutRecordLabel1.setForeground(java.awt.Color.red);
+        winWithoutRecordLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        winWithoutRecordLabel1.setText("<html>К сожалению,  Ваш результат не попал в топ 10</html>");
+        winWithoutRecordPanel.add(winWithoutRecordLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 350, 60));
 
-        finishWinWithoutRecordGameButton.setBackground(new java.awt.Color(153, 153, 255));
-        finishWinWithoutRecordGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        finishWinWithoutRecordGameButton.setForeground(new java.awt.Color(51, 51, 51));
+        finishWinWithoutRecordGameButton.setBackground(new java.awt.Color(0, 0, 0));
+        finishWinWithoutRecordGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        finishWinWithoutRecordGameButton.setForeground(java.awt.Color.red);
         finishWinWithoutRecordGameButton.setText("Закончить игру");
+        finishWinWithoutRecordGameButton.setBorder(null);
         finishWinWithoutRecordGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finishWinWithoutRecordGameButtonActionPerformed(evt);
             }
         });
+        winWithoutRecordPanel.add(finishWinWithoutRecordGameButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 300, 210, 51));
 
-        javax.swing.GroupLayout winWithoutRecordPanelLayout = new javax.swing.GroupLayout(winWithoutRecordPanel);
-        winWithoutRecordPanel.setLayout(winWithoutRecordPanelLayout);
-        winWithoutRecordPanelLayout.setHorizontalGroup(
-            winWithoutRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
-                .addGroup(winWithoutRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(winWithoutRecordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(winWithoutRecordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addComponent(finishWinWithoutRecordGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(68, Short.MAX_VALUE))
-        );
-        winWithoutRecordPanelLayout.setVerticalGroup(
-            winWithoutRecordPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(winWithoutRecordPanelLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(winWithoutRecordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(winWithoutRecordLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
-                .addComponent(finishWinWithoutRecordGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/infoLogo.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        jLabel2.setMaximumSize(new java.awt.Dimension(560, 395));
+        jLabel2.setMinimumSize(new java.awt.Dimension(560, 395));
+        jLabel2.setPreferredSize(new java.awt.Dimension(560, 395));
+        winWithoutRecordPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
-        javax.swing.GroupLayout winWithoutRecordDialogLayout = new javax.swing.GroupLayout(winWithoutRecordDialog.getContentPane());
-        winWithoutRecordDialog.getContentPane().setLayout(winWithoutRecordDialogLayout);
-        winWithoutRecordDialogLayout.setHorizontalGroup(
-            winWithoutRecordDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(winWithoutRecordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        winWithoutRecordDialogLayout.setVerticalGroup(
-            winWithoutRecordDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(winWithoutRecordPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        winWithoutRecordDialog.getContentPane().add(winWithoutRecordPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
         bagPanel.setBackground(new java.awt.Color(190, 182, 135));
 
@@ -1144,6 +1079,7 @@ public class JFrames extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton attackButton;
+    private javax.swing.JLabel backgroundImage;
     private javax.swing.JDialog bagDialog;
     private javax.swing.JLabel bagLabel;
     private javax.swing.JPanel bagPanel;
@@ -1181,6 +1117,8 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JCheckBox hellCheckBox;
     private javax.swing.JDialog infoAboutWinnerDialog;
     private javax.swing.JPanel infoAboutWinnerPanel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JCheckBox junglesCheckBox;
     private javax.swing.JLabel locationPicture;
     private javax.swing.JPanel menuPanel;
@@ -1213,7 +1151,6 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JDialog winWithRecordDialog;
     private javax.swing.JLabel winWithRecordLabel;
     private javax.swing.JLabel winWithRecordLabel1;
-    private javax.swing.JLabel winWithRecordLabel2;
     private javax.swing.JPanel winWithRecordPanel;
     private javax.swing.JDialog winWithoutRecordDialog;
     private javax.swing.JLabel winWithoutRecordLabel;
