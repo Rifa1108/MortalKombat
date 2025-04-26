@@ -21,6 +21,9 @@ public class CharacterAction {
     EnemyFabric fabric = new EnemyFabric();
 
     private Fighter enemyy = null;
+    CharacterAction(){
+        setEnemyes();
+    }
 
     public void setEnemyes() {
         enemyes[0] = fabric.create(0, 0);

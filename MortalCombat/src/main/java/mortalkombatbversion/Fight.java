@@ -176,10 +176,9 @@ public class Fight {
     public Fighter NewRound(Fighter player, JLabel enemyPictureLabel, JProgressBar playerHealthProgressBar,
             JProgressBar enemyHealthProgressBar, JLabel enemyNameLabel,
             JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel,
-            CharacterAction action) {
-
-        Fighter enemy1 = null;
-        if (((Player) player).getWin() == 6 | ((Player) player).getWin() == 11) {
+            CharacterAction action, int remainQuantity) {
+        Fighter enemy1 = null; 
+        if (remainQuantity == 1) {
             enemy1 = action.ChooseBoss(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, player.getLevel());
         } else {
             enemy1 = action.ChooseEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel);

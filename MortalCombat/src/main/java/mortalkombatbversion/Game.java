@@ -22,15 +22,6 @@ public class Game {
     Fight fight = new Fight();
     private ArrayList<Result> results = new ArrayList<>();
 
-    public Fighter NewEnemy(JLabel enemyPictureLabel, JLabel enemyNameLabel,
-            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel,
-            JProgressBar enemyHealthProgressBar) {
-        action.setEnemyes();
-        Fighter enemy = action.ChooseEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel);
-        action.setHealthProgressBar(enemy, enemyHealthProgressBar);
-        enemyHealthProgressBar.setMaximum(enemy.getMaxHealth());
-        return enemy;
-    }
 
     public Player newPlayer(JProgressBar playerHealthProgressBar) {
         Player human = new Player(0, 80, 16, 1);

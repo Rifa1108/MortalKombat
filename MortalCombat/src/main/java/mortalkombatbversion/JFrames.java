@@ -7,6 +7,9 @@ package mortalkombatbversion;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
@@ -22,6 +25,8 @@ public class JFrames extends javax.swing.JFrame {
     Items[] items = new Items[3];
     String nameElixirButton = "";
     private HashMap<JCheckBox, String> allLocations = new HashMap<JCheckBox, String>();
+    private HashMap<String, String> chosenLocations;
+    private Map<String, Integer> locationsOrder;
 
     /**
      * Creates new form JFrame
@@ -265,13 +270,14 @@ public class JFrames extends javax.swing.JFrame {
         fightPanel.add(enemyLevelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
         turnInfoLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
+        turnInfoLabel.setForeground(new java.awt.Color(204, 255, 255));
         turnInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fightPanel.add(turnInfoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 251, 164, 43));
+        fightPanel.add(turnInfoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 220, 43));
 
-        commentAboutFightLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        commentAboutFightLabel.setForeground(new java.awt.Color(204, 0, 0));
+        commentAboutFightLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 16)); // NOI18N
+        commentAboutFightLabel.setForeground(new java.awt.Color(204, 255, 255));
         commentAboutFightLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fightPanel.add(commentAboutFightLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 327, 237, 35));
+        fightPanel.add(commentAboutFightLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 310, 35));
 
         playerNameLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 24)); // NOI18N
         playerNameLabel.setForeground(new java.awt.Color(204, 255, 255));
@@ -280,8 +286,9 @@ public class JFrames extends javax.swing.JFrame {
         fightPanel.add(playerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 500, 90, 24));
 
         specialCommentAboutFightLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
+        specialCommentAboutFightLabel.setForeground(new java.awt.Color(204, 255, 255));
         specialCommentAboutFightLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fightPanel.add(specialCommentAboutFightLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 398, 227, 38));
+        fightPanel.add(specialCommentAboutFightLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 227, 38));
 
         goodsButton.setBackground(new java.awt.Color(174, 183, 106));
         goodsButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
@@ -959,13 +966,7 @@ public class JFrames extends javax.swing.JFrame {
     }//GEN-LAST:event_defendButtonActionPerformed
 
     private void closeInfoAboutWinnerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeInfoAboutWinnerButtonActionPerformed
-
-        enemy = game.fight.NewRound(player, enemyPictureLabel, playerHealthProgressBar, enemyHealthProgressBar,
-                enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, game.action);
-
-        game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
-                turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
-
+        startRound();
         infoAboutWinnerDialog.dispose();
     }//GEN-LAST:event_closeInfoAboutWinnerButtonActionPerformed
 
@@ -1054,7 +1055,7 @@ public class JFrames extends javax.swing.JFrame {
 
     private void chooseLocationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseLocationsButtonActionPerformed
         // TODO add your handling code here:      
-        HashMap<String, String> chosenLocations = new HashMap<String, String>();
+        chosenLocations = new HashMap<String, String>();
         for (JCheckBox location : allLocations.keySet()) {
             if (location.isSelected()) {
                 chosenLocations.put(location.getName(), allLocations.get(location));
@@ -1065,19 +1066,46 @@ public class JFrames extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Вы должны выбрать хотя бы одну локацию", "Ошибка", JOptionPane.ERROR_MESSAGE);
         } else {
             chooseLocationsDialog.dispose();
+            setLocationsOrder();
+            player = game.newPlayer(playerHealthProgressBar);
+            startRound();
             fightFrame.setVisible(true);
 
-            player = game.newPlayer(playerHealthProgressBar);
-
-            enemy = game.NewEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, enemyHealthProgressBar);
-
-            game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel,
-                    playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel,
-                    playerQuantityDamageLabel, turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber,
-                    items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
         }
 
     }//GEN-LAST:event_chooseLocationsButtonActionPerformed
+    private void setLocationsOrder() {
+        int locationsQuantity = chosenLocations.size();
+        int goalVictoryQuantity = 11;
+        locationsOrder = new LinkedHashMap<String, Integer>();
+        while (locationsQuantity > 0) {
+            for (String location : chosenLocations.keySet()) {
+                int victoryQuantity = goalVictoryQuantity / locationsQuantity;
+                locationsOrder.put(chosenLocations.get(location), victoryQuantity);
+                goalVictoryQuantity -= victoryQuantity;
+                locationsQuantity -= 1;
+            }
+        }
+    }
+
+    private void startRound() {
+        boolean chosen = false;
+        for (String location : locationsOrder.keySet()) {
+            if (chosen) {
+                break;
+            }
+            int reamainQuantity = locationsOrder.get(location);
+            if (reamainQuantity > 0) {
+                enemy = game.fight.NewRound(player, enemyPictureLabel, playerHealthProgressBar, enemyHealthProgressBar,
+                        enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, game.action, reamainQuantity);
+                game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
+                        turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
+                locationPicture.setIcon(new ImageIcon(location));
+                locationsOrder.put(location, reamainQuantity - 1);
+                chosen = true;
+            }
+        }
+    }
 
     /**
      * @param args the command line arguments
