@@ -45,10 +45,10 @@ public class Game {
         return human;
     }
 
-    public void EndGameTop(Player human, JTextField text, JTable table) throws IOException {
-        results.add(new Result(text.getText(), human.getPoints()));
+    public void EndGameTop(Player player, JTextField nameForRecordTableTextField, JTable recordsTable) throws IOException {
+        results.add(new Result(nameForRecordTableTextField.getText(), player.getPoints()));
         results.sort(Comparator.comparing(Result::getPoints).reversed());
-        WriteToTable(table);
+        WriteToTable(recordsTable);
         WriteToExcel();
     }
 

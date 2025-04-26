@@ -4,6 +4,7 @@
  */
 package mortalkombatbversion;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,11 +27,14 @@ public class JFrames extends javax.swing.JFrame {
     public JFrames() {
         initComponents();
         game.ReadFromExcel();
-        game.WriteToTable(jTable1);
+        game.WriteToTable(recordsTable);
         items[0] = new Items("Малое зелье лечение", 0);
         items[1] = new Items("Большое зелье лечение", 0);
         items[2] = new Items("Крест возрождения", 0);
-
+        recordsTable.getTableHeader().setBackground(Color.BLACK);
+        recordsTable.getTableHeader().setForeground(Color.red);
+        recordsTableScrollPane.getViewport().setBackground(Color.BLACK);
+        recordsTable.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
     }
 
     /**
@@ -80,12 +84,13 @@ public class JFrames extends javax.swing.JFrame {
         winWithRecordLabel1 = new javax.swing.JLabel();
         winWithRecordLabel2 = new javax.swing.JLabel();
         finishWinWithRecordGameButton = new javax.swing.JButton();
-        jDialog3 = new javax.swing.JDialog();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
+        recordsTableDialog = new javax.swing.JDialog();
+        recordsTablePanel = new javax.swing.JPanel();
+        recordsTableLabel = new javax.swing.JLabel();
+        recordsTableScrollPane = new javax.swing.JScrollPane();
+        recordsTable = new javax.swing.JTable();
+        closeRecordsTableButton = new javax.swing.JButton();
+        shortLogoLabel = new javax.swing.JLabel();
         winWithoutRecordDialog = new javax.swing.JDialog();
         winWithoutRecordPanel = new javax.swing.JPanel();
         winWithoutRecordLabel = new javax.swing.JLabel();
@@ -541,14 +546,30 @@ public class JFrames extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
+        recordsTableDialog.setBackground(new java.awt.Color(0, 0, 0));
+        recordsTableDialog.setMaximumSize(new java.awt.Dimension(594, 520));
+        recordsTableDialog.setMinimumSize(new java.awt.Dimension(594, 520));
+        recordsTableDialog.setPreferredSize(new java.awt.Dimension(594, 520));
+        recordsTableDialog.setResizable(false);
 
-        jLabel23.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("Таблица рекордов");
+        recordsTablePanel.setBackground(new java.awt.Color(0, 0, 0));
+        recordsTablePanel.setMaximumSize(new java.awt.Dimension(594, 520));
+        recordsTablePanel.setMinimumSize(new java.awt.Dimension(594, 520));
+        recordsTablePanel.setPreferredSize(new java.awt.Dimension(594, 520));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        recordsTableLabel.setFont(new java.awt.Font("Century", 1, 36)); // NOI18N
+        recordsTableLabel.setForeground(new java.awt.Color(255, 0, 51));
+        recordsTableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        recordsTableLabel.setText("Таблица рекордов");
+
+        recordsTableScrollPane.setBackground(new java.awt.Color(0, 0, 0));
+        recordsTableScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        recordsTableScrollPane.setForeground(new java.awt.Color(255, 0, 51));
+
+        recordsTable.setBackground(new java.awt.Color(0, 0, 0));
+        recordsTable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
+        recordsTable.setForeground(new java.awt.Color(255, 0, 51));
+        recordsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -573,55 +594,74 @@ public class JFrames extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        recordsTable.setGridColor(new java.awt.Color(102, 102, 102));
+        recordsTable.setSelectionBackground(new java.awt.Color(0, 0, 0));
+        recordsTable.setSelectionForeground(new java.awt.Color(255, 0, 51));
+        recordsTableScrollPane.setViewportView(recordsTable);
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 153));
-        jButton7.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("Закрыть");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        closeRecordsTableButton.setBackground(new java.awt.Color(0, 0, 0));
+        closeRecordsTableButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        closeRecordsTableButton.setForeground(new java.awt.Color(255, 0, 0));
+        closeRecordsTableButton.setText("Закрыть");
+        closeRecordsTableButton.setBorder(null);
+        closeRecordsTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                closeRecordsTableButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(160, 160, 160)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(18, 18, 18)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+        shortLogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/mortal_kombat_short_logo.jpg"))); // NOI18N
+        shortLogoLabel.setText("jLabel1");
+        shortLogoLabel.setMaximumSize(new java.awt.Dimension(135, 125));
+        shortLogoLabel.setMinimumSize(new java.awt.Dimension(135, 125));
+        shortLogoLabel.setPreferredSize(new java.awt.Dimension(135, 125));
+
+        javax.swing.GroupLayout recordsTablePanelLayout = new javax.swing.GroupLayout(recordsTablePanel);
+        recordsTablePanel.setLayout(recordsTablePanelLayout);
+        recordsTablePanelLayout.setHorizontalGroup(
+            recordsTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recordsTablePanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(recordsTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, recordsTablePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(closeRecordsTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(recordsTablePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(shortLogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(recordsTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        recordsTablePanelLayout.setVerticalGroup(
+            recordsTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recordsTablePanelLayout.createSequentialGroup()
+                .addGroup(recordsTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(recordsTablePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(shortLogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, recordsTablePanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(recordsTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
+                .addComponent(recordsTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closeRecordsTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43))
         );
 
-        javax.swing.GroupLayout jDialog3Layout = new javax.swing.GroupLayout(jDialog3.getContentPane());
-        jDialog3.getContentPane().setLayout(jDialog3Layout);
-        jDialog3Layout.setHorizontalGroup(
-            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout recordsTableDialogLayout = new javax.swing.GroupLayout(recordsTableDialog.getContentPane());
+        recordsTableDialog.getContentPane().setLayout(recordsTableDialogLayout);
+        recordsTableDialogLayout.setHorizontalGroup(
+            recordsTableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(recordsTablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jDialog3Layout.setVerticalGroup(
-            jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        recordsTableDialogLayout.setVerticalGroup(
+            recordsTableDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(recordsTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         winWithoutRecordPanel.setBackground(new java.awt.Color(255, 204, 255));
@@ -835,15 +875,20 @@ public class JFrames extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(530, 485));
+        setMinimumSize(new java.awt.Dimension(530, 485));
+        setResizable(false);
 
         menuPanel.setBackground(new java.awt.Color(0, 0, 0));
         menuPanel.setForeground(new java.awt.Color(204, 0, 0));
+        menuPanel.setMaximumSize(new java.awt.Dimension(530, 485));
+        menuPanel.setMinimumSize(new java.awt.Dimension(530, 485));
 
         gameNameAndPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/mortal_combat.jpg"))); // NOI18N
 
         startGameButton.setBackground(new java.awt.Color(0, 0, 0));
         startGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        startGameButton.setForeground(new java.awt.Color(255, 0, 0));
+        startGameButton.setForeground(java.awt.Color.red);
         startGameButton.setText("Начать новую игру");
         startGameButton.setBorder(null);
         startGameButton.addActionListener(new java.awt.event.ActionListener() {
@@ -853,8 +898,8 @@ public class JFrames extends javax.swing.JFrame {
         });
 
         showResultsButton.setBackground(new java.awt.Color(0, 0, 0));
-        showResultsButton.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        showResultsButton.setForeground(new java.awt.Color(255, 0, 0));
+        showResultsButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        showResultsButton.setForeground(java.awt.Color.red);
         showResultsButton.setText("Посмотреть таблицу \nрезультатов");
         showResultsButton.setBorder(null);
         showResultsButton.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -869,30 +914,33 @@ public class JFrames extends javax.swing.JFrame {
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(gameNameAndPictureLabel)
-                    .addComponent(showResultsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 9, Short.MAX_VALUE))
+                .addComponent(gameNameAndPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(startGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(showResultsButton))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(startGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addComponent(showResultsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(showResultsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(startGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(gameNameAndPictureLabel))
+                .addGap(30, 30, 30)
+                .addComponent(gameNameAndPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(menuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -909,9 +957,9 @@ public class JFrames extends javax.swing.JFrame {
 
         enemy = game.NewEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, enemyHealthProgressBar);
 
-        game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, 
-                playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, 
-                playerQuantityDamageLabel, turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, 
+        game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel,
+                playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel,
+                playerQuantityDamageLabel, turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber,
                 items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
 
     }//GEN-LAST:event_startGameButtonActionPerformed
@@ -948,7 +996,7 @@ public class JFrames extends javax.swing.JFrame {
 
     private void finishWinWithRecordGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishWinWithRecordGameButtonActionPerformed
         try {
-            game.EndGameTop(player, nameForRecordTableTextField, jTable1);
+            game.EndGameTop(player, nameForRecordTableTextField, recordsTable);
         } catch (IOException ex) {
             Logger.getLogger(JFrames.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -956,13 +1004,12 @@ public class JFrames extends javax.swing.JFrame {
         nameForRecordTableTextField.setText("");
     }//GEN-LAST:event_finishWinWithRecordGameButtonActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        jDialog3.dispose();
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void closeRecordsTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeRecordsTableButtonActionPerformed
+        recordsTableDialog.dispose();
+    }//GEN-LAST:event_closeRecordsTableButtonActionPerformed
 
     private void showResultsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showResultsButtonActionPerformed
-        jDialog3.setVisible(true);
-        jDialog3.setBounds(100, 100, 580, 450);
+        recordsTableDialog.setVisible(true);
     }//GEN-LAST:event_showResultsButtonActionPerformed
 
     private void finishWinWithoutRecordGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finishWinWithoutRecordGameButtonActionPerformed
@@ -1046,6 +1093,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton closeElixirRestrictionButton;
     private javax.swing.JButton closeInfoAboutWinnerButton;
+    private javax.swing.JButton closeRecordsTableButton;
     private javax.swing.JLabel commentAboutFightLabel;
     private javax.swing.JButton defendButton;
     private javax.swing.JDialog elixirRestrictionDialog;
@@ -1069,12 +1117,6 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JButton goodsButton;
     private javax.swing.JDialog infoAboutWinnerDialog;
     private javax.swing.JPanel infoAboutWinnerPanel;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JDialog jDialog3;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField nameForRecordTableTextField;
     private javax.swing.JLabel playerDamageLabel;
@@ -1088,6 +1130,12 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JLabel quantityExperienceLabel;
     private javax.swing.JLabel quantityPointsLabel;
     private javax.swing.JRadioButton rebirthElixirRadioButton;
+    private javax.swing.JTable recordsTable;
+    private javax.swing.JDialog recordsTableDialog;
+    private javax.swing.JLabel recordsTableLabel;
+    private javax.swing.JPanel recordsTablePanel;
+    private javax.swing.JScrollPane recordsTableScrollPane;
+    private javax.swing.JLabel shortLogoLabel;
     private javax.swing.JButton showResultsButton;
     private javax.swing.JRadioButton smallHealingElixirRadioButton;
     private javax.swing.JLabel specialCommentAboutFightLabel;
