@@ -59,7 +59,6 @@ public class JFrames extends javax.swing.JFrame {
         playerQuantityDamageLabel = new javax.swing.JLabel();
         enemyQuantityDamageLabel = new javax.swing.JLabel();
         playerLevelLabel = new javax.swing.JLabel();
-        fightLabel = new javax.swing.JLabel();
         playerQuantityHeathLabel = new javax.swing.JLabel();
         enemyQuantityHealthLabel = new javax.swing.JLabel();
         experienceLabel = new javax.swing.JLabel();
@@ -72,6 +71,7 @@ public class JFrames extends javax.swing.JFrame {
         playerNameLabel = new javax.swing.JLabel();
         specialCommentAboutFightLabel = new javax.swing.JLabel();
         goodsButton = new javax.swing.JButton();
+        locationPicture = new javax.swing.JLabel();
         infoAboutWinnerDialog = new javax.swing.JDialog();
         infoAboutWinnerPanel = new javax.swing.JPanel();
         winnerNameLabel = new javax.swing.JLabel();
@@ -113,13 +113,21 @@ public class JFrames extends javax.swing.JFrame {
         startGameButton = new javax.swing.JButton();
         showResultsButton = new javax.swing.JButton();
 
+        fightFrame.setMaximumSize(new java.awt.Dimension(1000, 700));
+        fightFrame.setMinimumSize(new java.awt.Dimension(1000, 700));
+        fightFrame.setPreferredSize(new java.awt.Dimension(1000, 700));
         fightFrame.setResizable(false);
         fightFrame.setSize(new java.awt.Dimension(1000, 700));
 
         fightPanel.setBackground(new java.awt.Color(255, 255, 255));
         fightPanel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        fightPanel.setMaximumSize(new java.awt.Dimension(1000, 700));
+        fightPanel.setMinimumSize(new java.awt.Dimension(1000, 700));
+        fightPanel.setPreferredSize(new java.awt.Dimension(1000, 700));
+        fightPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         playerPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Kitana.png"))); // NOI18N
+        fightPanel.add(playerPictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 159, -1, -1));
 
         attackButton.setBackground(new java.awt.Color(255, 0, 0));
         attackButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
@@ -129,6 +137,7 @@ public class JFrames extends javax.swing.JFrame {
                 attackButtonActionPerformed(evt);
             }
         });
+        fightPanel.add(attackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 587, 110, 44));
 
         defendButton.setBackground(new java.awt.Color(255, 204, 0));
         defendButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
@@ -138,97 +147,111 @@ public class JFrames extends javax.swing.JFrame {
                 defendButtonActionPerformed(evt);
             }
         });
+        fightPanel.add(defendButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 587, 109, 44));
 
         playerHealthProgressBar.setBackground(new java.awt.Color(204, 204, 204));
         playerHealthProgressBar.setForeground(new java.awt.Color(51, 255, 51));
         playerHealthProgressBar.setMaximum(80);
         playerHealthProgressBar.setMinimum(-1);
+        fightPanel.add(playerHealthProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 82, 177, 32));
 
         enemyPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Соня.png"))); // NOI18N
+        fightPanel.add(enemyPictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 175, 300, -1));
 
         enemyHealthProgressBar.setBackground(new java.awt.Color(204, 204, 204));
         enemyHealthProgressBar.setForeground(new java.awt.Color(0, 255, 0));
         enemyHealthProgressBar.setMinimum(-1);
+        fightPanel.add(enemyHealthProgressBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 162, 32));
 
         enemyNameLabel.setBackground(new java.awt.Color(0, 0, 0));
         enemyNameLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 14)); // NOI18N
+        fightPanel.add(enemyNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 517, 162, 29));
 
         enemyDamageLabel.setBackground(new java.awt.Color(255, 255, 255));
         enemyDamageLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         enemyDamageLabel.setText("Damage");
+        fightPanel.add(enemyDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 120, 62, -1));
 
         playerDamageLabel.setBackground(new java.awt.Color(255, 255, 255));
         playerDamageLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         playerDamageLabel.setText("Damage");
+        fightPanel.add(playerDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 120, 62, -1));
 
         playerQuantityDamageLabel.setBackground(new java.awt.Color(255, 255, 255));
         playerQuantityDamageLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         playerQuantityDamageLabel.setForeground(new java.awt.Color(255, 0, 0));
         playerQuantityDamageLabel.setText("16");
+        fightPanel.add(playerQuantityDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 120, 40, -1));
 
         enemyQuantityDamageLabel.setBackground(new java.awt.Color(255, 255, 255));
         enemyQuantityDamageLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         enemyQuantityDamageLabel.setForeground(new java.awt.Color(255, 0, 0));
         enemyQuantityDamageLabel.setText("16");
+        fightPanel.add(enemyQuantityDamageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 120, 40, -1));
 
         playerLevelLabel.setBackground(new java.awt.Color(255, 255, 255));
         playerLevelLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         playerLevelLabel.setText("0 уровень");
-
-        fightLabel.setBackground(new java.awt.Color(255, 255, 255));
-        fightLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 36)); // NOI18N
-        fightLabel.setForeground(new java.awt.Color(0, 0, 153));
-        fightLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fightLabel.setText("FIGHT");
-        fightLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        fightPanel.add(playerLevelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(702, 44, -1, -1));
 
         playerQuantityHeathLabel.setBackground(new java.awt.Color(255, 255, 255));
         playerQuantityHeathLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         playerQuantityHeathLabel.setForeground(new java.awt.Color(102, 102, 102));
         playerQuantityHeathLabel.setText("80/80");
+        fightPanel.add(playerQuantityHeathLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(845, 82, -1, -1));
 
         enemyQuantityHealthLabel.setBackground(new java.awt.Color(255, 255, 255));
         enemyQuantityHealthLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         enemyQuantityHealthLabel.setForeground(new java.awt.Color(102, 102, 102));
         enemyQuantityHealthLabel.setText("80/80");
+        fightPanel.add(enemyQuantityHealthLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         experienceLabel.setBackground(new java.awt.Color(255, 255, 255));
         experienceLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         experienceLabel.setForeground(new java.awt.Color(128, 92, 31));
         experienceLabel.setText("experience");
+        fightPanel.add(experienceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
         pointsLabel.setBackground(new java.awt.Color(255, 255, 255));
         pointsLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         pointsLabel.setForeground(new java.awt.Color(128, 92, 31));
         pointsLabel.setText("points");
+        fightPanel.add(pointsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
         quantityExperienceLabel.setBackground(new java.awt.Color(255, 255, 255));
         quantityExperienceLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         quantityExperienceLabel.setForeground(new java.awt.Color(113, 90, 16));
         quantityExperienceLabel.setText("0/40");
+        fightPanel.add(quantityExperienceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 120, -1, -1));
 
         quantityPointsLabel.setBackground(new java.awt.Color(255, 255, 255));
         quantityPointsLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         quantityPointsLabel.setForeground(new java.awt.Color(113, 90, 16));
         quantityPointsLabel.setText("00");
+        fightPanel.add(quantityPointsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
 
         enemyLevelLabel.setBackground(new java.awt.Color(255, 255, 255));
         enemyLevelLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         enemyLevelLabel.setText("1 уровень");
+        fightPanel.add(enemyLevelLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 44, -1, -1));
 
         turnInfoLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         turnInfoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fightPanel.add(turnInfoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 251, 164, 43));
 
         commentAboutFightLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         commentAboutFightLabel.setForeground(new java.awt.Color(204, 0, 0));
         commentAboutFightLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fightPanel.add(commentAboutFightLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 327, 237, 35));
 
         playerNameLabel.setFont(new java.awt.Font("Comic Sans MS", 2, 14)); // NOI18N
         playerNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         playerNameLabel.setText("Kitana ");
+        fightPanel.add(playerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(747, 507, 118, 24));
 
         specialCommentAboutFightLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 16)); // NOI18N
         specialCommentAboutFightLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fightPanel.add(specialCommentAboutFightLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 398, 227, 38));
 
         goodsButton.setBackground(new java.awt.Color(174, 183, 106));
         goodsButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
@@ -238,163 +261,25 @@ public class JFrames extends javax.swing.JFrame {
                 goodsButtonActionPerformed(evt);
             }
         });
+        fightPanel.add(goodsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 587, 110, 44));
 
-        javax.swing.GroupLayout fightPanelLayout = new javax.swing.GroupLayout(fightPanel);
-        fightPanel.setLayout(fightPanelLayout);
-        fightPanelLayout.setHorizontalGroup(
-            fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fightPanelLayout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(fightPanelLayout.createSequentialGroup()
-                        .addComponent(enemyDamageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(enemyQuantityDamageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(pointsLabel))
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addGap(135, 135, 135)
-                                .addComponent(quantityPointsLabel)))
-                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, fightPanelLayout.createSequentialGroup()
-                                .addGap(80, 80, 80)
-                                .addComponent(attackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addGap(144, 144, 144)
-                                .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(fightPanelLayout.createSequentialGroup()
-                                        .addComponent(experienceLabel)
-                                        .addGap(59, 59, 59))
-                                    .addGroup(fightPanelLayout.createSequentialGroup()
-                                        .addComponent(quantityExperienceLabel)
-                                        .addGap(91, 91, 91)))))
-                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addComponent(playerDamageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(playerQuantityDamageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addComponent(playerHealthProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(playerQuantityHeathLabel))
-                            .addComponent(defendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(playerPictureLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(fightPanelLayout.createSequentialGroup()
-                        .addComponent(enemyLevelLabel)
-                        .addGap(153, 153, 153)
-                        .addComponent(fightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151)
-                        .addComponent(playerLevelLabel)
-                        .addGap(165, 165, 165)))
-                .addGap(0, 50, Short.MAX_VALUE))
-            .addGroup(fightPanelLayout.createSequentialGroup()
-                .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fightPanelLayout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(goodsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fightPanelLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(enemyQuantityHealthLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(enemyHealthProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fightPanelLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(enemyPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(specialCommentAboutFightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(commentAboutFightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(turnInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fightPanelLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(enemyNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(playerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(135, 135, 135))
-        );
-        fightPanelLayout.setVerticalGroup(
-            fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fightPanelLayout.createSequentialGroup()
-                .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fightPanelLayout.createSequentialGroup()
-                        .addComponent(fightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fightPanelLayout.createSequentialGroup()
-                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(enemyLevelLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(playerLevelLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fightPanelLayout.createSequentialGroup()
-                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pointsLabel)
-                            .addComponent(enemyQuantityHealthLabel)
-                            .addComponent(enemyHealthProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(experienceLabel)
-                            .addComponent(playerHealthProgressBar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(enemyDamageLabel)
-                                .addComponent(enemyQuantityDamageLabel)
-                                .addComponent(quantityPointsLabel))
-                            .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(playerDamageLabel)
-                                .addComponent(playerQuantityDamageLabel))
-                            .addComponent(quantityExperienceLabel))
-                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(turnInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(33, 33, 33)
-                                .addComponent(commentAboutFightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(specialCommentAboutFightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(fightPanelLayout.createSequentialGroup()
-                                .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(fightPanelLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(playerPictureLabel))
-                                    .addGroup(fightPanelLayout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addComponent(enemyPictureLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(32, 32, 32)
-                                .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(fightPanelLayout.createSequentialGroup()
-                                        .addComponent(playerNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(56, 56, 56)
-                                        .addGroup(fightPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(defendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(attackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(goodsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(fightPanelLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(enemyNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(69, Short.MAX_VALUE))
-                    .addGroup(fightPanelLayout.createSequentialGroup()
-                        .addComponent(playerQuantityHeathLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
+        locationPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Sky_Temple.png"))); // NOI18N
+        locationPicture.setMaximumSize(new java.awt.Dimension(1000, 700));
+        locationPicture.setMinimumSize(new java.awt.Dimension(1000, 700));
+        locationPicture.setPreferredSize(new java.awt.Dimension(1000, 700));
+        fightPanel.add(locationPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         javax.swing.GroupLayout fightFrameLayout = new javax.swing.GroupLayout(fightFrame.getContentPane());
         fightFrame.getContentPane().setLayout(fightFrameLayout);
         fightFrameLayout.setHorizontalGroup(
             fightFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fightFrameLayout.createSequentialGroup()
-                .addComponent(fightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         fightFrameLayout.setVerticalGroup(
             fightFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fightPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(fightPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         infoAboutWinnerPanel.setBackground(new java.awt.Color(179, 226, 217));
@@ -555,11 +440,13 @@ public class JFrames extends javax.swing.JFrame {
         recordsTablePanel.setMaximumSize(new java.awt.Dimension(594, 520));
         recordsTablePanel.setMinimumSize(new java.awt.Dimension(594, 520));
         recordsTablePanel.setPreferredSize(new java.awt.Dimension(594, 520));
+        recordsTablePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         recordsTableLabel.setFont(new java.awt.Font("Century", 1, 36)); // NOI18N
         recordsTableLabel.setForeground(new java.awt.Color(255, 0, 51));
         recordsTableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         recordsTableLabel.setText("Таблица рекордов");
+        recordsTablePanel.add(recordsTableLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 351, 43));
 
         recordsTableScrollPane.setBackground(new java.awt.Color(0, 0, 0));
         recordsTableScrollPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
@@ -598,6 +485,8 @@ public class JFrames extends javax.swing.JFrame {
         recordsTable.setSelectionForeground(new java.awt.Color(255, 0, 51));
         recordsTableScrollPane.setViewportView(recordsTable);
 
+        recordsTablePanel.add(recordsTableScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 527, 262));
+
         closeRecordsTableButton.setBackground(new java.awt.Color(0, 0, 0));
         closeRecordsTableButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         closeRecordsTableButton.setForeground(new java.awt.Color(255, 0, 0));
@@ -608,49 +497,15 @@ public class JFrames extends javax.swing.JFrame {
                 closeRecordsTableButtonActionPerformed(evt);
             }
         });
+        recordsTablePanel.add(closeRecordsTableButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 434, 143, 43));
 
+        shortLogoLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         shortLogoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/mortal_kombat_short_logo.jpg"))); // NOI18N
         shortLogoLabel.setText("jLabel1");
         shortLogoLabel.setMaximumSize(new java.awt.Dimension(135, 125));
         shortLogoLabel.setMinimumSize(new java.awt.Dimension(135, 125));
         shortLogoLabel.setPreferredSize(new java.awt.Dimension(135, 125));
-
-        javax.swing.GroupLayout recordsTablePanelLayout = new javax.swing.GroupLayout(recordsTablePanel);
-        recordsTablePanel.setLayout(recordsTablePanelLayout);
-        recordsTablePanelLayout.setHorizontalGroup(
-            recordsTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(recordsTablePanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(recordsTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, recordsTablePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(closeRecordsTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(recordsTablePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(shortLogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(recordsTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        recordsTablePanelLayout.setVerticalGroup(
-            recordsTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(recordsTablePanelLayout.createSequentialGroup()
-                .addGroup(recordsTablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(recordsTablePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(shortLogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, recordsTablePanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(recordsTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)))
-                .addComponent(recordsTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(closeRecordsTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43))
-        );
+        recordsTablePanel.add(shortLogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
 
         javax.swing.GroupLayout recordsTableDialogLayout = new javax.swing.GroupLayout(recordsTableDialog.getContentPane());
         recordsTableDialog.getContentPane().setLayout(recordsTableDialogLayout);
@@ -1108,7 +963,6 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JLabel enemyQuantityHealthLabel;
     private javax.swing.JLabel experienceLabel;
     private javax.swing.JFrame fightFrame;
-    private javax.swing.JLabel fightLabel;
     private javax.swing.JPanel fightPanel;
     private javax.swing.JButton finishWinWithRecordGameButton;
     private javax.swing.JButton finishWinWithoutRecordGameButton;
@@ -1116,6 +970,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JButton goodsButton;
     private javax.swing.JDialog infoAboutWinnerDialog;
     private javax.swing.JPanel infoAboutWinnerPanel;
+    private javax.swing.JLabel locationPicture;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField nameForRecordTableTextField;
     private javax.swing.JLabel playerDamageLabel;
