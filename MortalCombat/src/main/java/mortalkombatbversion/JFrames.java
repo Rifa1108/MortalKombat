@@ -102,14 +102,23 @@ public class JFrames extends javax.swing.JFrame {
         bigHealingElixirRadioButton = new javax.swing.JRadioButton();
         rebirthElixirRadioButton = new javax.swing.JRadioButton();
         useElixirButton = new javax.swing.JButton();
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        elixirsButtonGroup = new javax.swing.ButtonGroup();
         elixirRestrictionDialog = new javax.swing.JDialog();
         elixirRestrictionPanel = new javax.swing.JPanel();
         elixirRestrictionLabel1 = new javax.swing.JLabel();
         elixirRestrictionLabel2 = new javax.swing.JLabel();
         closeElixirRestrictionButton = new javax.swing.JButton();
         chooseLocationsDialog = new javax.swing.JDialog();
-        jPanel1 = new javax.swing.JPanel();
+        chooseLocationsPanel = new javax.swing.JPanel();
+        junglesCheckBox = new javax.swing.JCheckBox();
+        deadForestCheckBox = new javax.swing.JCheckBox();
+        campCheckBox = new javax.swing.JCheckBox();
+        harborCheckBox = new javax.swing.JCheckBox();
+        hellCheckBox = new javax.swing.JCheckBox();
+        skyCastleCheckBox = new javax.swing.JCheckBox();
+        titlePicture = new javax.swing.JLabel();
+        chooseLocationsButton = new javax.swing.JButton();
+        locationsButtonGroup = new javax.swing.ButtonGroup();
         menuPanel = new javax.swing.JPanel();
         gameNameAndPictureLabel = new javax.swing.JLabel();
         startGameButton = new javax.swing.JButton();
@@ -444,7 +453,9 @@ public class JFrames extends javax.swing.JFrame {
         );
 
         recordsTableDialog.setBackground(new java.awt.Color(0, 0, 0));
+        recordsTableDialog.setMaximumSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setMinimumSize(new java.awt.Dimension(594, 520));
+        recordsTableDialog.setPreferredSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setResizable(false);
 
         recordsTablePanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -598,7 +609,7 @@ public class JFrames extends javax.swing.JFrame {
         bagLabel.setText("Мешок предметов");
 
         smallHealingElixirRadioButton.setBackground(new java.awt.Color(190, 182, 135));
-        buttonGroup1.add(smallHealingElixirRadioButton);
+        elixirsButtonGroup.add(smallHealingElixirRadioButton);
         smallHealingElixirRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         smallHealingElixirRadioButton.setText("Малое зелье лечение, 0 шт");
         smallHealingElixirRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -608,7 +619,7 @@ public class JFrames extends javax.swing.JFrame {
         });
 
         bigHealingElixirRadioButton.setBackground(new java.awt.Color(190, 182, 135));
-        buttonGroup1.add(bigHealingElixirRadioButton);
+        elixirsButtonGroup.add(bigHealingElixirRadioButton);
         bigHealingElixirRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         bigHealingElixirRadioButton.setText("Большое зелье лечение, 0 шт");
         bigHealingElixirRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -618,7 +629,7 @@ public class JFrames extends javax.swing.JFrame {
         });
 
         rebirthElixirRadioButton.setBackground(new java.awt.Color(190, 182, 135));
-        buttonGroup1.add(rebirthElixirRadioButton);
+        elixirsButtonGroup.add(rebirthElixirRadioButton);
         rebirthElixirRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         rebirthElixirRadioButton.setText("Крест возрождения, 0 шт");
 
@@ -739,13 +750,99 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(elixirRestrictionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        chooseLocationsDialog.setBackground(new java.awt.Color(0, 0, 0));
+        chooseLocationsDialog.setMaximumSize(new java.awt.Dimension(530, 500));
+        chooseLocationsDialog.setMinimumSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.setPreferredSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.setResizable(false);
         chooseLocationsDialog.setSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        chooseLocationsDialog.getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        chooseLocationsPanel.setBackground(new java.awt.Color(0, 0, 0));
+        chooseLocationsPanel.setMaximumSize(new java.awt.Dimension(530, 500));
+        chooseLocationsPanel.setMinimumSize(new java.awt.Dimension(530, 500));
+        chooseLocationsPanel.setPreferredSize(new java.awt.Dimension(530, 500));
+        chooseLocationsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        locationsButtonGroup.add(junglesCheckBox);
+        junglesCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        junglesCheckBox.setForeground(new java.awt.Color(172, 140, 115));
+        junglesCheckBox.setText("Куатанские джунгли");
+        junglesCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                junglesCheckBoxActionPerformed(evt);
+            }
+        });
+        chooseLocationsPanel.add(junglesCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 280, -1));
+
+        locationsButtonGroup.add(deadForestCheckBox);
+        deadForestCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        deadForestCheckBox.setForeground(new java.awt.Color(172, 140, 115));
+        deadForestCheckBox.setText("Мёртвый лес");
+        deadForestCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deadForestCheckBoxActionPerformed(evt);
+            }
+        });
+        chooseLocationsPanel.add(deadForestCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 190, -1));
+
+        locationsButtonGroup.add(campCheckBox);
+        campCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        campCheckBox.setForeground(new java.awt.Color(172, 140, 115));
+        campCheckBox.setText("Лагерь беженцов");
+        campCheckBox.setName(""); // NOI18N
+        campCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campCheckBoxActionPerformed(evt);
+            }
+        });
+        chooseLocationsPanel.add(campCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 230, -1));
+
+        locationsButtonGroup.add(harborCheckBox);
+        harborCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        harborCheckBox.setForeground(new java.awt.Color(172, 140, 115));
+        harborCheckBox.setText("Бухта");
+        harborCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                harborCheckBoxActionPerformed(evt);
+            }
+        });
+        chooseLocationsPanel.add(harborCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 170, -1));
+
+        locationsButtonGroup.add(hellCheckBox);
+        hellCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        hellCheckBox.setForeground(new java.awt.Color(172, 140, 115));
+        hellCheckBox.setText("Перекрёстки преисподни");
+        hellCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hellCheckBoxActionPerformed(evt);
+            }
+        });
+        chooseLocationsPanel.add(hellCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 330, -1));
+
+        locationsButtonGroup.add(skyCastleCheckBox);
+        skyCastleCheckBox.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        skyCastleCheckBox.setForeground(new java.awt.Color(172, 140, 115));
+        skyCastleCheckBox.setText("Небесный храм");
+        skyCastleCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                skyCastleCheckBoxActionPerformed(evt);
+            }
+        });
+        chooseLocationsPanel.add(skyCastleCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 220, -1));
+
+        titlePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/mk_logo.png"))); // NOI18N
+        titlePicture.setText("jLabel1");
+        chooseLocationsPanel.add(titlePicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 190));
+
+        chooseLocationsButton.setBackground(new java.awt.Color(0, 0, 0));
+        chooseLocationsButton.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        chooseLocationsButton.setForeground(new java.awt.Color(172, 140, 115));
+        chooseLocationsButton.setText("Выбрать");
+        chooseLocationsButton.setBorder(null);
+        chooseLocationsPanel.add(chooseLocationsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
+
+        chooseLocationsDialog.getContentPane().add(chooseLocationsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 500));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(530, 485));
@@ -761,7 +858,7 @@ public class JFrames extends javax.swing.JFrame {
 
         startGameButton.setBackground(new java.awt.Color(0, 0, 0));
         startGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        startGameButton.setForeground(java.awt.Color.red);
+        startGameButton.setForeground(new java.awt.Color(252, 35, 9));
         startGameButton.setText("Начать новую игру");
         startGameButton.setBorder(null);
         startGameButton.addActionListener(new java.awt.event.ActionListener() {
@@ -922,6 +1019,30 @@ public class JFrames extends javax.swing.JFrame {
         elixirRestrictionDialog.dispose();
     }//GEN-LAST:event_closeElixirRestrictionButtonActionPerformed
 
+    private void junglesCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_junglesCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_junglesCheckBoxActionPerformed
+
+    private void deadForestCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deadForestCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deadForestCheckBoxActionPerformed
+
+    private void campCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campCheckBoxActionPerformed
+
+    private void harborCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_harborCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_harborCheckBoxActionPerformed
+
+    private void hellCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hellCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hellCheckBoxActionPerformed
+
+    private void skyCastleCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skyCastleCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_skyCastleCheckBoxActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -963,17 +1084,21 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JLabel bagLabel;
     private javax.swing.JPanel bagPanel;
     private javax.swing.JRadioButton bigHealingElixirRadioButton;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBox campCheckBox;
+    private javax.swing.JButton chooseLocationsButton;
     private javax.swing.JDialog chooseLocationsDialog;
+    private javax.swing.JPanel chooseLocationsPanel;
     private javax.swing.JButton closeElixirRestrictionButton;
     private javax.swing.JButton closeInfoAboutWinnerButton;
     private javax.swing.JButton closeRecordsTableButton;
     private javax.swing.JLabel commentAboutFightLabel;
+    private javax.swing.JCheckBox deadForestCheckBox;
     private javax.swing.JButton defendButton;
     private javax.swing.JDialog elixirRestrictionDialog;
     private javax.swing.JLabel elixirRestrictionLabel1;
     private javax.swing.JLabel elixirRestrictionLabel2;
     private javax.swing.JPanel elixirRestrictionPanel;
+    private javax.swing.ButtonGroup elixirsButtonGroup;
     private javax.swing.JLabel enemyDamageLabel;
     private javax.swing.JProgressBar enemyHealthProgressBar;
     private javax.swing.JLabel enemyLevelLabel;
@@ -988,10 +1113,13 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JButton finishWinWithoutRecordGameButton;
     private javax.swing.JLabel gameNameAndPictureLabel;
     private javax.swing.JButton goodsButton;
+    private javax.swing.JCheckBox harborCheckBox;
+    private javax.swing.JCheckBox hellCheckBox;
     private javax.swing.JDialog infoAboutWinnerDialog;
     private javax.swing.JPanel infoAboutWinnerPanel;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JCheckBox junglesCheckBox;
     private javax.swing.JLabel locationPicture;
+    private javax.swing.ButtonGroup locationsButtonGroup;
     private javax.swing.JPanel menuPanel;
     private javax.swing.JTextField nameForRecordTableTextField;
     private javax.swing.JLabel playerDamageLabel;
@@ -1012,9 +1140,11 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JScrollPane recordsTableScrollPane;
     private javax.swing.JLabel shortLogoLabel;
     private javax.swing.JButton showResultsButton;
+    private javax.swing.JCheckBox skyCastleCheckBox;
     private javax.swing.JRadioButton smallHealingElixirRadioButton;
     private javax.swing.JLabel specialCommentAboutFightLabel;
     private javax.swing.JButton startGameButton;
+    private javax.swing.JLabel titlePicture;
     private javax.swing.JLabel turnInfoLabel;
     private javax.swing.JButton useElixirButton;
     private javax.swing.JDialog winWithRecordDialog;
