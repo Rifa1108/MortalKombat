@@ -6,8 +6,7 @@ package mortalkombatbversion;
 
 import java.awt.Color;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -998,7 +997,7 @@ public class JFrames extends javax.swing.JFrame {
         try {
             game.EndGameTop(player, nameForRecordTableTextField, recordsTable);
         } catch (IOException ex) {
-            Logger.getLogger(JFrames.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Не удалось добавить Ваш результат в таблицу рекордов", "Ошибка", JOptionPane.ERROR_MESSAGE);
         }
         winWithRecordDialog.dispose();
         nameForRecordTableTextField.setText("");
