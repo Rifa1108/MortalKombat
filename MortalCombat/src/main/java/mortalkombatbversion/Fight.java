@@ -5,6 +5,7 @@
 package mortalkombatbversion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import javax.swing.*;
@@ -21,6 +22,7 @@ public class Fight {
     int k = -1;
     int stun = 0;
     double v = 0.0;
+    int[] quantityMovesKindPlayer = {0,0,0};
 
     public void Move(Fighter fighter1, Fighter fighter2, JLabel specialCommentAboutFightLabel, JLabel commentAboutFightLabel) {
         if (stun == 1) {
@@ -77,7 +79,9 @@ public class Fight {
                     fighter2.changeCurseTime(fighter1.getLevel());
                     commentAboutFightLabel.setText(fighter2.getName() + " was cursed");
                 }
+                else{
                 commentAboutFightLabel.setText(fighter1.getName() + " tried to curse");
+                }
                 break;
             case "21":
                 fighter1.addHealth((int) (-fighter2.getDamage() * 1.15));
@@ -104,7 +108,9 @@ public class Fight {
                     fighter1.changeCurseTime(fighter2.getLevel());
                     commentAboutFightLabel.setText(fighter1.getName() + " was cursed");
                 }
+                else{
                 commentAboutFightLabel.setText(fighter2.getName() + " tried to curse");
+                }
                 break;
             case "12":
                 fighter2.addHealth((int) (-fighter1.getDamage() * 1.15));
@@ -145,7 +151,7 @@ public class Fight {
         if (k < kind_attack.length - 1) {
             k++;
         } else {
-            kind_attack = action.ChooseBehavior(enemy);
+            kind_attack = action.ChooseBehavior(enemy, quantityMovesKindPlayer);
             k = 0;
         }
         enemy.setAttack(kind_attack[k]);
@@ -176,7 +182,9 @@ public class Fight {
             } else {
                 EndRound(player, enemy, infoAboutWinnerDialog, winnerNameLabel, action, items);
             }
+            
         }
+        quantityMovesKindPlayer[kindOfAttack]+=1;      
     }
 
     public void EndRound(Fighter player, Fighter enemy, JDialog infoAboutWinnerDialog,

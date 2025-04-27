@@ -105,7 +105,7 @@ public class CharacterAction {
         return arr;
     }
 
-    public int[] ChooseBehavior(Fighter enemy) {
+    public int[] ChooseBehavior(Fighter enemy, int[] quantityMovesKindPlayer) {
         int arr[] = null;
         if (enemy instanceof Baraka) {
             arr = EnemyBehavior(15, 15, 60, 10, false, false);
