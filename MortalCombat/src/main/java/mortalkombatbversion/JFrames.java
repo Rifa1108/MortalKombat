@@ -124,6 +124,7 @@ public class JFrames extends javax.swing.JFrame {
         elixirRestrictionLabel1 = new javax.swing.JLabel();
         elixirRestrictionLabel2 = new javax.swing.JLabel();
         closeElixirRestrictionButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         chooseLocationsDialog = new javax.swing.JDialog();
         chooseLocationsPanel = new javax.swing.JPanel();
         junglesCheckBox = new javax.swing.JCheckBox();
@@ -139,9 +140,7 @@ public class JFrames extends javax.swing.JFrame {
         startGameButton = new javax.swing.JButton();
         showResultsButton = new javax.swing.JButton();
 
-        fightFrame.setMaximumSize(new java.awt.Dimension(1000, 700));
         fightFrame.setMinimumSize(new java.awt.Dimension(1000, 700));
-        fightFrame.setPreferredSize(new java.awt.Dimension(1000, 700));
         fightFrame.setResizable(false);
         fightFrame.setSize(new java.awt.Dimension(1000, 700));
 
@@ -303,9 +302,6 @@ public class JFrames extends javax.swing.JFrame {
         fightPanel.add(goodsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 580, 110, 44));
 
         locationPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Небесный_храм.png"))); // NOI18N
-        locationPicture.setMaximumSize(new java.awt.Dimension(1000, 700));
-        locationPicture.setMinimumSize(new java.awt.Dimension(1000, 700));
-        locationPicture.setPreferredSize(new java.awt.Dimension(1000, 700));
         fightPanel.add(locationPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
 
         javax.swing.GroupLayout fightFrameLayout = new javax.swing.GroupLayout(fightFrame.getContentPane());
@@ -321,9 +317,7 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(fightPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        infoAboutWinnerDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         infoAboutWinnerDialog.setMinimumSize(new java.awt.Dimension(560, 395));
-        infoAboutWinnerDialog.setPreferredSize(new java.awt.Dimension(560, 395));
         infoAboutWinnerDialog.setResizable(false);
         infoAboutWinnerDialog.setSize(new java.awt.Dimension(560, 395));
         infoAboutWinnerDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -363,9 +357,7 @@ public class JFrames extends javax.swing.JFrame {
 
         infoAboutWinnerDialog.getContentPane().add(infoAboutWinnerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
-        winWithRecordDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         winWithRecordDialog.setMinimumSize(new java.awt.Dimension(560, 395));
-        winWithRecordDialog.setPreferredSize(new java.awt.Dimension(560, 395));
         winWithRecordDialog.setResizable(false);
         winWithRecordDialog.setSize(new java.awt.Dimension(560, 395));
         winWithRecordDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -410,17 +402,12 @@ public class JFrames extends javax.swing.JFrame {
         winWithRecordPanel.add(finishWinWithRecordGameButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 300, -1, 50));
 
         backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/infoLogo.jpg"))); // NOI18N
-        backgroundImage.setMaximumSize(new java.awt.Dimension(560, 395));
-        backgroundImage.setMinimumSize(new java.awt.Dimension(560, 395));
-        backgroundImage.setPreferredSize(new java.awt.Dimension(560, 395));
         winWithRecordPanel.add(backgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
         winWithRecordDialog.getContentPane().add(winWithRecordPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
         recordsTableDialog.setBackground(new java.awt.Color(0, 0, 0));
-        recordsTableDialog.setMaximumSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setMinimumSize(new java.awt.Dimension(594, 520));
-        recordsTableDialog.setPreferredSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setResizable(false);
 
         recordsTablePanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -505,9 +492,7 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(recordsTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        winWithoutRecordDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         winWithoutRecordDialog.setMinimumSize(new java.awt.Dimension(560, 395));
-        winWithoutRecordDialog.setPreferredSize(new java.awt.Dimension(560, 395));
         winWithoutRecordDialog.setResizable(false);
         winWithoutRecordDialog.setSize(new java.awt.Dimension(560, 395));
         winWithoutRecordDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -637,17 +622,28 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(bagPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        elixirRestrictionPanel.setBackground(new java.awt.Color(243, 120, 120));
+        elixirRestrictionDialog.setMaximumSize(new java.awt.Dimension(400, 300));
+        elixirRestrictionDialog.setMinimumSize(new java.awt.Dimension(400, 300));
+        elixirRestrictionDialog.setResizable(false);
+        elixirRestrictionDialog.setSize(new java.awt.Dimension(400, 300));
+        elixirRestrictionDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        elixirRestrictionLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        elixirRestrictionLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        elixirRestrictionPanel.setBackground(new java.awt.Color(243, 120, 120));
+        elixirRestrictionPanel.setMaximumSize(new java.awt.Dimension(400, 300));
+        elixirRestrictionPanel.setMinimumSize(new java.awt.Dimension(400, 300));
+        elixirRestrictionPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        elixirRestrictionLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        elixirRestrictionLabel1.setForeground(new java.awt.Color(204, 255, 255));
         elixirRestrictionLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         elixirRestrictionLabel1.setText("Вы не можете использовать ");
+        elixirRestrictionPanel.add(elixirRestrictionLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 58));
 
-        elixirRestrictionLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        elixirRestrictionLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        elixirRestrictionLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        elixirRestrictionLabel2.setForeground(new java.awt.Color(204, 255, 255));
         elixirRestrictionLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         elixirRestrictionLabel2.setText("этот предмет");
+        elixirRestrictionPanel.add(elixirRestrictionLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 230, -1));
 
         closeElixirRestrictionButton.setBackground(new java.awt.Color(204, 204, 204));
         closeElixirRestrictionButton.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
@@ -658,52 +654,18 @@ public class JFrames extends javax.swing.JFrame {
                 closeElixirRestrictionButtonActionPerformed(evt);
             }
         });
+        elixirRestrictionPanel.add(closeElixirRestrictionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 101, 37));
 
-        javax.swing.GroupLayout elixirRestrictionPanelLayout = new javax.swing.GroupLayout(elixirRestrictionPanel);
-        elixirRestrictionPanel.setLayout(elixirRestrictionPanelLayout);
-        elixirRestrictionPanelLayout.setHorizontalGroup(
-            elixirRestrictionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(elixirRestrictionPanelLayout.createSequentialGroup()
-                .addContainerGap(82, Short.MAX_VALUE)
-                .addGroup(elixirRestrictionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, elixirRestrictionPanelLayout.createSequentialGroup()
-                        .addComponent(elixirRestrictionLabel1)
-                        .addGap(58, 58, 58))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, elixirRestrictionPanelLayout.createSequentialGroup()
-                        .addComponent(elixirRestrictionLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(135, 135, 135))))
-            .addGroup(elixirRestrictionPanelLayout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(closeElixirRestrictionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        elixirRestrictionPanelLayout.setVerticalGroup(
-            elixirRestrictionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(elixirRestrictionPanelLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(elixirRestrictionLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(elixirRestrictionLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addComponent(closeElixirRestrictionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/restriction.jpg"))); // NOI18N
+        jLabel3.setMaximumSize(new java.awt.Dimension(400, 300));
+        jLabel3.setMinimumSize(new java.awt.Dimension(400, 300));
+        jLabel3.setPreferredSize(new java.awt.Dimension(400, 300));
+        elixirRestrictionPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
-        javax.swing.GroupLayout elixirRestrictionDialogLayout = new javax.swing.GroupLayout(elixirRestrictionDialog.getContentPane());
-        elixirRestrictionDialog.getContentPane().setLayout(elixirRestrictionDialogLayout);
-        elixirRestrictionDialogLayout.setHorizontalGroup(
-            elixirRestrictionDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(elixirRestrictionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        elixirRestrictionDialogLayout.setVerticalGroup(
-            elixirRestrictionDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(elixirRestrictionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        elixirRestrictionDialog.getContentPane().add(elixirRestrictionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         chooseLocationsDialog.setBackground(new java.awt.Color(0, 0, 0));
-        chooseLocationsDialog.setMaximumSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.setMinimumSize(new java.awt.Dimension(530, 500));
-        chooseLocationsDialog.setPreferredSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.setResizable(false);
         chooseLocationsDialog.setSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1119,6 +1081,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JPanel infoAboutWinnerPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JCheckBox junglesCheckBox;
     private javax.swing.JLabel locationPicture;
     private javax.swing.JPanel menuPanel;
