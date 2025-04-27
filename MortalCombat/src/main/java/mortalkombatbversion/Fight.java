@@ -5,6 +5,7 @@
 package mortalkombatbversion;
 
 import java.util.ArrayList;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import javax.swing.*;
 
@@ -25,6 +26,14 @@ public class Fight {
         if (stun == 1) {
             fighter1.setAttack(-1);
         }
+        Consumer<Fighter> successfulRegeneration = regenerator -> {
+            regenerator.addHealth((regenerator.getMaxHealth() - regenerator.getHealth()) / 2);
+            commentAboutFightLabel.setText(regenerator.getName() + " recovered");
+        };
+        BiConsumer<Fighter, Fighter> unSuccessfulRegeneration = (regenerator, attacker) -> {
+            regenerator.addHealth(-attacker.getDamage() * 2);
+            commentAboutFightLabel.setText(regenerator.getName() + " was attacked");
+        };
         switch (Integer.toString(fighter1.getAttack()) + Integer.toString(fighter2.getAttack())) {
             case "10":
                 v = Math.random();
@@ -101,9 +110,20 @@ public class Fight {
                 fighter2.addHealth((int) (-fighter1.getDamage() * 1.15));
                 commentAboutFightLabel.setText(fighter1.getName() + " attacked");
                 break;
+            case "30", "3-1":
+                successfulRegeneration.accept(fighter1);
+                break;
+            case "03", "-13":
+                successfulRegeneration.accept(fighter2);
+                break;
+            case "31", "32":
+                unSuccessfulRegeneration.accept(fighter1, fighter2);
+                break;
+            case "13", "23":
+                unSuccessfulRegeneration.accept(fighter2, fighter1);
+                break;
+
         }
-        System.out.println(fighter1.getCurseTime());
-        System.out.println(fighter2.getCurseTime());
         Consumer<Fighter> checkCurse = fighter -> {
             if (fighter.getCurseTime() > 0) {
                 fighter.changeCurseTime(-2);
@@ -111,9 +131,6 @@ public class Fight {
         };
         checkCurse.accept(fighter1);
         checkCurse.accept(fighter2);
-        System.out.println(fighter1.getCurseTime());
-        System.out.println(fighter2.getCurseTime());
-
     }
 
     public void Hit(Fighter player, Fighter enemy, int kindOfAttack, JLabel enemyQuantityHealthLabel,
@@ -171,11 +188,10 @@ public class Fight {
 
             if (enemy instanceof ShaoKahn) {
                 action.AddItems(38, 23, 8, items);
-                action.AddPointsBoss(((Player) player), action.getEnemyes());
             } else {
                 action.AddItems(25, 15, 5, items);
-                action.AddPoints(((Player) player), action.getEnemyes());
             }
+            action.AddPoints(((Player) player), action.getEnemyes());
             if (currentLevel == player.getLevel()) {
                 infoAboutWinnerDialog.setVisible(true);
             }

@@ -11,9 +11,8 @@ package mortalkombatbversion;
 public class SubZeroFabric implements EnemyFabricInterface {
 
     @Override
-    public Fighter create(int i) {
-        Fighter enemy;
-        enemy = new SubZero(1, 60, 16, 1);
+    public Fighter create() {
+        Fighter enemy = new SubZero(1, 60, 16, 1);
         return enemy;
     }
 

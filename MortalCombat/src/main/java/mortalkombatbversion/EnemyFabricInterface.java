@@ -10,5 +10,5 @@ package mortalkombatbversion;
  */
 public interface EnemyFabricInterface {
 
-    public Fighter create(int i);
+    public Fighter create();
 }

@@ -11,9 +11,8 @@ package mortalkombatbversion;
 public class SonyaBladeFabric implements EnemyFabricInterface {
 
     @Override
-    public Fighter create(int i) {
-        Fighter enemy;
-        enemy = new SonyaBlade(1, 80, 16, 1);
+    public Fighter create() {
+        Fighter enemy = new SonyaBlade(1, 80, 16, 1);
         return enemy;
     }
 

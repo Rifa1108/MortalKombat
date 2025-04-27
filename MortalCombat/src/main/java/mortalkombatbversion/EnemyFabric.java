@@ -10,27 +10,16 @@ package mortalkombatbversion;
  */
 public class EnemyFabric {
 
-    public Fighter create(int enemyNumber, int j) {
-        EnemyFabricInterface fabric = null;
-
-        switch (enemyNumber) {
-            case 0:
-                fabric = new BarakaFabric();
-                break;
-            case 1:
-                fabric = new SubZeroFabric();
-                break;
-            case 2:
-                fabric = new LiuKangFabric();
-                break;
-            case 3:
-                fabric = new SonyaBladeFabric();
-                break;
-            case 4:
-                fabric = new ShaoKahnFabric();
-                break;
-        }
-        Fighter enemy = fabric.create(j);
+    public Fighter create(int enemyNumber) {
+        EnemyFabricInterface fabric = switch (enemyNumber) {
+            case 0 -> new BarakaFabric();
+            case 1 -> new SubZeroFabric();
+            case 2 -> new LiuKangFabric();
+            case 3 -> new SonyaBladeFabric();
+            case 4 -> new ShaoKahnFabric();
+            default -> new BarakaFabric();
+        };
+        Fighter enemy = fabric.create();
         return enemy;
     }
 }

@@ -14,9 +14,9 @@ public class CharacterAction {
 
     private final int experience_for_next_level[] = {40, 90, 180, 260, 410, 1000};
 
-    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0}, {1, 1, 1, 1}, {1,2,0}};
+    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0}, {1, 1, 1, 1}, {1,2,0}, {1,3,0}};
 
-    private Fighter enemyes[] = new Fighter[6];
+    private Fighter enemyes[] = new Fighter[5];
 
     EnemyFabric fabric = new EnemyFabric();
 
@@ -27,12 +27,11 @@ public class CharacterAction {
     }
 
     public void setEnemyes() {
-        enemyes[0] = fabric.create(0, 0);
-        enemyes[1] = fabric.create(1, 0);
-        enemyes[2] = fabric.create(2, 0);
-        enemyes[3] = fabric.create(3, 0);
-        enemyes[4] = fabric.create(4, 0);
-        enemyes[5] = fabric.create(4, 0);
+        enemyes[0] = fabric.create(0);
+        enemyes[1] = fabric.create(1);
+        enemyes[2] = fabric.create(2);
+        enemyes[3] = fabric.create(3);
+        enemyes[4] = fabric.create(4);
     }
 
     public Fighter[] getEnemyes() {
@@ -74,29 +73,25 @@ public class CharacterAction {
     public Fighter ChooseBoss(JLabel enemyPictureLabel, JLabel enemyNameLabel,
             JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel,
             int playerLevel) {
-        ImageIcon icon1 = null;
-        icon1 = new ImageIcon("src\\main\\resources\\Pictures\\General_Shao.png");
+        ImageIcon icon1 = new ImageIcon("src\\main\\resources\\Pictures\\General_Shao.png");
         enemyNameLabel.setText("Shao Kahn (босс)");
-        switch (playerLevel) {
-            case 2:
-                enemyy = enemyes[4];
-                break;
-            case 4:
-                enemyy = enemyes[5];
-                break;
-        }
+        enemyy = enemyes[4];
         enemyPictureLabel.setIcon(icon1);
         enemyQuantityDamageLabel.setText(Integer.toString(enemyy.getDamage()));
         enemyQuantityHealthLabel.setText(Integer.toString(enemyy.getHealth()) + "/" + Integer.toString(enemyy.getMaxHealth()));
         return enemyy;
     }
 
-    public int[] EnemyBehavior(int k1, int k2, int k3, int k4, boolean canCurse) {
+    public int[] EnemyBehavior(int k1, int k2, int k3, int k4, boolean canCurse, boolean canRegenerate) {
         int arr[];
         double i = Math.random();
-        if (canCurse && i > 0.5) {
+        if (canCurse && i > 0.7) {
             arr = kind_fight[4];
-        } else {
+        }
+        else if (canRegenerate && i > 0.7){
+            arr = kind_fight[5];
+        }
+        else {
             if (i < k1 * 0.01) {
                 arr = kind_fight[0];
             } else if (i < (k1 + k2) * 0.01) {
@@ -113,19 +108,19 @@ public class CharacterAction {
     public int[] ChooseBehavior(Fighter enemy) {
         int arr[] = null;
         if (enemy instanceof Baraka) {
-            arr = EnemyBehavior(15, 15, 60, 10, false);
+            arr = EnemyBehavior(15, 15, 60, 10, false, false);
         }
         if (enemy instanceof SubZero) {
-            arr = EnemyBehavior(25, 25, 0, 50, true);
+            arr = EnemyBehavior(25, 25, 0, 50, true, false);
         }
         if (enemy instanceof LiuKang) {
-            arr = EnemyBehavior(13, 13, 10, 64, false);
+            arr = EnemyBehavior(13, 13, 10, 64, false, false);
         }
         if (enemy instanceof SonyaBlade) {
-            arr = EnemyBehavior(25, 25, 50, 0, false);
+            arr = EnemyBehavior(25, 25, 50, 0, false, false);
         }
         if (enemy instanceof ShaoKahn) {
-            arr = EnemyBehavior(10, 45, 0, 45, false);
+            arr = EnemyBehavior(10, 45, 0, 45, false, true);
         }
         return arr;
     }
@@ -166,29 +161,7 @@ public class CharacterAction {
             if (experience_for_next_level[i] == human.getExperience()) {
                 human.levelUp();
                 human.setNextExperianceGoal(experience_for_next_level[i + 1]);
-                for (int j = 0; j < 4; j++) {
-                    addHealthAndDamgeEnemy(enemyes[j], human);
-                }
-            }
-        }
-    }
-
-    public void AddPointsBoss(Player human, Fighter[] enemyes) {
-        switch (human.getLevel()) {
-            case 2:
-                human.addExperience(30);
-                human.setPoints(45 + human.getHealth() / 2);
-                break;
-            case 4:
-                human.addExperience(50);
-                human.setPoints(65 + human.getHealth() / 2);
-                break;
-        }
-        for (int i = 0; i < 5; i++) {
-            if (experience_for_next_level[i] == human.getExperience()) {
-                human.levelUp();
-                human.setNextExperianceGoal(experience_for_next_level[i + 1]);
-                for (int j = 0; j < 4; j++) {
+                for (int j = 0; j < 5; j++) {
                     addHealthAndDamgeEnemy(enemyes[j], human);
                 }
             }
