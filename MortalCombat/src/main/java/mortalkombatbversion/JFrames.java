@@ -5,6 +5,8 @@
 package mortalkombatbversion;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -12,6 +14,7 @@ import java.util.Map;
 import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -41,6 +44,7 @@ public class JFrames extends javax.swing.JFrame {
         recordsTable.getTableHeader().setBackground(Color.BLACK);
         recordsTable.getTableHeader().setForeground(Color.red);
         recordsTableScrollPane.getViewport().setBackground(Color.BLACK);
+        cursePicture.setVisible(false);
         recordsTable.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         allLocations.put(junglesCheckBox, "src\\main\\resources\\Pictures\\Куатанские_джунгли.png");
         allLocations.put(deadForestCheckBox, "src\\main\\resources\\Pictures\\Мёртвый_лес.png");
@@ -61,6 +65,7 @@ public class JFrames extends javax.swing.JFrame {
 
         fightFrame = new javax.swing.JFrame();
         fightPanel = new javax.swing.JPanel();
+        cursePicture = new javax.swing.JLabel();
         playerPictureLabel = new javax.swing.JLabel();
         attackButton = new javax.swing.JButton();
         defendButton = new javax.swing.JButton();
@@ -85,6 +90,7 @@ public class JFrames extends javax.swing.JFrame {
         playerNameLabel = new javax.swing.JLabel();
         specialCommentAboutFightLabel = new javax.swing.JLabel();
         goodsButton = new javax.swing.JButton();
+        curseButton = new javax.swing.JButton();
         locationPicture = new javax.swing.JLabel();
         infoAboutWinnerDialog = new javax.swing.JDialog();
         infoAboutWinnerPanel = new javax.swing.JPanel();
@@ -161,6 +167,13 @@ public class JFrames extends javax.swing.JFrame {
         fightPanel.setPreferredSize(new java.awt.Dimension(1000, 700));
         fightPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cursePicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/метка.png"))); // NOI18N
+        cursePicture.setText("jLabel5");
+        cursePicture.setMaximumSize(new java.awt.Dimension(500, 497));
+        cursePicture.setMinimumSize(new java.awt.Dimension(500, 497));
+        cursePicture.setPreferredSize(new java.awt.Dimension(500, 497));
+        fightPanel.add(cursePicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 500, 497));
+
         playerPictureLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Kitana.png"))); // NOI18N
         fightPanel.add(playerPictureLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 175, -1, -1));
 
@@ -172,7 +185,7 @@ public class JFrames extends javax.swing.JFrame {
                 attackButtonActionPerformed(evt);
             }
         });
-        fightPanel.add(attackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 580, 110, 44));
+        fightPanel.add(attackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 570, 110, 44));
 
         defendButton.setBackground(new java.awt.Color(255, 204, 0));
         defendButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
@@ -182,7 +195,7 @@ public class JFrames extends javax.swing.JFrame {
                 defendButtonActionPerformed(evt);
             }
         });
-        fightPanel.add(defendButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 580, 109, 44));
+        fightPanel.add(defendButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 109, 44));
 
         playerHealthProgressBar.setBackground(new java.awt.Color(204, 204, 204));
         playerHealthProgressBar.setForeground(new java.awt.Color(51, 255, 51));
@@ -309,7 +322,17 @@ public class JFrames extends javax.swing.JFrame {
                 goodsButtonActionPerformed(evt);
             }
         });
-        fightPanel.add(goodsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 580, 110, 44));
+        fightPanel.add(goodsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 570, 110, 44));
+
+        curseButton.setBackground(new java.awt.Color(0, 204, 204));
+        curseButton.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        curseButton.setText("Проклясть");
+        curseButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                curseButtonActionPerformed(evt);
+            }
+        });
+        fightPanel.add(curseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 110, 44));
 
         locationPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/Небесный_храм.png"))); // NOI18N
         fightPanel.add(locationPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 700));
@@ -1068,6 +1091,24 @@ public class JFrames extends javax.swing.JFrame {
 
     }//GEN-LAST:event_chooseCharacteristicButtonActionPerformed
 
+    private void curseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_curseButtonActionPerformed
+        // TODO add your handling code here:
+        cursePicture.setVisible(true);
+        new Timer(500, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cursePicture.setVisible(false);
+                ((Timer) e.getSource()).stop(); // Останавливаем таймер
+            }
+        }).start();
+        game.fight.Hit(player, enemy, 2, enemyQuantityHealthLabel, playerQuantityHeathLabel, infoAboutWinnerDialog,
+                winnerNameLabel, game.action, playerHealthProgressBar, enemyHealthProgressBar, winWithRecordDialog,
+                winWithoutRecordDialog, fightFrame, game.getResults(), winWithRecordLabel, winWithoutRecordLabel,
+                turnInfoLabel, specialCommentAboutFightLabel, commentAboutFightLabel, items, rebirthElixirRadioButton);
+        checkLevel();
+        
+    }//GEN-LAST:event_curseButtonActionPerformed
+
     private void setLocationsOrder() {
         int locationsQuantity = chosenLocations.size();
         int goalVictoryQuantity = 12;
@@ -1161,6 +1202,8 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JButton closeInfoAboutWinnerButton;
     private javax.swing.JButton closeRecordsTableButton;
     private javax.swing.JLabel commentAboutFightLabel;
+    private javax.swing.JButton curseButton;
+    private javax.swing.JLabel cursePicture;
     private javax.swing.JRadioButton damageRadioButton;
     private javax.swing.JCheckBox deadForestCheckBox;
     private javax.swing.JButton defendButton;

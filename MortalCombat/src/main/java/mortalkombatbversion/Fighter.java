@@ -15,6 +15,7 @@ public class Fighter {
     private int maxhealth;
     private int damage;
     private int attack;
+    private int remainCursedTime;
 
     public Fighter(int level, int health, int damage, int attack) {
         this.level = level;
@@ -22,6 +23,7 @@ public class Fighter {
         this.damage = damage;
         this.attack = attack;
         this.maxhealth = health;
+        remainCursedTime = 0;
     }
 
     public void levelUp() {
@@ -29,6 +31,9 @@ public class Fighter {
     }
 
     public void addHealth(int addedHealth) {
+        if (remainCursedTime > 0 && addedHealth < 0) {
+            addedHealth *= 1.25;
+        }
         this.health += addedHealth;
     }
 
@@ -57,7 +62,11 @@ public class Fighter {
     }
 
     public int getDamage() {
-        return this.damage;
+        if (remainCursedTime > 0) {
+            return (int) (damage * 0.5);
+        } else {
+            return damage;
+        }
     }
 
     public int getAttack() {
@@ -70,6 +79,14 @@ public class Fighter {
 
     public String getName() {
         return "";
+    }
+
+    public void changeCurseTime(int steps) {
+        remainCursedTime = remainCursedTime + steps + 1;
+    }
+
+    public int getCurseTime() {
+        return remainCursedTime;
     }
 
 }

@@ -5,6 +5,7 @@
 package mortalkombatbversion;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 import javax.swing.*;
 
 /**
@@ -61,17 +62,68 @@ public class Fight {
                 stun = 0;
                 commentAboutFightLabel.setText(fighter2.getName() + " attacked");
                 break;
+            case "20":
+                v = Math.random();
+                if (v <= 0.75) {
+                    fighter2.changeCurseTime(fighter1.getLevel());
+                    commentAboutFightLabel.setText(fighter2.getName() + " was cursed");
+                }
+                commentAboutFightLabel.setText(fighter1.getName() + " tried to curse");
+                break;
+            case "21":
+                fighter1.addHealth((int) (-fighter2.getDamage() * 1.15));
+                commentAboutFightLabel.setText(fighter2.getName() + " attacked");
+                break;
+            case "22":
+                commentAboutFightLabel.setText("Both tried to curse each other");
+                break;
+            case "2-1":
+                fighter2.changeCurseTime(fighter1.getLevel());
+                commentAboutFightLabel.setText(fighter2.getName() + " was cursed");
+                specialCommentAboutFightLabel.setText(fighter2.getName() + " was stunned");
+                stun = 0;
+                break;
+            case "-12":
+                fighter1.changeCurseTime(fighter2.getLevel());
+                commentAboutFightLabel.setText(fighter1.getName() + " was cursed");
+                specialCommentAboutFightLabel.setText(fighter1.getName() + " was stunned");
+                stun = 0;
+                break;
+            case "02":
+                v = Math.random();
+                if (v <= 0.75) {
+                    fighter1.changeCurseTime(fighter2.getLevel());
+                    commentAboutFightLabel.setText(fighter1.getName() + " was cursed");
+                }
+                commentAboutFightLabel.setText(fighter2.getName() + " tried to curse");
+                break;
+            case "12":
+                fighter2.addHealth((int) (-fighter1.getDamage() * 1.15));
+                commentAboutFightLabel.setText(fighter1.getName() + " attacked");
+                break;
         }
+        System.out.println(fighter1.getCurseTime());
+        System.out.println(fighter2.getCurseTime());
+        Consumer<Fighter> checkCurse = fighter -> {
+            if (fighter.getCurseTime() > 0) {
+                fighter.changeCurseTime(-2);
+            }
+        };
+        checkCurse.accept(fighter1);
+        checkCurse.accept(fighter2);
+        System.out.println(fighter1.getCurseTime());
+        System.out.println(fighter2.getCurseTime());
+
     }
 
-    public void Hit(Fighter player, Fighter enemy, int attack, JLabel enemyQuantityHealthLabel,
+    public void Hit(Fighter player, Fighter enemy, int kindOfAttack, JLabel enemyQuantityHealthLabel,
             JLabel playerQuantityHeathLabel, JDialog infoAboutWinnerDialog, JLabel winnerNameLabel, CharacterAction action,
             JProgressBar playerHealthProgressBar, JProgressBar enemyHealthProgressBar, JDialog winWithRecordDialog,
             JDialog winWithoutRecordDialog, JFrame fightFrame, ArrayList<Result> results,
             JLabel winWithRecordLabel, JLabel winWithoutRecordLabel, JLabel turnInfoLabel, JLabel specialCommentAboutFightLabel,
             JLabel commentAboutFightLabel, Items[] items, JRadioButton rebirthElixirRadioButton) {
         specialCommentAboutFightLabel.setText("");
-        player.setAttack(attack);
+        player.setAttack(kindOfAttack);
 
         if (k < kind_attack.length - 1) {
             k++;

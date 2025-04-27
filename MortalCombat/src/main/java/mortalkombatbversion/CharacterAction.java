@@ -14,14 +14,15 @@ public class CharacterAction {
 
     private final int experience_for_next_level[] = {40, 90, 180, 260, 410, 1000};
 
-    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0}, {1, 1, 1, 1}};
+    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0}, {1, 1, 1, 1}, {1,2,0}};
 
     private Fighter enemyes[] = new Fighter[6];
 
     EnemyFabric fabric = new EnemyFabric();
 
     private Fighter enemyy = null;
-    CharacterAction(){
+
+    CharacterAction() {
         setEnemyes();
     }
 
@@ -90,17 +91,21 @@ public class CharacterAction {
         return enemyy;
     }
 
-    public int[] EnemyBehavior(int k1, int k2, int k3, int k4) {
+    public int[] EnemyBehavior(int k1, int k2, int k3, int k4, boolean canCurse) {
         int arr[];
         double i = Math.random();
-        if (i < k1 * 0.01) {
-            arr = kind_fight[0];
-        } else if (i < (k1 + k2) * 0.01) {
-            arr = kind_fight[1];
-        } else if (i < (k1 + k2 + k3) * 0.01) {
-            arr = kind_fight[2];
+        if (canCurse && i > 0.5) {
+            arr = kind_fight[4];
         } else {
-            arr = kind_fight[3];
+            if (i < k1 * 0.01) {
+                arr = kind_fight[0];
+            } else if (i < (k1 + k2) * 0.01) {
+                arr = kind_fight[1];
+            } else if (i < (k1 + k2 + k3) * 0.01) {
+                arr = kind_fight[2];
+            } else {
+                arr = kind_fight[3];
+            }
         }
         return arr;
     }
@@ -108,19 +113,19 @@ public class CharacterAction {
     public int[] ChooseBehavior(Fighter enemy) {
         int arr[] = null;
         if (enemy instanceof Baraka) {
-            arr = EnemyBehavior(15, 15, 60, 10);
+            arr = EnemyBehavior(15, 15, 60, 10, false);
         }
         if (enemy instanceof SubZero) {
-            arr = EnemyBehavior(25, 25, 0, 50);
+            arr = EnemyBehavior(25, 25, 0, 50, true);
         }
         if (enemy instanceof LiuKang) {
-            arr = EnemyBehavior(13, 13, 10, 64);
+            arr = EnemyBehavior(13, 13, 10, 64, false);
         }
         if (enemy instanceof SonyaBlade) {
-            arr = EnemyBehavior(25, 25, 50, 0);
+            arr = EnemyBehavior(25, 25, 50, 0, false);
         }
         if (enemy instanceof ShaoKahn) {
-            arr = EnemyBehavior(10, 45, 0, 45);
+            arr = EnemyBehavior(10, 45, 0, 45, false);
         }
         return arr;
     }
@@ -206,25 +211,37 @@ public class CharacterAction {
     public void addHealthToPlayer(Player player) {
         int hp;
         hp = switch (player.getLevel()) {
-            case 1 -> 40;
-            case 2 -> 50;
-            case 3 -> 65;
-            case 4 -> 80;
-            default -> 0;
+            case 1 ->
+                40;
+            case 2 ->
+                50;
+            case 3 ->
+                65;
+            case 4 ->
+                80;
+            default ->
+                0;
         };
         player.addMaxHealth(hp);
     }
-public void addDamageToPlayer(Player player) {
+
+    public void addDamageToPlayer(Player player) {
         int damage;
         damage = switch (player.getLevel()) {
-            case 1 -> 5;
-            case 2 -> 6;
-            case 3 -> 8;
-            case 4 -> 11;
-            default -> 0;
+            case 1 ->
+                5;
+            case 2 ->
+                6;
+            case 3 ->
+                8;
+            case 4 ->
+                11;
+            default ->
+                0;
         };
         player.addDamage(damage);
     }
+
     public void addHealthAndDamgeEnemy(Fighter enemy, Player human) {
         int hp = 0;
         int damage = 0;
