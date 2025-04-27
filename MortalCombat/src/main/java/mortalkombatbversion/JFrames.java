@@ -30,6 +30,7 @@ public class JFrames extends javax.swing.JFrame {
     private String currentLocation;
     private int reamainQuantity;
     private int currentVictory;
+    private int currentLevel;
 
     /**
      * Creates new form JFrame
@@ -134,6 +135,14 @@ public class JFrames extends javax.swing.JFrame {
         skyCastleCheckBox = new javax.swing.JCheckBox();
         titlePicture = new javax.swing.JLabel();
         chooseLocationsButton = new javax.swing.JButton();
+        chooseCharactericticDialog = new javax.swing.JDialog();
+        chooseCharacteristicPanel = new javax.swing.JPanel();
+        chooseCharacteristicLabel = new javax.swing.JLabel();
+        damageRadioButton = new javax.swing.JRadioButton();
+        healthRadioButton = new javax.swing.JRadioButton();
+        chooseCharacteristicButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        charactericticsButtonGroup = new javax.swing.ButtonGroup();
         menuPanel = new javax.swing.JPanel();
         gameNameAndPictureLabel = new javax.swing.JLabel();
         startGameButton = new javax.swing.JButton();
@@ -773,6 +782,59 @@ public class JFrames extends javax.swing.JFrame {
 
         chooseLocationsDialog.getContentPane().add(chooseLocationsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 500));
 
+        chooseCharactericticDialog.setMaximumSize(new java.awt.Dimension(560, 395));
+        chooseCharactericticDialog.setMinimumSize(new java.awt.Dimension(560, 395));
+        chooseCharactericticDialog.setPreferredSize(new java.awt.Dimension(560, 395));
+        chooseCharactericticDialog.setResizable(false);
+        chooseCharactericticDialog.setSize(new java.awt.Dimension(560, 395));
+        chooseCharactericticDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        chooseCharacteristicPanel.setMaximumSize(new java.awt.Dimension(560, 395));
+        chooseCharacteristicPanel.setMinimumSize(new java.awt.Dimension(560, 395));
+        chooseCharacteristicPanel.setPreferredSize(new java.awt.Dimension(560, 395));
+        chooseCharacteristicPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        chooseCharacteristicLabel.setFont(new java.awt.Font("Segoe UI", 3, 26)); // NOI18N
+        chooseCharacteristicLabel.setForeground(java.awt.Color.red);
+        chooseCharacteristicLabel.setText("<html>Поздравляем, Вы достигли нового уровня. Выберите, какую характеристику Вы хотите улучшить</html>");
+        chooseCharacteristicPanel.add(chooseCharacteristicLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 390, -1));
+
+        damageRadioButton.setBackground(new java.awt.Color(0, 0, 0));
+        charactericticsButtonGroup.add(damageRadioButton);
+        damageRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        damageRadioButton.setForeground(java.awt.Color.red);
+        damageRadioButton.setText("Урон");
+        damageRadioButton.setBorder(null);
+        chooseCharacteristicPanel.add(damageRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
+
+        healthRadioButton.setBackground(new java.awt.Color(0, 0, 0));
+        charactericticsButtonGroup.add(healthRadioButton);
+        healthRadioButton.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        healthRadioButton.setForeground(java.awt.Color.red);
+        healthRadioButton.setText("Здоровье");
+        healthRadioButton.setBorder(null);
+        chooseCharacteristicPanel.add(healthRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, -1, -1));
+
+        chooseCharacteristicButton.setBackground(new java.awt.Color(0, 0, 0));
+        chooseCharacteristicButton.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        chooseCharacteristicButton.setForeground(java.awt.Color.red);
+        chooseCharacteristicButton.setText("Выбрать");
+        chooseCharacteristicButton.setBorder(null);
+        chooseCharacteristicButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chooseCharacteristicButtonActionPerformed(evt);
+            }
+        });
+        chooseCharacteristicPanel.add(chooseCharacteristicButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/infoLogo.jpg"))); // NOI18N
+        jLabel4.setMaximumSize(new java.awt.Dimension(560, 395));
+        jLabel4.setMinimumSize(new java.awt.Dimension(560, 395));
+        jLabel4.setPreferredSize(new java.awt.Dimension(560, 395));
+        chooseCharacteristicPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
+
+        chooseCharactericticDialog.getContentPane().add(chooseCharacteristicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(530, 485));
         setMinimumSize(new java.awt.Dimension(530, 485));
@@ -867,6 +929,7 @@ public class JFrames extends javax.swing.JFrame {
                 winnerNameLabel, game.action, playerHealthProgressBar, enemyHealthProgressBar, winWithRecordDialog,
                 winWithoutRecordDialog, fightFrame, game.getResults(), winWithRecordLabel, winWithoutRecordLabel,
                 turnInfoLabel, specialCommentAboutFightLabel, commentAboutFightLabel, items, rebirthElixirRadioButton);
+        checkLevel();
 
     }//GEN-LAST:event_attackButtonActionPerformed
 
@@ -875,8 +938,14 @@ public class JFrames extends javax.swing.JFrame {
                 winnerNameLabel, game.action, playerHealthProgressBar, enemyHealthProgressBar, winWithRecordDialog,
                 winWithoutRecordDialog, fightFrame, game.getResults(), winWithRecordLabel, winWithoutRecordLabel,
                 turnInfoLabel, specialCommentAboutFightLabel, commentAboutFightLabel, items, rebirthElixirRadioButton);
+        checkLevel();
     }//GEN-LAST:event_defendButtonActionPerformed
-
+    private void checkLevel() {
+        if (currentLevel < player.getLevel()) {
+            chooseCharactericticDialog.setVisible(true);
+            currentLevel += 1;
+        }
+    }
     private void closeInfoAboutWinnerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeInfoAboutWinnerButtonActionPerformed
         startRound();
         infoAboutWinnerDialog.dispose();
@@ -919,12 +988,10 @@ public class JFrames extends javax.swing.JFrame {
     private void useElixirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useElixirButtonActionPerformed
         if (smallHealingElixirRadioButton.isSelected()) {
             nameElixirButton = "smallHealingElixir";
-        }
-        if (bigHealingElixirRadioButton.isSelected()) {
+        } else if (bigHealingElixirRadioButton.isSelected()) {
             nameElixirButton = "bigHealingElixir";
-        }
-        if (rebirthElixirRadioButton.isSelected()) {
-            nameElixirButton = "rebirthElixir";
+        } else if (rebirthElixirRadioButton.isSelected()) {
+            nameElixirButton = "rebirthElixir";         
         }
         game.action.UseItem(player, items, nameElixirButton, elixirRestrictionDialog, bagDialog);
         game.action.setHealthProgressBar(player, playerHealthProgressBar);
@@ -980,11 +1047,26 @@ public class JFrames extends javax.swing.JFrame {
             chooseLocationsDialog.dispose();
             setLocationsOrder();
             player = game.newPlayer(playerHealthProgressBar);
+            currentLevel = 0;
             startRound();
 
         }
 
     }//GEN-LAST:event_chooseLocationsButtonActionPerformed
+
+    private void chooseCharacteristicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseCharacteristicButtonActionPerformed
+        // TODO add your handling code here:
+        if (damageRadioButton.isSelected()) {
+            game.action.addDamageToPlayer(player);
+            startRound();
+            chooseCharactericticDialog.dispose();
+        } else if (healthRadioButton.isSelected()) {
+            game.action.addHealthToPlayer(player);
+            startRound();
+            chooseCharactericticDialog.dispose();
+        }
+
+    }//GEN-LAST:event_chooseCharacteristicButtonActionPerformed
 
     private void setLocationsOrder() {
         int locationsQuantity = chosenLocations.size();
@@ -1067,6 +1149,11 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JPanel bagPanel;
     private javax.swing.JRadioButton bigHealingElixirRadioButton;
     private javax.swing.JCheckBox campCheckBox;
+    private javax.swing.ButtonGroup charactericticsButtonGroup;
+    private javax.swing.JDialog chooseCharactericticDialog;
+    private javax.swing.JButton chooseCharacteristicButton;
+    private javax.swing.JLabel chooseCharacteristicLabel;
+    private javax.swing.JPanel chooseCharacteristicPanel;
     private javax.swing.JButton chooseLocationsButton;
     private javax.swing.JDialog chooseLocationsDialog;
     private javax.swing.JPanel chooseLocationsPanel;
@@ -1074,6 +1161,7 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JButton closeInfoAboutWinnerButton;
     private javax.swing.JButton closeRecordsTableButton;
     private javax.swing.JLabel commentAboutFightLabel;
+    private javax.swing.JRadioButton damageRadioButton;
     private javax.swing.JCheckBox deadForestCheckBox;
     private javax.swing.JButton defendButton;
     private javax.swing.JDialog elixirRestrictionDialog;
@@ -1096,12 +1184,14 @@ public class JFrames extends javax.swing.JFrame {
     private javax.swing.JLabel gameNameAndPictureLabel;
     private javax.swing.JButton goodsButton;
     private javax.swing.JCheckBox harborCheckBox;
+    private javax.swing.JRadioButton healthRadioButton;
     private javax.swing.JCheckBox hellCheckBox;
     private javax.swing.JDialog infoAboutWinnerDialog;
     private javax.swing.JPanel infoAboutWinnerPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JCheckBox junglesCheckBox;
     private javax.swing.JLabel locationPicture;
     private javax.swing.JPanel menuPanel;

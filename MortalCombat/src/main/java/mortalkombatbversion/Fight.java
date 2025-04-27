@@ -111,9 +111,9 @@ public class Fight {
     }
 
     public void EndRound(Fighter player, Fighter enemy, JDialog infoAboutWinnerDialog,
-            JLabel winnerNameLabel, CharacterAction action, Items[] items) {        
-        infoAboutWinnerDialog.setVisible(true);
+            JLabel winnerNameLabel, CharacterAction action, Items[] items) {
         if (player.getHealth() > 0) {
+            int currentLevel = player.getLevel();
             winnerNameLabel.setText("You win");
             ((Player) player).addWin();
 
@@ -124,8 +124,12 @@ public class Fight {
                 action.AddItems(25, 15, 5, items);
                 action.AddPoints(((Player) player), action.getEnemyes());
             }
+            if (currentLevel == player.getLevel()) {
+                infoAboutWinnerDialog.setVisible(true);
+            }
         } else {
             winnerNameLabel.setText(enemy.getName() + " win");
+            infoAboutWinnerDialog.setVisible(true);
         }
 
         moveNumber = 1;
@@ -163,7 +167,7 @@ public class Fight {
         } else {
             winWithoutRecordDialog.setVisible(true);
             winWithoutRecordLabel.setText(text);
-        }       
+        }
     }
 
     public int[] ResetAttack() {
@@ -175,7 +179,7 @@ public class Fight {
             JProgressBar enemyHealthProgressBar, JLabel enemyNameLabel,
             JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel,
             CharacterAction action, int remainQuantity) {
-        Fighter enemy1 = null; 
+        Fighter enemy1 = null;
         if (remainQuantity == 1) {
             enemy1 = action.ChooseBoss(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, player.getLevel());
         } else {

@@ -161,7 +161,6 @@ public class CharacterAction {
             if (experience_for_next_level[i] == human.getExperience()) {
                 human.levelUp();
                 human.setNextExperianceGoal(experience_for_next_level[i + 1]);
-                addHealthAndDamgeHuman(human);
                 for (int j = 0; j < 4; j++) {
                     addHealthAndDamgeEnemy(enemyes[j], human);
                 }
@@ -184,7 +183,6 @@ public class CharacterAction {
             if (experience_for_next_level[i] == human.getExperience()) {
                 human.levelUp();
                 human.setNextExperianceGoal(experience_for_next_level[i + 1]);
-                addHealthAndDamgeHuman(human);
                 for (int j = 0; j < 4; j++) {
                     addHealthAndDamgeEnemy(enemyes[j], human);
                 }
@@ -205,31 +203,28 @@ public class CharacterAction {
         }
     }
 
-    public void addHealthAndDamgeHuman(Player human) {
-        int hp = 0;
-        int damage = 0;
-        switch (human.getLevel()) {
-            case 1:
-                hp = 25;
-                damage = 3;
-                break;
-            case 2:
-                hp = 30;
-                damage = 3;
-                break;
-            case 3:
-                hp = 30;
-                damage = 4;
-                break;
-            case 4:
-                hp = 40;
-                damage = 6;
-                break;
-        }
-        human.addMaxHealth(hp);
-        human.addDamage(damage);
+    public void addHealthToPlayer(Player player) {
+        int hp;
+        hp = switch (player.getLevel()) {
+            case 1 -> 40;
+            case 2 -> 50;
+            case 3 -> 65;
+            case 4 -> 80;
+            default -> 0;
+        };
+        player.addMaxHealth(hp);
     }
-
+public void addDamageToPlayer(Player player) {
+        int damage;
+        damage = switch (player.getLevel()) {
+            case 1 -> 5;
+            case 2 -> 6;
+            case 3 -> 8;
+            case 4 -> 11;
+            default -> 0;
+        };
+        player.addDamage(damage);
+    }
     public void addHealthAndDamgeEnemy(Fighter enemy, Player human) {
         int hp = 0;
         int damage = 0;

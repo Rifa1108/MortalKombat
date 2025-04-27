@@ -69,7 +69,6 @@ public class TextChanger {
         smallHealingElixirRadioButton.setText(items[0].getName() + ", " + items[0].getCount() + " шт");
         bigHealingElixirRadioButton.setText(items[1].getName() + ", " + items[1].getCount() + " шт");
         rebirthElixirRadioButton.setText(items[2].getName() + ", " + items[2].getCount() + " шт");
-
     }
 
 }
