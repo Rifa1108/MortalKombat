@@ -5,7 +5,6 @@
 package mortalkombatbversion;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import javax.swing.*;

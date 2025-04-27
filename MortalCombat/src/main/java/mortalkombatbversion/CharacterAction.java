@@ -4,6 +4,7 @@
  */
 package mortalkombatbversion;
 
+import java.util.Arrays;
 import javax.swing.*;
 
 /**
@@ -14,13 +15,14 @@ public class CharacterAction {
 
     private final int experience_for_next_level[] = {40, 90, 180, 260, 410, 1000};
 
-    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0}, {1, 1, 1, 1}, {1,2,0}, {1,3,0}};
+    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0, 1}, {1, 1, 1, 1}, {1, 2, 0}, {1, 3, 0}, {0, 0, 0, 0}};
 
     private Fighter enemyes[] = new Fighter[5];
 
     EnemyFabric fabric = new EnemyFabric();
 
     private Fighter enemyy = null;
+    private int[] quantityMovesKindPlayer;
 
     CharacterAction() {
         setEnemyes();
@@ -84,29 +86,36 @@ public class CharacterAction {
 
     public int[] EnemyBehavior(int k1, int k2, int k3, int k4, boolean canCurse, boolean canRegenerate) {
         int arr[];
+        int allMoves = Arrays.stream(quantityMovesKindPlayer).sum();
         double i = Math.random();
         if (canCurse && i > 0.7) {
-            arr = kind_fight[4];
-        }
-        else if (canRegenerate && i > 0.7){
-            arr = kind_fight[5];
-        }
-        else {
-            if (i < k1 * 0.01) {
-                arr = kind_fight[0];
-            } else if (i < (k1 + k2) * 0.01) {
-                arr = kind_fight[1];
-            } else if (i < (k1 + k2 + k3) * 0.01) {
-                arr = kind_fight[2];
-            } else {
-                arr = kind_fight[3];
+            return kind_fight[4];
+        } else if (canRegenerate && i > 0.7) {
+            return kind_fight[5];
+        } else if (allMoves > 10) {
+            if (i < quantityMovesKindPlayer[2] / allMoves) {
+                return kind_fight[3];
+            } else if (i < quantityMovesKindPlayer[1] / allMoves) {
+                return kind_fight[6];
+            } else if (i < quantityMovesKindPlayer[0] / allMoves && (allMoves % 2) == 1) {
+                return kind_fight[2];
             }
+        }
+        if (i < k1 * 0.01) {
+            arr = kind_fight[0];
+        } else if (i < (k1 + k2) * 0.01) {
+            arr = kind_fight[1];
+        } else if (i < (k1 + k2 + k3) * 0.01) {
+            arr = kind_fight[2];
+        } else {
+            arr = kind_fight[3];
         }
         return arr;
     }
 
     public int[] ChooseBehavior(Fighter enemy, int[] quantityMovesKindPlayer) {
         int arr[] = null;
+        this.quantityMovesKindPlayer = quantityMovesKindPlayer;
         if (enemy instanceof Baraka) {
             arr = EnemyBehavior(15, 15, 60, 10, false, false);
         }
