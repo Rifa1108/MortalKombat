@@ -17,16 +17,17 @@ import org.apache.poi.xssf.usermodel.*;
  */
 public class Game {
 
-    CharacterAction action = new CharacterAction();
+    CharacterAction action;
     TextChanger textChanger = new TextChanger();
     Fight fight = new Fight();
     private ArrayList<Result> results = new ArrayList<>();
 
 
     public Player newPlayer(JProgressBar playerHealthProgressBar) {
+        action = new CharacterAction();
         Player human = new Player(0, 80, 16, 1);
         action.setHealthProgressBar(human, playerHealthProgressBar);
-        playerHealthProgressBar.setMaximum(human.getMaxHealth());
+        playerHealthProgressBar.setMaximum(human.getMaxHealth());       
         return human;
     }
 

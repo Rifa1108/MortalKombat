@@ -96,11 +96,11 @@ public class CharacterAction {
         if (i < k1 * 0.01) {
             arr = kind_fight[0];
         } else if (i < (k1 + k2) * 0.01) {
-            arr = kind_fight[1];
+            arr = kind_fight[0];
         } else if (i < (k1 + k2 + k3) * 0.01) {
-            arr = kind_fight[2];
+            arr = kind_fight[0];
         } else {
-            arr = kind_fight[3];
+            arr = kind_fight[0];
         }
         return arr;
     }

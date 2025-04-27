@@ -98,6 +98,9 @@ public class Fight {
             specialCommentAboutFightLabel.setText("Вы воскресли");
         }
         if (player.getHealth() <= 0 | enemy.getHealth() <= 0) {
+            fightFrame.dispose();
+            specialCommentAboutFightLabel.setText("");
+            commentAboutFightLabel.setText("");
             if (((Player) player).getWin() == 11) {
                 EndFinalRound(((Player) player), action, results, winWithRecordDialog, winWithoutRecordDialog,
                         fightFrame, winWithRecordLabel, winWithoutRecordLabel);
@@ -108,8 +111,7 @@ public class Fight {
     }
 
     public void EndRound(Fighter player, Fighter enemy, JDialog infoAboutWinnerDialog,
-            JLabel winnerNameLabel, CharacterAction action, Items[] items) {
-
+            JLabel winnerNameLabel, CharacterAction action, Items[] items) {        
         infoAboutWinnerDialog.setVisible(true);
         if (player.getHealth() > 0) {
             winnerNameLabel.setText("You win");
@@ -161,8 +163,7 @@ public class Fight {
         } else {
             winWithoutRecordDialog.setVisible(true);
             winWithoutRecordLabel.setText(text);
-        }
-        fightFrame.dispose();
+        }       
     }
 
     public int[] ResetAttack() {

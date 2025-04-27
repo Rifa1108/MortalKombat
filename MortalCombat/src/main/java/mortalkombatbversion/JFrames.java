@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class JFrames extends javax.swing.JFrame {
 
-    Game game = new Game();
+    Game game;
     Player player;
     Fighter enemy;
     Items[] items = new Items[3];
@@ -27,17 +27,15 @@ public class JFrames extends javax.swing.JFrame {
     private HashMap<JCheckBox, String> allLocations = new HashMap<JCheckBox, String>();
     private HashMap<String, String> chosenLocations;
     private Map<String, Integer> locationsOrder;
+    private String currentLocation;
+    private int reamainQuantity;
 
     /**
      * Creates new form JFrame
      */
     public JFrames() {
-        initComponents();
-        game.ReadFromExcel();
-        game.WriteToTable(recordsTable);
-        items[0] = new Items("Малое зелье лечение", 0);
-        items[1] = new Items("Большое зелье лечение", 0);
-        items[2] = new Items("Крест возрождения", 0);
+        initComponents();  
+        setGame();
         recordsTable.getTableHeader().setBackground(Color.BLACK);
         recordsTable.getTableHeader().setForeground(Color.red);
         recordsTableScrollPane.getViewport().setBackground(Color.BLACK);
@@ -360,6 +358,7 @@ public class JFrames extends javax.swing.JFrame {
 
         infoAboutWinnerDialog.getContentPane().add(infoAboutWinnerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
+        winWithRecordDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         winWithRecordDialog.setMinimumSize(new java.awt.Dimension(560, 395));
         winWithRecordDialog.setResizable(false);
         winWithRecordDialog.setSize(new java.awt.Dimension(560, 395));
@@ -375,8 +374,8 @@ public class JFrames extends javax.swing.JFrame {
         winWithRecordLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 30)); // NOI18N
         winWithRecordLabel.setForeground(new java.awt.Color(255, 0, 0));
         winWithRecordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        winWithRecordLabel.setText("Победа на Вашей стороне");
-        winWithRecordPanel.add(winWithRecordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 440, 60));
+        winWithRecordLabel.setText("<html>Победа не на Вашей стороне</html>");
+        winWithRecordPanel.add(winWithRecordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 440, -1));
 
         nameForRecordTableTextField.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         nameForRecordTableTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -410,7 +409,9 @@ public class JFrames extends javax.swing.JFrame {
         winWithRecordDialog.getContentPane().add(winWithRecordPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
         recordsTableDialog.setBackground(new java.awt.Color(0, 0, 0));
+        recordsTableDialog.setMaximumSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setMinimumSize(new java.awt.Dimension(594, 520));
+        recordsTableDialog.setPreferredSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setResizable(false);
 
         recordsTablePanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -495,6 +496,7 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(recordsTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        winWithoutRecordDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         winWithoutRecordDialog.setMinimumSize(new java.awt.Dimension(560, 395));
         winWithoutRecordDialog.setResizable(false);
         winWithoutRecordDialog.setSize(new java.awt.Dimension(560, 395));
@@ -509,14 +511,14 @@ public class JFrames extends javax.swing.JFrame {
         winWithoutRecordLabel.setFont(new java.awt.Font("Comic Sans MS", 3, 32)); // NOI18N
         winWithoutRecordLabel.setForeground(new java.awt.Color(255, 0, 0));
         winWithoutRecordLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        winWithoutRecordLabel.setText("Победа на Вашей стороне");
-        winWithoutRecordPanel.add(winWithoutRecordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 460, 73));
+        winWithoutRecordLabel.setText("<html>Победа не на Вашей стороне</html>");
+        winWithoutRecordPanel.add(winWithoutRecordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 460, 90));
 
         winWithoutRecordLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         winWithoutRecordLabel1.setForeground(java.awt.Color.red);
         winWithoutRecordLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         winWithoutRecordLabel1.setText("<html>К сожалению,  Ваш результат не попал в топ 10</html>");
-        winWithoutRecordPanel.add(winWithoutRecordLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 350, 60));
+        winWithoutRecordPanel.add(winWithoutRecordLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 350, 70));
 
         finishWinWithoutRecordGameButton.setBackground(new java.awt.Color(0, 0, 0));
         finishWinWithoutRecordGameButton.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
@@ -846,6 +848,14 @@ public class JFrames extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        private void setGame(){
+        game = new Game();
+        game.ReadFromExcel();
+        game.WriteToTable(recordsTable);
+        items[0] = new Items("Малое зелье лечение", 0);
+        items[1] = new Items("Большое зелье лечение", 0);
+        items[2] = new Items("Крест возрождения", 0);
+    }
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
         chooseLocationsDialog.setVisible(true);
 
@@ -955,7 +965,7 @@ public class JFrames extends javax.swing.JFrame {
     }//GEN-LAST:event_skyCastleCheckBoxActionPerformed
 
     private void chooseLocationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseLocationsButtonActionPerformed
-        // TODO add your handling code here:      
+        // TODO add your handling code here: 
         chosenLocations = new HashMap<String, String>();
         for (JCheckBox location : allLocations.keySet()) {
             if (location.isSelected()) {
@@ -969,15 +979,15 @@ public class JFrames extends javax.swing.JFrame {
             chooseLocationsDialog.dispose();
             setLocationsOrder();
             player = game.newPlayer(playerHealthProgressBar);
-            startRound();
-            fightFrame.setVisible(true);
+            startRound();         
 
         }
 
     }//GEN-LAST:event_chooseLocationsButtonActionPerformed
+
     private void setLocationsOrder() {
         int locationsQuantity = chosenLocations.size();
-        int goalVictoryQuantity = 11;
+        int goalVictoryQuantity = 24;
         locationsOrder = new LinkedHashMap<String, Integer>();
         while (locationsQuantity > 0) {
             for (String location : chosenLocations.keySet()) {
@@ -995,17 +1005,18 @@ public class JFrames extends javax.swing.JFrame {
             if (chosen) {
                 break;
             }
-            int reamainQuantity = locationsOrder.get(location);
+            reamainQuantity = locationsOrder.get(location);
             if (reamainQuantity > 0) {
                 enemy = game.fight.NewRound(player, enemyPictureLabel, playerHealthProgressBar, enemyHealthProgressBar,
                         enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, game.action, reamainQuantity);
                 game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
                         turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
                 locationPicture.setIcon(new ImageIcon(location));
-                locationsOrder.put(location, reamainQuantity - 1);
+                currentLocation = location;   
                 chosen = true;
             }
         }
+        fightFrame.setVisible(true);
     }
 
     /**
