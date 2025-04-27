@@ -1014,7 +1014,7 @@ public class JFrames extends javax.swing.JFrame {
         } else if (bigHealingElixirRadioButton.isSelected()) {
             nameElixirButton = "bigHealingElixir";
         } else if (rebirthElixirRadioButton.isSelected()) {
-            nameElixirButton = "rebirthElixir";         
+            nameElixirButton = "rebirthElixir";
         }
         game.action.UseItem(player, items, nameElixirButton, elixirRestrictionDialog, bagDialog);
         game.action.setHealthProgressBar(player, playerHealthProgressBar);
@@ -1106,7 +1106,7 @@ public class JFrames extends javax.swing.JFrame {
                 winWithoutRecordDialog, fightFrame, game.getResults(), winWithRecordLabel, winWithoutRecordLabel,
                 turnInfoLabel, specialCommentAboutFightLabel, commentAboutFightLabel, items, rebirthElixirRadioButton);
         checkLevel();
-        
+
     }//GEN-LAST:event_curseButtonActionPerformed
 
     private void setLocationsOrder() {

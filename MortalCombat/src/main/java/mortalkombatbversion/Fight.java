@@ -21,7 +21,7 @@ public class Fight {
     int k = -1;
     int stun = 0;
     double v = 0.0;
-    int[] quantityMovesKindPlayer = {0,0,0};
+    int[] quantityMovesKindPlayer = {0, 0, 0};
 
     public void Move(Fighter fighter1, Fighter fighter2, JLabel specialCommentAboutFightLabel, JLabel commentAboutFightLabel) {
         if (stun == 1) {
@@ -77,9 +77,8 @@ public class Fight {
                 if (v <= 0.75) {
                     fighter2.changeCurseTime(fighter1.getLevel());
                     commentAboutFightLabel.setText(fighter2.getName() + " was cursed");
-                }
-                else{
-                commentAboutFightLabel.setText(fighter1.getName() + " tried to curse");
+                } else {
+                    commentAboutFightLabel.setText(fighter1.getName() + " tried to curse");
                 }
                 break;
             case "21":
@@ -106,9 +105,8 @@ public class Fight {
                 if (v <= 0.75) {
                     fighter1.changeCurseTime(fighter2.getLevel());
                     commentAboutFightLabel.setText(fighter1.getName() + " was cursed");
-                }
-                else{
-                commentAboutFightLabel.setText(fighter2.getName() + " tried to curse");
+                } else {
+                    commentAboutFightLabel.setText(fighter2.getName() + " tried to curse");
                 }
                 break;
             case "12":
@@ -181,9 +179,9 @@ public class Fight {
             } else {
                 EndRound(player, enemy, infoAboutWinnerDialog, winnerNameLabel, action, items);
             }
-            
+
         }
-        quantityMovesKindPlayer[kindOfAttack]+=1;      
+        quantityMovesKindPlayer[kindOfAttack] += 1;
     }
 
     public void EndRound(Fighter player, Fighter enemy, JDialog infoAboutWinnerDialog,
