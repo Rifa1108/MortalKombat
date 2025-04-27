@@ -29,12 +29,13 @@ public class JFrames extends javax.swing.JFrame {
     private Map<String, Integer> locationsOrder;
     private String currentLocation;
     private int reamainQuantity;
+    private int currentVictory;
 
     /**
      * Creates new form JFrame
      */
     public JFrames() {
-        initComponents();  
+        initComponents();
         setGame();
         recordsTable.getTableHeader().setBackground(Color.BLACK);
         recordsTable.getTableHeader().setForeground(Color.red);
@@ -848,7 +849,7 @@ public class JFrames extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-        private void setGame(){
+    private void setGame() {
         game = new Game();
         game.ReadFromExcel();
         game.WriteToTable(recordsTable);
@@ -979,7 +980,7 @@ public class JFrames extends javax.swing.JFrame {
             chooseLocationsDialog.dispose();
             setLocationsOrder();
             player = game.newPlayer(playerHealthProgressBar);
-            startRound();         
+            startRound();
 
         }
 
@@ -987,7 +988,7 @@ public class JFrames extends javax.swing.JFrame {
 
     private void setLocationsOrder() {
         int locationsQuantity = chosenLocations.size();
-        int goalVictoryQuantity = 24;
+        int goalVictoryQuantity = 12;
         locationsOrder = new LinkedHashMap<String, Integer>();
         while (locationsQuantity > 0) {
             for (String location : chosenLocations.keySet()) {
@@ -1001,22 +1002,26 @@ public class JFrames extends javax.swing.JFrame {
 
     private void startRound() {
         boolean chosen = false;
+        if (currentVictory < player.getWin()) {
+            currentVictory += 1;
+            locationsOrder.put(currentLocation, reamainQuantity - 1);
+        }
         for (String location : locationsOrder.keySet()) {
             if (chosen) {
                 break;
             }
             reamainQuantity = locationsOrder.get(location);
             if (reamainQuantity > 0) {
+                currentLocation = location;
                 enemy = game.fight.NewRound(player, enemyPictureLabel, playerHealthProgressBar, enemyHealthProgressBar,
                         enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, game.action, reamainQuantity);
                 game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
                         turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
-                locationPicture.setIcon(new ImageIcon(location));
-                currentLocation = location;   
+                locationPicture.setIcon(new ImageIcon(currentLocation));
+                fightFrame.setVisible(true);
                 chosen = true;
             }
         }
-        fightFrame.setVisible(true);
     }
 
     /**
