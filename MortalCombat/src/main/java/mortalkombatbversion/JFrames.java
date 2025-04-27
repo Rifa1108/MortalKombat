@@ -140,7 +140,9 @@ public class JFrames extends javax.swing.JFrame {
         startGameButton = new javax.swing.JButton();
         showResultsButton = new javax.swing.JButton();
 
+        fightFrame.setMaximumSize(new java.awt.Dimension(1000, 700));
         fightFrame.setMinimumSize(new java.awt.Dimension(1000, 700));
+        fightFrame.setPreferredSize(new java.awt.Dimension(1000, 700));
         fightFrame.setResizable(false);
         fightFrame.setSize(new java.awt.Dimension(1000, 700));
 
@@ -317,6 +319,7 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(fightPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        infoAboutWinnerDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         infoAboutWinnerDialog.setMinimumSize(new java.awt.Dimension(560, 395));
         infoAboutWinnerDialog.setResizable(false);
         infoAboutWinnerDialog.setSize(new java.awt.Dimension(560, 395));
@@ -665,6 +668,7 @@ public class JFrames extends javax.swing.JFrame {
         elixirRestrictionDialog.getContentPane().add(elixirRestrictionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         chooseLocationsDialog.setBackground(new java.awt.Color(0, 0, 0));
+        chooseLocationsDialog.setMaximumSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.setMinimumSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.setResizable(false);
         chooseLocationsDialog.setSize(new java.awt.Dimension(530, 500));
@@ -755,14 +759,14 @@ public class JFrames extends javax.swing.JFrame {
         chooseLocationsButton.setBackground(new java.awt.Color(0, 0, 0));
         chooseLocationsButton.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         chooseLocationsButton.setForeground(new java.awt.Color(172, 140, 115));
-        chooseLocationsButton.setText("Выбрать");
+        chooseLocationsButton.setText("Выбрать локации");
         chooseLocationsButton.setBorder(null);
         chooseLocationsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chooseLocationsButtonActionPerformed(evt);
             }
         });
-        chooseLocationsPanel.add(chooseLocationsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, -1));
+        chooseLocationsPanel.add(chooseLocationsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, -1, -1));
 
         chooseLocationsDialog.getContentPane().add(chooseLocationsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 500));
 
