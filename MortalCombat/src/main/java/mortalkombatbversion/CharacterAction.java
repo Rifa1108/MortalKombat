@@ -15,7 +15,7 @@ public class CharacterAction {
 
     private final int experience_for_next_level[] = {40, 90, 180, 260, 410, 1000};
 
-    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0, 1}, {1, 1, 1, 1}, {1, 2, 0}, {1, 3, 0}, {0, 0, 0, 0}};
+    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0, 1}, {1, 1, 1}, {2}, {3}, {0, 0, 0}};
 
     private Fighter enemyes[] = new Fighter[5];
 
@@ -90,14 +90,14 @@ public class CharacterAction {
         double i = Math.random();
         if (canCurse && i > 0.7) {
             return kind_fight[4];
-        } else if (canRegenerate && i > 0.7) {
+        } else if (canRegenerate && i > 0.8) {
             return kind_fight[5];
-        } else if (allMoves > 10) {
-            if (i < quantityMovesKindPlayer[2] / allMoves) {
+        } else if (allMoves > 6) {
+            if (0.6 < quantityMovesKindPlayer[2] / allMoves) {
                 return kind_fight[3];
-            } else if (i < quantityMovesKindPlayer[1] / allMoves) {
+            } else if (0.6 < quantityMovesKindPlayer[1] / allMoves) {
                 return kind_fight[6];
-            } else if (i < quantityMovesKindPlayer[0] / allMoves && (allMoves % 2) == 1) {
+            } else if (0.6 < quantityMovesKindPlayer[0] / allMoves && (allMoves % 2) == 1) {
                 return kind_fight[2];
             }
         }
