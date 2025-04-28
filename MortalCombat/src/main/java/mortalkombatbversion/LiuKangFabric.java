@@ -12,8 +12,8 @@ public class LiuKangFabric implements EnemyFabricInterface {
 
     @Override
     public Fighter create() {
-        Fighter enemy;
-        enemy = new LiuKang(1, 70, 20, 1);
+        Fighter enemy = new LiuKang(1, 70, 20, 1);
         return enemy;
+        
     }
 }

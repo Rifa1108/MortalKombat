@@ -1072,7 +1072,6 @@ public class JFrames extends javax.swing.JFrame {
             player = game.newPlayer(playerHealthProgressBar);
             currentLevel = 0;
             startRound();
-
         }
 
     }//GEN-LAST:event_chooseLocationsButtonActionPerformed

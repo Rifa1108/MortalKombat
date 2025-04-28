@@ -16,7 +16,6 @@ import org.apache.poi.xssf.usermodel.*;
  * @author Мария
  */
 public class Game {
-
     CharacterAction action;
     TextChanger textChanger = new TextChanger();
     Fight fight = new Fight();

@@ -126,7 +126,7 @@ public class Fight {
                 unSuccessfulRegeneration.accept(fighter2, fighter1);
                 break;
 
-        }
+        } 
         Consumer<Fighter> checkCurse = fighter -> {
             if (fighter.getCurseTime() > 0) {
                 fighter.changeCurseTime(-2);
