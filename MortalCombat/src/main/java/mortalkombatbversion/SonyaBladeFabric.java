@@ -5,11 +5,18 @@
 package mortalkombatbversion;
 
 /**
+ * Класс создающий Sonya Blade
  *
- * @author Мария
+ * @see SonyaBlade
  */
 public class SonyaBladeFabric implements EnemyFabricInterface {
 
+    /**
+     * Функция создания Sonya Blade
+     *
+     * @return возвращает созданную Sonya Blade
+     * @see SonyaBlade
+     */
     @Override
     public Fighter create() {
         Fighter enemy = new SonyaBlade(1, 80, 16, 1);

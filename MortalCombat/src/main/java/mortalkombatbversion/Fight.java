@@ -10,19 +10,61 @@ import java.util.function.Consumer;
 import javax.swing.*;
 
 /**
- *
- * @author Мария
+ * Класс реализующий логику сражения
  */
 public class Fight {
 
-    TextChanger textChanger = new TextChanger();
-    int kind_attack[] = {0};
-    int moveNumber = 1;
-    int k = -1;
-    int stun = 0;
-    double v = 0.0;
-    int[] quantityMovesKindPlayer = {0, 0, 0};
+    /**
+     * Экземпляр класса, который будет создавать надписи в текщей игре
+     */
+    protected TextChanger textChanger = new TextChanger();
+    /**
+     * Модель поведения, которой будет придерживаться противник
+     *
+     * @see Fighter#attack
+     */
+    protected int kind_attack[] = {0};
+    /**
+     * Количество шагов в текущем раунде
+     */
+    protected int moveNumber = 1;
+    /**
+     * Счётчик ходов, в котором противник реализовывал текущую модель поведения
+     * {@link Fight#kind_attack}
+     */
+    protected int k = -1;
+    /**
+     * Флаг, определяющий оглушён ли боец чья очередь ходить
+     * <ul>
+     * <li>0 - не оглушён</li>
+     * <li>1 - оглушён</li>
+     * </ul>
+     */
+    protected int stun = 0;
+    /**
+     * Случайное число для производства случайных событий
+     */
+    protected double v = 0.0;
+    /**
+     * Счётчик шагов игрока за игру
+     * <ul>
+     * <li>1 элемент - количество выбора защиты</li>
+     * <li>2 элемент - количество выбора атаки</li>
+     * <li>3 элемент - количество выбора проклятия</li>
+     * </ul>
+     */
+    protected int[] quantityMovesKindPlayer = {0, 0, 0,0};
 
+    /**
+     * Функция, реализующая последствия действий текущего раунда
+     *
+     * @param fighter1 персонаж чья очередь ходить
+     * @param fighter2 противник персонажа чья очередь ходить
+     * @param specialCommentAboutFightLabel JLabel в котором отображается
+     * комментарий о том, что какой-то персонаж был оглушён
+     * @param commentAboutFightLabel JLabel в котором отображаются все остальные
+     * комментарии о ходе битвы
+     */
     public void Move(Fighter fighter1, Fighter fighter2, JLabel specialCommentAboutFightLabel, JLabel commentAboutFightLabel) {
         if (stun == 1) {
             fighter1.setAttack(-1);
@@ -126,7 +168,7 @@ public class Fight {
                 unSuccessfulRegeneration.accept(fighter2, fighter1);
                 break;
 
-        } 
+        }
         Consumer<Fighter> checkCurse = fighter -> {
             if (fighter.getCurseTime() > 0) {
                 fighter.changeCurseTime(-2);
@@ -136,6 +178,44 @@ public class Fight {
         checkCurse.accept(fighter2);
     }
 
+    /**
+     * Функция создающая всё окружение текущего раунда до его окончания
+     *
+     * @param player игрок
+     * @param enemy противник
+     * @param kindOfAttack вид атаки, которую произвёл игрок
+     * {@link Fighter#attack}
+     * @param enemyQuantityHealthLabel JLabel в котором отображается здоровье
+     * противника в числах
+     * @param playerQuantityHeathLabel JLabel в котором отображается здоровье
+     * игрока в числах
+     * @param infoAboutWinnerDialog JDialog, всплывающий после окончания раунда
+     * (если это не финальный раунд), в котором отображается кто выиграл
+     * @param winnerNameLabel JLabel в infoAboutWinnerDialog в котором написано
+     * имя выигравшего персонажа
+     * @param action {@link Game#action}
+     * @param playerHealthProgressBar JProgressBar в котором отображается
+     * здоровье игрока
+     * @param enemyHealthProgressBar JProgressBar в котором отображается
+     * здоровье противника
+     * @param winWithRecordDialog JDialog, всплывающий после окончания
+     * финального раунда, если игрок попал в топ-10
+     * @param winWithoutRecordDialog JDialog, всплывающий после окончания
+     * финального раунда, если игрок не попал в топ-10
+     * @param fightFrame JFrame в котором отображается битва
+     * @param results {@link Game#results}
+     * @param winWithRecordLabel JLabel в winWithRecordDialog, отображающий
+     * выиграл игрок или нет
+     * @param winWithoutRecordLabel JLabel в winWithoutRecordDialog,
+     * отображающий выиграл игрок или нет
+     * @param turnInfoLabel JLabel, отображающий чья очередь ходить
+     * @param specialCommentAboutFightLabel JLabel в котором отображается
+     * комментарий о том, что какой-то персонаж был оглушён
+     * @param commentAboutFightLabel JLabel в котором отображаются все остальные
+     * комментарии о ходе битвы
+     * @param items список предметов, которые есть у игрока
+     * @param rebirthElixirRadioButton JRadioButton креста возрождения
+     */
     public void Hit(Fighter player, Fighter enemy, int kindOfAttack, JLabel enemyQuantityHealthLabel,
             JLabel playerQuantityHeathLabel, JDialog infoAboutWinnerDialog, JLabel winnerNameLabel, CharacterAction action,
             JProgressBar playerHealthProgressBar, JProgressBar enemyHealthProgressBar, JDialog winWithRecordDialog,
@@ -144,7 +224,7 @@ public class Fight {
             JLabel commentAboutFightLabel, Items[] items, JRadioButton rebirthElixirRadioButton) {
         specialCommentAboutFightLabel.setText("");
         player.setAttack(kindOfAttack);
-
+        quantityMovesKindPlayer[3] = moveNumber;
         if (k < kind_attack.length - 1) {
             k++;
         } else {
@@ -158,6 +238,7 @@ public class Fight {
             Move(enemy, player, specialCommentAboutFightLabel, commentAboutFightLabel);
         }
         moveNumber++;
+        quantityMovesKindPlayer[kindOfAttack] += 1;    
         textChanger.RoundTexts(player, enemy, enemyQuantityHealthLabel, playerQuantityHeathLabel, moveNumber, turnInfoLabel);
         action.setHealthProgressBar(player, playerHealthProgressBar);
         action.setHealthProgressBar(enemy, enemyHealthProgressBar);
@@ -181,9 +262,20 @@ public class Fight {
             }
 
         }
-        quantityMovesKindPlayer[kindOfAttack] += 1;
     }
 
+    /**
+     * Функция реализующая логику окончания раунда, если он не финальный
+     *
+     * @param player игрок
+     * @param enemy противник
+     * @param infoAboutWinnerDialog JDialog, всплывающий после окончания раунда
+     * (если это не финальный раунд), в котором отображается кто выиграл
+     * @param winnerNameLabel JLabel в infoAboutWinnerDialog в котором написано
+     * имя выигравшего персонажа
+     * @param action {@link Game#action}
+     * @param items список предметов, которые есть у игрока
+     */
     public void EndRound(Fighter player, Fighter enemy, JDialog infoAboutWinnerDialog,
             JLabel winnerNameLabel, CharacterAction action, Items[] items) {
         if (player.getHealth() > 0) {
@@ -211,6 +303,22 @@ public class Fight {
 
     }
 
+    /**
+     * Функция реализующая логику окончания раунда, если он финальный
+     *
+     * @param player игрок
+     * @param action {@link Game#action}
+     * @param results {@link Game#results}
+     * @param winWithRecordDialog JDialog, всплывающий после окончания
+     * финального раунда, если игрок попал в топ-10
+     * @param winWithoutRecordDialog JDialog, всплывающий после окончания
+     * финального раунда, если игрок не попал в топ-10
+     * @param fightFrame JFrame в котором отображается битва
+     * @param winWithRecordLabel JLabel в winWithRecordDialog, отображающий
+     * выиграл игрок или нет
+     * @param winWithoutRecordLabel JLabel в winWithoutRecordDialog,
+     * отображающий выиграл игрок или нет
+     */
     public void EndFinalRound(Player player, CharacterAction action, ArrayList<Result> results,
             JDialog winWithRecordDialog, JDialog winWithoutRecordDialog,
             JFrame fightFrame, JLabel winWithRecordLabel, JLabel winWithoutRecordLabel) {
@@ -243,18 +351,42 @@ public class Fight {
         }
     }
 
+    /**
+     * Функция сбрасывающая текущую модель поведения у противника
+     *
+     * @return возвращает дефолтную модель
+     */
     public int[] ResetAttack() {
         int a[] = {0};
         return a;
     }
 
+    /**
+     * Функция реализующая логику начала раунда
+     *
+     * @param player игрок
+     * @param enemyPictureLabel JLabel в котором отображается изображение
+     * противника
+     * @param playerHealthProgressBar JProgressBar в котором отображается
+     * здоровье игрока
+     * @param enemyHealthProgressBar JProgressBar в котором отображается
+     * здоровье противника
+     * @param enemyNameLabel JLabel в котором отображается имя противника
+     * @param enemyQuantityDamageLabel JLabel в котором отображается количество
+     * урона, которое может нанести противник {@link Fighter#damage}
+     * @param enemyQuantityHealthLabel JLabel в котором отображается количество
+     * здоровья, которое есть у противника {@link Fighter#health}
+     * @param action {@link Game#action}
+     * @param remainQuantity {@link JFrames#reamainQuantity}
+     * @return возвращает созданного противника текущего раунда
+     */
     public Fighter NewRound(Fighter player, JLabel enemyPictureLabel, JProgressBar playerHealthProgressBar,
             JProgressBar enemyHealthProgressBar, JLabel enemyNameLabel,
             JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel,
             CharacterAction action, int remainQuantity) {
         Fighter enemy1 = null;
         if (remainQuantity == 1) {
-            enemy1 = action.ChooseBoss(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, player.getLevel());
+            enemy1 = action.ChooseBoss(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel);
         } else {
             enemy1 = action.ChooseEnemy(enemyPictureLabel, enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel);
         }

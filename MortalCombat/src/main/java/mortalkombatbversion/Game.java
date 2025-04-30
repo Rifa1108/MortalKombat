@@ -16,20 +16,48 @@ import org.apache.poi.xssf.usermodel.*;
  * @author Мария
  */
 public class Game {
-    CharacterAction action;
-    TextChanger textChanger = new TextChanger();
-    Fight fight = new Fight();
+
+    /**
+     * Экземпляр класса, который будет реализовывать логику действий персонажей
+     * в текущей игре
+     */
+    protected CharacterAction action;
+    /**
+     * Экземпляр класса, который будет создавать надписи в текщей игре
+     */
+    protected TextChanger textChanger = new TextChanger();
+    /**
+     * Экземпляр класса, который будет реализовывать ход сражения в текщей игре
+     */
+    protected Fight fight = new Fight();
+    /**
+     * Текущий список рекордсменов
+     */
     private ArrayList<Result> results = new ArrayList<>();
 
-
+    /**
+     * Функция создающая персонажа для игрока
+     *
+     * @param playerHealthProgressBar JProgressBar в котором отображается
+     * здоровье игрока
+     * @return возвращает созданного персонажа
+     */
     public Player newPlayer(JProgressBar playerHealthProgressBar) {
         action = new CharacterAction();
-        Player human = new Player(0, 80, 16, 1);
-        action.setHealthProgressBar(human, playerHealthProgressBar);
-        playerHealthProgressBar.setMaximum(human.getMaxHealth());       
-        return human;
+        Player player = new Player(0, 80, 16, 1);
+        action.setHealthProgressBar(player, playerHealthProgressBar);
+        playerHealthProgressBar.setMaximum(player.getMaxHealth());
+        return player;
     }
 
+    /**
+     * Функция добавления игрока к рекордсменам
+     *
+     * @param player игрок
+     * @param nameForRecordTableTextField имя игрока
+     * @param recordsTable таблица рекордов
+     * @throws IOException
+     */
     public void EndGameTop(Player player, JTextField nameForRecordTableTextField, JTable recordsTable) throws IOException {
         results.add(new Result(nameForRecordTableTextField.getText(), player.getPoints()));
         results.sort(Comparator.comparing(Result::getPoints).reversed());
@@ -37,6 +65,11 @@ public class Game {
         WriteToExcel();
     }
 
+    /**
+     * Функция записи игрока в файл с рекордсменами
+     *
+     * @throws IOException
+     */
     private void WriteToExcel() throws IOException {
         XSSFWorkbook recordsBook = new XSSFWorkbook();
         XSSFSheet recordsSheet = recordsBook.createSheet("Результаты ТОП 10");
@@ -52,18 +85,26 @@ public class Game {
                 champion.createCell(2).setCellValue(results.get(i).getPoints());
             }
         }
-        File file = new File("src\\main\\resources\\Results.xlsx");
+        File file = new File(System.getProperty("user.dir") + "Results.xlsx");
         recordsBook.write(new FileOutputStream(file));
         recordsBook.close();
     }
 
+    /**
+     * Функция получения значения поля {@link Game#results}
+     *
+     * @return возвращает список рекордсменов
+     */
     public ArrayList<Result> getResults() {
         return this.results;
     }
 
+    /**
+     * Функция чтения рекордсменов из файла в {@link Game#results}
+     */
     public void ReadFromExcel() {
         try {
-            XSSFWorkbook recordsBook = new XSSFWorkbook("src\\main\\resources\\Results.xlsx");
+            XSSFWorkbook recordsBook = new XSSFWorkbook(System.getProperty("user.dir") + "\\Results.xlsx");
             XSSFSheet recordsSheet = recordsBook.getSheetAt(0);
             for (int i = 1; i <= recordsSheet.getLastRowNum(); i++) {
                 results.add(new Result(recordsSheet.getRow(i).getCell(1).getStringCellValue(), (int) recordsSheet.getRow(i).getCell(2).getNumericCellValue()));
@@ -73,6 +114,12 @@ public class Game {
         }
     }
 
+    /**
+     * Функция чтения рекордсменов из {@link Game#results} в таблицу рекордов в
+     * игре
+     *
+     * @param recordsTable Таблица рекордов, отображающаяся в игре
+     */
     public void WriteToTable(JTable recordsTable) {
         DefaultTableModel model = (DefaultTableModel) recordsTable.getModel();
         for (int i = 0; i < results.size(); i++) {

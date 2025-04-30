@@ -5,8 +5,7 @@
 package mortalkombatbversion;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -17,22 +16,63 @@ import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
 /**
- *
- * @author Мария
+ * Класс визуализации программы
  */
 public class JFrames extends javax.swing.JFrame {
 
-    Game game;
-    Player player;
-    Fighter enemy;
-    Items[] items = new Items[3];
-    String nameElixirButton = "";
+    /**
+     * Экземпляр класса, который будет реализовывать логику текущей игры
+     */
+    private Game game;
+    /**
+     * Игрок
+     */
+    private Player player;
+    /**
+     * Противник
+     */
+    private Fighter enemy;
+    /**
+     * Список инвентаря игрока
+     */
+    private Items[] items = new Items[3];
+    /**
+     * Словарь локаций в игре, содержащий:
+     * <ul>
+     * <li>JCheckBox при выборе которого данная локация будет в игре</li>
+     * <li>Сторчку пути к изображению данной локации</li>
+     * </ul>
+     */
     private HashMap<JCheckBox, String> allLocations = new HashMap<JCheckBox, String>();
+    /**
+     * Словарь локаций в игре, которые выбрал игрок
+     *
+     * @see JFrames#allLocations
+     */
     private HashMap<String, String> chosenLocations;
+    /**
+     * Словарь выбранных игроком локаций, содержащий:
+     * <ul>
+     * <li>Сторчку пути к изображению локаци</li>
+     * <li>Количество побед, которое должно произойти на данной локации</li>
+     * </ul>
+     */
     private Map<String, Integer> locationsOrder;
+    /**
+     * Текущая локация
+     */
     private String currentLocation;
+    /**
+     * Оставшееся количество побед, необходимое для смены локации
+     */
     private int reamainQuantity;
+    /**
+     * Счётчик побед игрока
+     */
     private int currentVictory;
+    /**
+     * Счётчик уровня игрока
+     */
     private int currentLevel;
 
     /**
@@ -46,12 +86,12 @@ public class JFrames extends javax.swing.JFrame {
         recordsTableScrollPane.getViewport().setBackground(Color.BLACK);
         cursePicture.setVisible(false);
         recordsTable.getTableHeader().setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
-        allLocations.put(junglesCheckBox, "src\\main\\resources\\Pictures\\Куатанские_джунгли.png");
-        allLocations.put(deadForestCheckBox, "src\\main\\resources\\Pictures\\Мёртвый_лес.png");
-        allLocations.put(campCheckBox, "src\\main\\resources\\Pictures\\Лагерь_беженцов.png");
-        allLocations.put(harborCheckBox, "src\\main\\resources\\Pictures\\Бухта.png");
-        allLocations.put(hellCheckBox, "src\\main\\resources\\Pictures\\Перекрёстки.png");
-        allLocations.put(skyCastleCheckBox, "src\\main\\resources\\Pictures\\Небесный_храм.png");
+        allLocations.put(junglesCheckBox, "Куатанские_джунгли.png");
+        allLocations.put(deadForestCheckBox, "Мёртвый_лес.png");
+        allLocations.put(campCheckBox, "Лагерь_беженцов.png");
+        allLocations.put(harborCheckBox, "Бухта.png");
+        allLocations.put(hellCheckBox, "Перекрёстки.png");
+        allLocations.put(skyCastleCheckBox, "Небесный_храм.png");
     }
 
     /**
@@ -154,9 +194,7 @@ public class JFrames extends javax.swing.JFrame {
         startGameButton = new javax.swing.JButton();
         showResultsButton = new javax.swing.JButton();
 
-        fightFrame.setMaximumSize(new java.awt.Dimension(1000, 700));
         fightFrame.setMinimumSize(new java.awt.Dimension(1000, 700));
-        fightFrame.setPreferredSize(new java.awt.Dimension(1000, 700));
         fightFrame.setResizable(false);
         fightFrame.setSize(new java.awt.Dimension(1000, 700));
 
@@ -350,7 +388,6 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(fightPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        infoAboutWinnerDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         infoAboutWinnerDialog.setMinimumSize(new java.awt.Dimension(560, 395));
         infoAboutWinnerDialog.setResizable(false);
         infoAboutWinnerDialog.setSize(new java.awt.Dimension(560, 395));
@@ -391,7 +428,6 @@ public class JFrames extends javax.swing.JFrame {
 
         infoAboutWinnerDialog.getContentPane().add(infoAboutWinnerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
-        winWithRecordDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         winWithRecordDialog.setMinimumSize(new java.awt.Dimension(560, 395));
         winWithRecordDialog.setResizable(false);
         winWithRecordDialog.setSize(new java.awt.Dimension(560, 395));
@@ -442,9 +478,7 @@ public class JFrames extends javax.swing.JFrame {
         winWithRecordDialog.getContentPane().add(winWithRecordPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
         recordsTableDialog.setBackground(new java.awt.Color(0, 0, 0));
-        recordsTableDialog.setMaximumSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setMinimumSize(new java.awt.Dimension(594, 520));
-        recordsTableDialog.setPreferredSize(new java.awt.Dimension(594, 520));
         recordsTableDialog.setResizable(false);
 
         recordsTablePanel.setBackground(new java.awt.Color(0, 0, 0));
@@ -529,7 +563,6 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(recordsTablePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        winWithoutRecordDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         winWithoutRecordDialog.setMinimumSize(new java.awt.Dimension(560, 395));
         winWithoutRecordDialog.setResizable(false);
         winWithoutRecordDialog.setSize(new java.awt.Dimension(560, 395));
@@ -660,7 +693,6 @@ public class JFrames extends javax.swing.JFrame {
             .addComponent(bagPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        elixirRestrictionDialog.setMaximumSize(new java.awt.Dimension(400, 300));
         elixirRestrictionDialog.setMinimumSize(new java.awt.Dimension(400, 300));
         elixirRestrictionDialog.setResizable(false);
         elixirRestrictionDialog.setSize(new java.awt.Dimension(400, 300));
@@ -695,15 +727,11 @@ public class JFrames extends javax.swing.JFrame {
         elixirRestrictionPanel.add(closeElixirRestrictionButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 101, 37));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/restriction.jpg"))); // NOI18N
-        jLabel3.setMaximumSize(new java.awt.Dimension(400, 300));
-        jLabel3.setMinimumSize(new java.awt.Dimension(400, 300));
-        jLabel3.setPreferredSize(new java.awt.Dimension(400, 300));
         elixirRestrictionPanel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         elixirRestrictionDialog.getContentPane().add(elixirRestrictionPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         chooseLocationsDialog.setBackground(new java.awt.Color(0, 0, 0));
-        chooseLocationsDialog.setMaximumSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.setMinimumSize(new java.awt.Dimension(530, 500));
         chooseLocationsDialog.setResizable(false);
         chooseLocationsDialog.setSize(new java.awt.Dimension(530, 500));
@@ -805,9 +833,7 @@ public class JFrames extends javax.swing.JFrame {
 
         chooseLocationsDialog.getContentPane().add(chooseLocationsPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 500));
 
-        chooseCharactericticDialog.setMaximumSize(new java.awt.Dimension(560, 395));
         chooseCharactericticDialog.setMinimumSize(new java.awt.Dimension(560, 395));
-        chooseCharactericticDialog.setPreferredSize(new java.awt.Dimension(560, 395));
         chooseCharactericticDialog.setResizable(false);
         chooseCharactericticDialog.setSize(new java.awt.Dimension(560, 395));
         chooseCharactericticDialog.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -851,9 +877,6 @@ public class JFrames extends javax.swing.JFrame {
         chooseCharacteristicPanel.add(chooseCharacteristicButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 300, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/infoLogo.jpg"))); // NOI18N
-        jLabel4.setMaximumSize(new java.awt.Dimension(560, 395));
-        jLabel4.setMinimumSize(new java.awt.Dimension(560, 395));
-        jLabel4.setPreferredSize(new java.awt.Dimension(560, 395));
         chooseCharacteristicPanel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
 
         chooseCharactericticDialog.getContentPane().add(chooseCharacteristicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 395));
@@ -933,7 +956,11 @@ public class JFrames extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Функция создания нового экземпляра игры и обнуления инвентаря игрока
+     *
+     * @see JFrames#items
+     */
     private void setGame() {
         game = new Game();
         game.ReadFromExcel();
@@ -963,6 +990,9 @@ public class JFrames extends javax.swing.JFrame {
                 turnInfoLabel, specialCommentAboutFightLabel, commentAboutFightLabel, items, rebirthElixirRadioButton);
         checkLevel();
     }//GEN-LAST:event_defendButtonActionPerformed
+    /**
+     * Функция проверки достиг ли игрок нового уровня
+     */
     private void checkLevel() {
         if (currentLevel < player.getLevel()) {
             chooseCharactericticDialog.setVisible(true);
@@ -1009,6 +1039,7 @@ public class JFrames extends javax.swing.JFrame {
     }//GEN-LAST:event_bigHealingElixirRadioButtonActionPerformed
 
     private void useElixirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useElixirButtonActionPerformed
+        String nameElixirButton = "";
         if (smallHealingElixirRadioButton.isSelected()) {
             nameElixirButton = "smallHealingElixir";
         } else if (bigHealingElixirRadioButton.isSelected()) {
@@ -1054,7 +1085,11 @@ public class JFrames extends javax.swing.JFrame {
     private void skyCastleCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skyCastleCheckBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_skyCastleCheckBoxActionPerformed
-
+    /**
+     * Функция реализации логики после выбора игроком локаций
+     *
+     * @param evt
+     */
     private void chooseLocationsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseLocationsButtonActionPerformed
         // TODO add your handling code here: 
         chosenLocations = new HashMap<String, String>();
@@ -1075,7 +1110,12 @@ public class JFrames extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_chooseLocationsButtonActionPerformed
-
+    /**
+     * Функция реализации логики, когда после достижения нового уровня игрок
+     * выбрал какую характеристику хочет прокачать
+     *
+     * @param evt
+     */
     private void chooseCharacteristicButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chooseCharacteristicButtonActionPerformed
         // TODO add your handling code here:
         if (damageRadioButton.isSelected()) {
@@ -1089,7 +1129,11 @@ public class JFrames extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_chooseCharacteristicButtonActionPerformed
-
+    /**
+     * Функция реализации логики при выборе игроком действия "Проклясть"
+     *
+     * @param evt
+     */
     private void curseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_curseButtonActionPerformed
         // TODO add your handling code here:
         cursePicture.setVisible(true);
@@ -1107,7 +1151,9 @@ public class JFrames extends javax.swing.JFrame {
         checkLevel();
 
     }//GEN-LAST:event_curseButtonActionPerformed
-
+    /**
+     * Функция распределения количества необходимых выигрышей среди локаций
+     */
     private void setLocationsOrder() {
         int locationsQuantity = chosenLocations.size();
         int goalVictoryQuantity = 12;
@@ -1122,6 +1168,11 @@ public class JFrames extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Функция установления локации
+     *
+     * @see JFrames#currentLocation
+     */
     private void startRound() {
         boolean chosen = false;
         if (currentVictory < player.getWin()) {
@@ -1139,7 +1190,7 @@ public class JFrames extends javax.swing.JFrame {
                         enemyNameLabel, enemyQuantityDamageLabel, enemyQuantityHealthLabel, game.action, reamainQuantity);
                 game.textChanger.NewRoundTexts(player, enemy, quantityPointsLabel, quantityExperienceLabel, playerLevelLabel, enemyLevelLabel, playerQuantityHeathLabel, enemyQuantityHealthLabel, playerQuantityDamageLabel,
                         turnInfoLabel, commentAboutFightLabel, game.fight.moveNumber, items, smallHealingElixirRadioButton, bigHealingElixirRadioButton, rebirthElixirRadioButton);
-                locationPicture.setIcon(new ImageIcon(currentLocation));
+                locationPicture.setIcon(new ImageIcon(getClass().getResource("/Pictures/"+currentLocation)));
                 fightFrame.setVisible(true);
                 chosen = true;
             }

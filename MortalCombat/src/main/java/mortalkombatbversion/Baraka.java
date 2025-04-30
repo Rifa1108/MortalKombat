@@ -5,11 +5,23 @@
 package mortalkombatbversion;
 
 /**
+ * Класс персонажа Baraka (танк)
  *
- * @author Мария
+ * @see Fighter
+ * @see BarakaFabric
  */
 public class Baraka extends Fighter {
 
+    /**
+     * Конструктор - создание нового Baraka с определёнными значениями
+     *
+     * @param level
+     * @param health
+     * @param damage
+     * @param attack
+     * @see Fighter#Fighter(int, int, int, int)
+     * @see Baraka
+     */
     public Baraka(int level, int health, int damage, int attack) {
         super(level, health, damage, attack);
     }

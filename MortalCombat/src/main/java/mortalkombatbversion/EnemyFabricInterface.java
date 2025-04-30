@@ -5,10 +5,20 @@
 package mortalkombatbversion;
 
 /**
+ * Интерфейс классов создающих противников
  *
- * @author Мария
+ * @see BarakaFabric
+ * @see LiuKangFabric
+ * @see ShaoKahnFabric
+ * @see SonyaBladeFabric
+ * @see SubZeroFabric
  */
 public interface EnemyFabricInterface {
 
+    /**
+     * Функция создания противника
+     *
+     * @return возвращает созданного противника
+     */
     public Fighter create();
 }

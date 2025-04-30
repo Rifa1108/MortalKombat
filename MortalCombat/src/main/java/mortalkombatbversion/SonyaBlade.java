@@ -5,11 +5,23 @@
 package mortalkombatbversion;
 
 /**
+ * Класс персонажа Sonya Blade (солдат)
  *
- * @author Мария
+ * @see Fighter
+ * @see SonyaBladeFabric
  */
 public class SonyaBlade extends Fighter {
 
+    /**
+     * Конструктор - создание новой Sonya Blade с определёнными значениями
+     *
+     * @param level
+     * @param health
+     * @param damage
+     * @param attack
+     * @see Fighter#Fighter(int, int, int, int)
+     * @see SonyaBlade
+     */
     public SonyaBlade(int level, int health, int damage, int attack) {
         super(level, health, damage, attack);
     }

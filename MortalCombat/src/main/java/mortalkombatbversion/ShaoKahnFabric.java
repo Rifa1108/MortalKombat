@@ -5,11 +5,18 @@
 package mortalkombatbversion;
 
 /**
+ * Класс создающий Shao Kahn
  *
- * @author Мария
+ * @see ShaoKahn
  */
 public class ShaoKahnFabric implements EnemyFabricInterface {
 
+    /**
+     * Функция создания Shao Kahn
+     *
+     * @return возвращает созданного Shao Kahn
+     * @see ShaoKahn
+     */
     @Override
     public Fighter create() {
         Fighter enemy = new ShaoKahn(3, 100, 30, 1);

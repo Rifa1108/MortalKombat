@@ -5,11 +5,23 @@
 package mortalkombatbversion;
 
 /**
+ * Класс персонажа Sub-Zero (маг)
  *
- * @author Мария
+ * @see Fighter
+ * @see SubZeroFabric
  */
 public class SubZero extends Fighter {
 
+    /**
+     * Конструктор - создание нового Sub-Zero с определёнными значениями
+     *
+     * @param level
+     * @param health
+     * @param damage
+     * @param attack
+     * @see Fighter#Fighter(int, int, int, int)
+     * @see SubZero
+     */
     public SubZero(int level, int health, int damage, int attack) {
         super(level, health, damage, attack);
     }

@@ -5,31 +5,54 @@
 package mortalkombatbversion;
 
 /**
- *
- * @author Мария
+ * Класс предмета из инвентаря игрока
  */
 public class Items {
 
+    /**
+     * Название предмета
+     */
     private String name;
+    /**
+     * Количество предмета
+     */
     private int count;
 
+    /**
+     * Конструктор - создание нового предмета с определёнными значениями
+     *
+     * @param name {@link Items#name}
+     * @param count {@link Items#count}
+     */
     public Items(String name, int count) {
         this.name = name;
         this.count = count;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    /**
+     * Добавление к текущему количеству предмета переданное значение
+     *
+     * @param addedQuantity добавленное количество
+     * @see Items#count
+     */
+    public void addElixir(int addedQuantity) {
+        this.count += addedQuantity;
     }
 
-    public void addElixir(int quantity) {
-        this.count += quantity;
-    }
-
+    /**
+     * Функция получения значения поля {@link Items#name}
+     *
+     * @return возвращает название предмета
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Функция получения значения поля {@link Items#count}
+     *
+     * @return возвращает количество предмета
+     */
     public int getCount() {
         return this.count;
     }

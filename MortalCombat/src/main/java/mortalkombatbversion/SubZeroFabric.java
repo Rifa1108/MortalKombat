@@ -5,11 +5,18 @@
 package mortalkombatbversion;
 
 /**
+ * Класс создающий Sub Zero
  *
- * @author Мария
+ * @see SubZero
  */
 public class SubZeroFabric implements EnemyFabricInterface {
 
+    /**
+     * Функция создания Sub Zero
+     *
+     * @return возвращает созданного Sub Zero
+     * @see SubZero
+     */
     @Override
     public Fighter create() {
         Fighter enemy = new SubZero(1, 60, 16, 1);

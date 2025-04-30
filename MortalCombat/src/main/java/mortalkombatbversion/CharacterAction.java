@@ -8,26 +8,33 @@ import java.util.Arrays;
 import javax.swing.*;
 
 /**
- *
- * @author Мария
+ * Клас реализации действий, связанных с персонажами
  */
 public class CharacterAction {
 
     private final int experience_for_next_level[] = {40, 90, 180, 260, 410, 1000};
 
-    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0, 1}, {1, 1, 1}, {2}, {3}, {0, 0, 0}};
-
+    private final int kind_fight[][] = {{1, 0}, {1, 1, 0}, {0, 1, 0}, {1, 1, 1}, {2}, {3}, {0, 0, 0}, {0, 1}};
+    /**
+     * Массив противников
+     */
     private Fighter enemyes[] = new Fighter[5];
 
-    EnemyFabric fabric = new EnemyFabric();
+    protected EnemyFabric fabric = new EnemyFabric();
 
     private Fighter enemyy = null;
+    /**
+     * {@link Fight#quantityMovesKindPlayer}
+     */
     private int[] quantityMovesKindPlayer;
 
     CharacterAction() {
         setEnemyes();
     }
 
+    /**
+     * Создание массива со всеми типами противников
+     */
     public void setEnemyes() {
         enemyes[0] = fabric.create(0);
         enemyes[1] = fabric.create(1);
@@ -36,10 +43,27 @@ public class CharacterAction {
         enemyes[4] = fabric.create(4);
     }
 
+    /**
+     * Функция получения значения поля {@link CharacterAction#enemyes}
+     *
+     * @return возвращает противников
+     */
     public Fighter[] getEnemyes() {
         return this.enemyes;
     }
 
+    /**
+     * Функция возвращения случайного противника
+     *
+     * @param enemyPictureLabel JLabel в котором отображается изображение
+     * противника
+     * @param enemyNameLabel JLabel в котором отображается имя противника
+     * @param enemyQuantityDamageLabel JLabel в котором отображается количество
+     * урона, которое может нанести противник
+     * @param enemyQuantityHealthLabel JLabel в котором отображается количество
+     * здоровья противника
+     * @return возвращает случайного противника
+     */
     public Fighter ChooseEnemy(JLabel enemyPictureLabel, JLabel enemyNameLabel,
             JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel) {
         int enemyNumber = (int) (Math.random() * 4);
@@ -47,22 +71,22 @@ public class CharacterAction {
         switch (enemyNumber) {
             case 0:
                 enemyy = enemyes[0];
-                enemyPicture = new ImageIcon("src\\main\\resources\\Pictures\\Baraka.png");
+                enemyPicture = new ImageIcon(getClass().getResource("/Pictures/Baraka.png"));
                 enemyNameLabel.setText("Baraka (танк)");
                 break;
             case 1:
                 enemyy = enemyes[1];
-                enemyPicture = new ImageIcon("src\\main\\resources\\Pictures\\Sub-Zero.png");
+                enemyPicture = new ImageIcon(getClass().getResource("/Pictures/Sub-Zero.png"));
                 enemyNameLabel.setText("Sub-Zero (маг)");
                 break;
             case 2:
                 enemyy = enemyes[2];
-                enemyPicture = new ImageIcon("src\\main\\resources\\Pictures\\Liu_Kang.png");
+                enemyPicture = new ImageIcon(getClass().getResource("/Pictures/Liu_Kang.png"));
                 enemyNameLabel.setText("Liu Kang (боец)");
                 break;
             case 3:
                 enemyy = enemyes[3];
-                enemyPicture = new ImageIcon("src\\main\\resources\\Pictures\\Соня.png");
+                enemyPicture = new ImageIcon(getClass().getResource("/Pictures/Соня.png"));
                 enemyNameLabel.setText("Sonya Blade (солдат)");
                 break;
         }
@@ -72,10 +96,21 @@ public class CharacterAction {
         return enemyy;
     }
 
+    /**
+     * Функция возвращения босса
+     *
+     * @param enemyPictureLabel JLabel в котором отображается изображение
+     * противника
+     * @param enemyNameLabel JLabel в котором отображается имя противника
+     * @param enemyQuantityDamageLabel JLabel в котором отображается количество
+     * урона, которое может нанести противник
+     * @param enemyQuantityHealthLabel JLabel в котором отображается количество
+     * здоровья противника
+     * @return возвращает босса
+     */
     public Fighter ChooseBoss(JLabel enemyPictureLabel, JLabel enemyNameLabel,
-            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel,
-            int playerLevel) {
-        ImageIcon icon1 = new ImageIcon("src\\main\\resources\\Pictures\\General_Shao.png");
+            JLabel enemyQuantityDamageLabel, JLabel enemyQuantityHealthLabel) {
+        ImageIcon icon1 = new ImageIcon(getClass().getResource("/Pictures/General_Shao.png"));
         enemyNameLabel.setText("Shao Kahn (босс)");
         enemyy = enemyes[4];
         enemyPictureLabel.setIcon(icon1);
@@ -84,6 +119,17 @@ public class CharacterAction {
         return enemyy;
     }
 
+    /**
+     * Функция определения поведения противника
+     *
+     * @param k1
+     * @param k2
+     * @param k3
+     * @param k4
+     * @param canCurse определяет может ли персонаж проклинать
+     * @param canRegenerate определяет может ли персонаж регенерировать
+     * @return
+     */
     public int[] EnemyBehavior(int k1, int k2, int k3, int k4, boolean canCurse, boolean canRegenerate) {
         int arr[];
         int allMoves = Arrays.stream(quantityMovesKindPlayer).sum();
@@ -92,13 +138,13 @@ public class CharacterAction {
             return kind_fight[4];
         } else if (canRegenerate && i > 0.8) {
             return kind_fight[5];
-        } else if (allMoves > 6) {
+        } else if (allMoves > 4) {
             if (0.6 < quantityMovesKindPlayer[2] / allMoves) {
                 return kind_fight[3];
             } else if (0.6 < quantityMovesKindPlayer[1] / allMoves) {
                 return kind_fight[6];
-            } else if (0.6 < quantityMovesKindPlayer[0] / allMoves && (allMoves % 2) == 1) {
-                return kind_fight[2];
+            } else if ((0.6 < (quantityMovesKindPlayer[0] / allMoves)) && ((quantityMovesKindPlayer[3] % 2) == 0)) {
+                return kind_fight[7];
             }
         }
         if (i < k1 * 0.01) {
@@ -113,6 +159,13 @@ public class CharacterAction {
         return arr;
     }
 
+    /**
+     * Функция установления поведения противника
+     *
+     * @param enemy противник
+     * @param quantityMovesKindPlayer {@link Fight#quantityMovesKindPlayer}
+     * @return
+     */
     public int[] ChooseBehavior(Fighter enemy, int[] quantityMovesKindPlayer) {
         int arr[] = null;
         this.quantityMovesKindPlayer = quantityMovesKindPlayer;
@@ -134,49 +187,70 @@ public class CharacterAction {
         return arr;
     }
 
-    public void setHealthProgressBar(Fighter player, JProgressBar healthProgressBar) {
-
-        if (player.getHealth() >= 0) {
-            healthProgressBar.setValue(player.getHealth());
+    /**
+     * Функция визуализации количества здоровья
+     *
+     * @param character персонаж
+     * @param healthProgressBar JProgressBar в котором отображается здоровье
+     * персонажа
+     */
+    public void setHealthProgressBar(Fighter character, JProgressBar healthProgressBar) {
+        if (character.getHealth() >= 0) {
+            healthProgressBar.setValue(character.getHealth());
         } else {
             healthProgressBar.setValue(0);
         }
     }
 
-    public void AddPoints(Player human, Fighter[] enemyes) {
-        switch (human.getLevel()) {
+    /**
+     * Функция добавления игроку очков, опыта и, при достижении необходимого
+     * количества опыта, перехода на новый уровень
+     *
+     * @param player игрок
+     * @param enemyes противнники
+     */
+    public void AddPoints(Player player, Fighter[] enemyes) {
+        switch (player.getLevel()) {
             case 0:
-                human.addExperience(20);
-                human.setPoints(25 + human.getHealth() / 4);
+                player.addExperience(20);
+                player.addPoints(25 + player.getHealth() / 4);
                 break;
             case 1:
-                human.addExperience(25);
-                human.setPoints(30 + human.getHealth() / 4);
+                player.addExperience(25);
+                player.addPoints(30 + player.getHealth() / 4);
                 break;
             case 2:
-                human.addExperience(30);
-                human.setPoints(35 + human.getHealth() / 4);
+                player.addExperience(30);
+                player.addPoints(35 + player.getHealth() / 4);
                 break;
             case 3:
-                human.addExperience(40);
-                human.setPoints(45 + human.getHealth() / 4);
+                player.addExperience(40);
+                player.addPoints(45 + player.getHealth() / 4);
                 break;
             case 4:
-                human.addExperience(50);
-                human.setPoints(55 + human.getHealth() / 4);
+                player.addExperience(50);
+                player.addPoints(55 + player.getHealth() / 4);
                 break;
         }
         for (int i = 0; i < 5; i++) {
-            if (experience_for_next_level[i] == human.getExperience()) {
-                human.levelUp();
-                human.setNextExperianceGoal(experience_for_next_level[i + 1]);
+            if (experience_for_next_level[i] == player.getExperience()) {
+                player.levelUp();
+                player.setNextExperianceGoal(experience_for_next_level[i + 1]);
                 for (int j = 0; j < 5; j++) {
-                    addHealthAndDamgeEnemy(enemyes[j], human);
+                    addHealthAndDamgeEnemy(enemyes[j], player);
                 }
             }
         }
     }
 
+    /**
+     * Функция добавления игроку предметов
+     *
+     * @param k1
+     * @param k2
+     * @param k3
+     * @param items {@link JFrames#items}
+     */
     public void AddItems(int k1, int k2, int k3, Items[] items) {
         double i = Math.random();
         if (i < k1 * 0.01) {
@@ -190,6 +264,13 @@ public class CharacterAction {
         }
     }
 
+    /**
+     * Функция добавления игроку здоровья при переходе на новый уровень
+     *
+     * @param player игрок
+     * @see Fighter#maxhealth
+     * @see Fighter#level
+     */
     public void addHealthToPlayer(Player player) {
         int hp;
         hp = switch (player.getLevel()) {
@@ -207,6 +288,13 @@ public class CharacterAction {
         player.addMaxHealth(hp);
     }
 
+    /**
+     * Функция добавления игроку урона при переходе на новый уровень
+     *
+     * @param player игрок
+     * @see Fighter#damage
+     * @see Fighter#level
+     */
     public void addDamageToPlayer(Player player) {
         int damage;
         damage = switch (player.getLevel()) {
@@ -224,10 +312,20 @@ public class CharacterAction {
         player.addDamage(damage);
     }
 
-    public void addHealthAndDamgeEnemy(Fighter enemy, Player human) {
+    /**
+     * Функция добавления противнику урона и здоровья при переходе игрока на
+     * новый уровень
+     *
+     * @param enemy противник
+     * @param player игрок
+     * @see Fighter#damage
+     * @see Fighter#maxhealth
+     * @see Fighter#level
+     */
+    public void addHealthAndDamgeEnemy(Fighter enemy, Player player) {
         int hp = 0;
         int damage = 0;
-        switch (human.getLevel()) {
+        switch (player.getLevel()) {
             case 1:
                 hp = 32;
                 damage = 25;
@@ -250,6 +348,17 @@ public class CharacterAction {
         enemy.levelUp();
     }
 
+    /**
+     * Функция реализации логики при использовании игроком предмета
+     *
+     * @param player игрок
+     * @param items {@link JFrames#items}
+     * @param nameElixirButton название предмета, которое игрок хочет
+     * использовать
+     * @param elixirRestrictionDialog JDialog, который всплывает, если игрок
+     * выбрал предмет, который не может использовать
+     * @param bagDialog JDialog в котором отображается инвентарь
+     */
     public void UseItem(Fighter player, Items[] items, String nameElixirButton,
             JDialog elixirRestrictionDialog, JDialog bagDialog) {
         switch (nameElixirButton) {

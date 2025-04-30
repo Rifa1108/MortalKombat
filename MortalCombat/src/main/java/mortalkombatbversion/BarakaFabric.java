@@ -5,11 +5,18 @@
 package mortalkombatbversion;
 
 /**
+ * Класс создающий Baraka
  *
- * @author Мария
+ * @see Baraka
  */
 public class BarakaFabric implements EnemyFabricInterface {
 
+    /**
+     * Функция создания Baraka
+     *
+     * @return возвращает созданного Baraka
+     * @see Baraka
+     */
     @Override
     public Fighter create() {
         Fighter enemy;

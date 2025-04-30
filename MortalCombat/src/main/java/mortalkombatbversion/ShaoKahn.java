@@ -5,11 +5,23 @@
 package mortalkombatbversion;
 
 /**
+ * Класс персонажа Shao Kahn (босс)
  *
- * @author Мария
+ * @see Fighter
+ * @see ShaoKahnFabric
  */
 public class ShaoKahn extends Fighter {
 
+    /**
+     * Конструктор - создание нового Shao Kahn с определёнными значениями
+     *
+     * @param level
+     * @param health
+     * @param damage
+     * @param attack
+     * @see Fighter#Fighter(int, int, int, int)
+     * @see ShaoKahn
+     */
     public ShaoKahn(int level, int health, int damage, int attack) {
         super(level, health, damage, attack);
     }
