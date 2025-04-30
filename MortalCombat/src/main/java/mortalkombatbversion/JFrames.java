@@ -970,6 +970,7 @@ public class JFrames extends javax.swing.JFrame {
         items[2] = new Items("Крест возрождения", 0);
     }
     private void startGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startGameButtonActionPerformed
+        setGame();
         chooseLocationsDialog.setVisible(true);
 
     }//GEN-LAST:event_startGameButtonActionPerformed
